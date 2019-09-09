@@ -1,0 +1,14 @@
+@import "./layouts/footer";
+@import "./slices/image-caption";
+@import "./slices/quote";
+@import "./slices/navigation";
+@import "./slices/text";
+@import "./slices/blade";
+@import "./slices/staff-member";
+@import "./slices/carousel";
+@import "./blog-posts";
+
+
+a{
+    color:$primary_blue;
+}
