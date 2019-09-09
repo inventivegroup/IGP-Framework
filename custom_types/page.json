@@ -89,7 +89,7 @@
               "cta_button_color" : {
                 "type" : "Select",
                 "config" : {
-                  "options" : [ "blue", "green", "orange", "red", "purple", "navy green" ],
+                  "options" : [ "blue", "green", "orange", "red", "purple", "navy green", "white" ],
                   "default_value" : "blue",
                   "label" : "CTA Button Color",
                   "placeholder" : "CTA Button - Background Color"
@@ -104,6 +104,14 @@
                   "placeholder" : "Blade Background Color"
                 }
               },
+              "text_alignment" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "center", "left", "right" ],
+                  "label" : "Text Alignment",
+                  "placeholder" : "Text Alignment"
+                }
+              },
               "featured_image" : {
                 "type" : "Image",
                 "config" : {
@@ -114,6 +122,158 @@
               }
             },
             "repeat" : { }
+          },
+          "staff_member" : {
+            "type" : "Slice",
+            "fieldset" : "Staff Member",
+            "description" : "Our team members ( image, name, job title, bio )",
+            "icon" : "wc",
+            "display" : "list",
+            "non-repeat" : {
+              "section_title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label" : "Section Title",
+                  "placeholder" : "Section Title"
+                }
+              }
+            },
+            "repeat" : {
+              "staff_image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Staff Image"
+                }
+              },
+              "job_title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "label" : "Job Title",
+                  "placeholder" : "Job Title"
+                }
+              },
+              "full_name" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading3",
+                  "label" : "Full Name",
+                  "placeholder" : "Full Name"
+                }
+              },
+              "bio" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, strong, em",
+                  "label" : "Short Bio",
+                  "placeholder" : "Short Bio"
+                }
+              }
+            }
+          },
+          "carousel" : {
+            "type" : "Slice",
+            "fieldset" : "Carousel",
+            "description" : "A sliding image gallery",
+            "icon" : "blur_linear",
+            "display" : "grid",
+            "non-repeat" : {
+              "carousel_style" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "Image", "Images and Content" ],
+                  "label" : "Carousel Style",
+                  "placeholder" : "Carousel Style"
+                }
+              }
+            },
+            "repeat" : {
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : { },
+                  "thumbnails" : [ ],
+                  "label" : "Image"
+                }
+              },
+              "content" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item, o-list-item",
+                  "label" : "Content",
+                  "placeholder" : "Content"
+                }
+              }
+            }
+          },
+          "quote" : {
+            "type" : "Slice",
+            "fieldset" : "Quote",
+            "description" : "A short quote with author's portrait",
+            "icon" : "add_alert",
+            "non-repeat" : {
+              "quote" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "em",
+                  "label" : "Quote",
+                  "placeholder" : "Your quote"
+                }
+              },
+              "name_of_the_author" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph",
+                  "label" : "Name of the author",
+                  "placeholder" : "John Doe"
+                }
+              },
+              "portrait_author" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 700,
+                    "height" : 700
+                  },
+                  "thumbnails" : [ {
+                    "name" : "mobile",
+                    "width" : 350,
+                    "height" : 350
+                  } ],
+                  "label" : "Portrait Author"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "card_view" : {
+            "type" : "Slice",
+            "fieldset" : "Card View",
+            "description" : "Cards with an option for image and text",
+            "icon" : "apps",
+            "display" : "list",
+            "non-repeat" : { },
+            "repeat" : {
+              "card_title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading3",
+                  "label" : "Card Title",
+                  "placeholder" : "Card Title"
+                }
+              },
+              "card_icon" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph",
+                  "label" : "Card Icon",
+                  "placeholder" : "Add the Icon Class here! class=\"fa fa-somethingsomething\""
+                }
+              }
+            }
           }
         }
       }
