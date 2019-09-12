@@ -51,8 +51,9 @@ export default ({ slice }) =>
             {slice.fields.map(item => {
                 return (
                     <div className="carousel_item">
-                        <img className='carousel_image' src={ item.image !== null ? item.image.url : " " }/>
-                        <div>{ item.title !== null ? RichText.render(item.title, linkResolver, htmlSerializer) : " " }</div>
+                        <div className="carousel-card-title">{ item.title !== null ? RichText.render(item.title, linkResolver, htmlSerializer) : " " }</div>
+                        <hr className={"seperator " + slice.primary.background_color }/>
+                        <div><img className='carousel_image' src={ item.image !== null ? item.image.url : " " }/></div>
                         <div>{item.content !== null ? RichText.render(item.content, linkResolver, htmlSerializer) : " " }</div>
                     </div>
                 );

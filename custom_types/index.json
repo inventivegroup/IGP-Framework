@@ -1,9 +1,9 @@
 [
 	{
-		"id": "blog_home",
-		"name": "Blog Home",
+		"id": "hompage",
+		"name": "HomePage",
 		"repeatable": false,
-		"value": "blog_home.json"
+		"value": "hompage.json"
 	},
 	{
 		"id": "post",

@@ -3,9 +3,8 @@ import { StaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import Footer from './Footer'
 import Navigation from './Navigation'
+import parallaxScrolling from '../../javascript/scrolling-effect';
 import '../../stylesheets/main.scss'
-
-
 
 export default props => (
   <StaticQuery
@@ -55,6 +54,8 @@ const Layout = ( props ) => {
         <meta charSet="utf-8" />
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet" type="text/css"></link>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+        <script src={parallaxScrolling}></script>
+
       </Helmet>
       <Navigation data={props.data.prismic.allNavigations}></Navigation>
       <main>

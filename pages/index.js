@@ -1,10 +1,19 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Layout from '../components/layouts' 
-import { Blade, Text, StaffMember, Carousel, Quote, CardView, ParallaxBlade } from '../components/slices'
+import React from 'react';
+// import { RichText } from 'prismic-reactjs';
+import { StaticQuery, graphql } from 'gatsby';
+import Layout from '../components/layouts';
+import Landing from '../components/Landing';
 
 
-export const query = graphql`
+
+const HomePage = ({ data }) => {
+  return (
+    <Landing data={data.prismic.allHomepages.edges}></Landing>
+  )
+}
+
+// Query for the Blog Home content in Prismic
+export default props => ( <StaticQuery query={graphql`
 {
   prismic{
     allHomepages{
@@ -17,20 +26,6 @@ export const query = graphql`
             headline
             description
             image
-            header_button {
-              __typename
-
-              ... on PRISMIC__ExternalLink{
-                url
-              }
-
-              ... on PRISMIC__FileLink{
-                name
-                url
-                size
-              }
-            }
-            header_button_text
         
           body{
             ... on PRISMIC_HomepageBodyBlade{
@@ -48,7 +43,7 @@ export const query = graphql`
                 blade_background_color
                 text_alignment
                 form_type
-
+                
                 cta_button{
                   __typename
 
@@ -70,7 +65,7 @@ export const query = graphql`
               type
               label
 
-              primary{
+              primary {
                 section_title
                 blade_background_color
               }
@@ -86,7 +81,7 @@ export const query = graphql`
             ... on PRISMIC_HomepageBodyCard_view{
               type
               label
-
+              
               fields{
               	card_title  
                 card_icon
@@ -103,7 +98,7 @@ export const query = graphql`
               }
 
               fields{
-                image
+              	image  
                 content
                 title
                 image_side
@@ -126,6 +121,7 @@ export const query = graphql`
               label
 
               primary{
+                blade_background_color
                 title
                 content
                 bubble_one
@@ -149,79 +145,7 @@ export const query = graphql`
     }
   }
 }
-`
-
-
-const PageSlices = ({ slices }) => {
-  return slices.map((slice, index) => {
-    const res = (() => {
-      switch(slice.type) {
-        case 'text': return (
-          <div key={ index } className="homepage-slice-wrapper">
-            { <Text slice={ slice } /> }
-          </div>
-        )
-
-        case 'blade': return (
-          <div key={ index } className="homepage-slice-wrapper">
-            { <Blade slice={ slice } /> }
-          </div>
-        )
-
-        case 'staff_member' : return (
-          <div key={ index }>
-            { <StaffMember slice={ slice } /> }
-          </div>
-        )
-
-        case 'card_view' : return (
-          <div key={ index }>
-            { <CardView slice={ slice } /> }
-          </div>
-        )
-
-        case 'quote' : return (
-          <div key={ index }>
-            { <Quote slice={ slice } /> }
-          </div>
-        )
-
-        case 'parallax_blade' : return (
-          <div key={ index }>
-            { <ParallaxBlade slice={ slice } /> }
-          </div>
-        )
-
-        case 'carousel' : return (
-          <div key={ index }>
-            { <Carousel slice={ slice } /> }
-          </div>
-        )
-
-        default: return null;
-      }
-    })();
-    return res;
-  })
-}
-
-const PageBody = ({ page }) => {
-  return (
-    <div className="container">
-      <div className="Homepage-Heading" style={{width: '100vw', height: '700px', backgroundImage: `url("${page.image.url}")`}}>
-        <h1> { page.headline[0].text }  </h1>
-        <p> { page.description[0].text }  </p>
-      </div>
-
-      <PageSlices slices={ page.body } />
-    </div>
-  )
-}
-
-export default (props) => {
-  return(
-    <Layout>
-      <PageBody page={ props.data[0].node } />
-    </Layout>
-  )
-}
+`} 
+    render={ data => <HomePage data={data} {...props}/> }
+  /> 
+);

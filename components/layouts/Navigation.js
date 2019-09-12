@@ -51,12 +51,13 @@ export default class Navigation extends React.Component{
             <Navbar color="black" light expand="md">
                 {/* <img className="logo" src={data.edges[0].node.logo.url}/> */}
                 <NavbarBrand>
-                    {/* <p>{data.edges[0].node.display_name[0].text}</p> */}
-                    <img className="logo" src={"https://inventivedev.wpengine.com/wp-content/uploads/2018/09/inventive-logo-black-transparent.png"}/>
+                    <NavLink href="/">
+                        <img className="logo" src={"https://inventivedev.wpengine.com/wp-content/uploads/2018/09/inventive-logo-black-transparent.png"}/>
+                    </NavLink>
                 </NavbarBrand>
 
                 <Nav className="ml-auto" navbar>
-                    { data.edges.map(edge => {
+                    {/* { data.edges.map(edge => {
                         let navItems = [];
                             {
                                 edge.node.nav.forEach(navItem => {
@@ -82,7 +83,11 @@ export default class Navigation extends React.Component{
                             }
                             return navItems;
                         })
-                    }
+                    } */}
+
+                    <NavItem>
+                        <NavLink href={'/blog/'}>Blog</NavLink>
+                    </NavItem>
                 </Nav>
             </Navbar>
         </div>

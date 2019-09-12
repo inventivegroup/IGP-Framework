@@ -32,7 +32,6 @@ query PageQuery($uid: String) {
                 subtitle
                 content
                 featured_image
-                button_color
                 image_side
                 cta_button_text
                 cta_button_color
@@ -156,12 +155,12 @@ const PageBody = ({ page }) => {
   // console.log(page)
   return (
     <div>
-      <div className="container post-header">
+      {/* <div className="container post-header">
         <h1 data-wio-id={ page._meta.id }>
           { titled ? RichText.asText(page.title) : 'Untitled' }
         </h1>
       </div>
-      {/* Go through the slices of the post and render the appropiate one */}
+      Go through the slices of the post and render the appropiate one */}
       <PageSlices slices={ page.body } />
     </div>
   );
