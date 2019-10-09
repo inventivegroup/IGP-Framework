@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import Layout from '../components/layouts' 
-import { Blade, Text, StaffMember, Carousel, Quote, CardView, ParallaxBlade } from '../components/slices'
+import { Text, StaffMember, Carousel, Quote, ParallaxBlade, CTAOne } from '../components/slices'
 
 // Query for the Page content in Prismic
 export const query = graphql`
@@ -23,23 +23,26 @@ query PageQuery($uid: String) {
           body{
             __typename
 
-            ... on PRISMIC_PageBodyBlade{
-              type
-              label
-
-              primary{
+            ... on PRISMIC_PageBodyCta_one{
+              primary {
+                section_subtitle
                 section_title
-                subtitle
                 content
-                featured_image
-                image_side
-                cta_button_text
-                cta_button_color
-                blade_background_color
+                
 
-                cta_button{
-                  __typename
+                cta_text
+                text_alignment
+                primary_blade_color
+                secondary_blade_color
+                gradient_angle
+                divider_top
+                divider_bottom
+                divider_top_color
+                divider_bottom_color
+                image
+                layout
 
+                cta{
                   ... on PRISMIC__ExternalLink{
                     url
                   }
@@ -49,20 +52,10 @@ query PageQuery($uid: String) {
                     url
                     size
                   }
-
                 }
               }
             }
-
-            ... on PRISMIC_PageBodyCard_view{
-              type
-              label
-
-              fields{
-              	card_title  
-                card_icon
-              }
-            }
+          
 
             ... on PRISMIC_PageBodyStaff_member {
               type
@@ -75,17 +68,6 @@ query PageQuery($uid: String) {
                 bio
               }
             }
-
-            ... on PRISMIC_PageBodyQuote {
-              type
-              label
-
-              primary{
-                quote
-                portrait_author
-                name_of_the_author
-              }
-            }
           }
         }
       }
@@ -94,51 +76,17 @@ query PageQuery($uid: String) {
 }
 `
 
+
+
 // Sort and display the different slice options
 const PageSlices = ({ slices }) => {
   return slices.map((slice, index) => {
     const res = (() => {
       switch(slice.type) {
-        case 'text': return (
+        case 'cta_one': return (
           <div key={ index } className="homepage-slice-wrapper">
-            { <Text slice={ slice } /> }
-          </div>
-        )
-
-        case 'blade': return (
-          <div key={ index } className="homepage-slice-wrapper">
-            { <Blade slice={ slice } /> }
-          </div>
-        )
-
-        case 'card_view': return (
-          <div key={ index } className="homepage-slice-wrapper">
-            { <CardView slice={ slice } /> }
-          </div>
-        )
-
-        case 'staff_member' : return (
-          <div key={ index }>
-            { <StaffMember slice={ slice } /> }
-          </div>
-        )
-
-        case 'parallax_blade' : return (
-          <div key={ index }>
-            { <ParallaxBlade slice={ slice } /> }
-          </div>
-        )
-
-        case 'quote' : return (
-          <div key={ index }>
-            { <Quote slice={ slice } /> }
-          </div>
-        )
-
-        case 'carousel' : return (
-          <div key={ index }>
-            { <Carousel slice={ slice } /> }
-          </div>
+            <CTAOne slice={ slice } />
+         </div>
         )
 
         default: return null;
@@ -152,7 +100,6 @@ const PageSlices = ({ slices }) => {
 const PageBody = ({ page }) => {
   const titled = page.title.length !== 0 ;
 
-  // console.log(page)
   return (
     <div>
       {/* <div className="container post-header">

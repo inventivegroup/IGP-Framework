@@ -1,20 +1,29 @@
-.blog-posts {
-  margin-top:150px;
+.blog_home-posts_container{
+  display:flex;
+  justify-content:center;
+  padding:50px;
 
-  .post-summary {
-    margin-bottom: 3rem;
 
-    h2 {
-      margin: 0;
-      color: #353535;
-      text-align: left;
+  .short_post{
+    background-color:white;
+    
+    margin:0px 10px;
+    max-width:400px;
+    flex:1;
+    
+  
+    .post_header_image{
+      height:300px;
+      width: 400px;
     }
 
-    .blog-post-meta {
-      margin-bottom: 8px;
-      font-size: 16px;
-      font-family: $font-sans-serif;
-      color: #9A9A9A;
+    .content{
+      padding:20px;
     }
+  
   }
+}
+
+.post_link{
+  color:black;
 }

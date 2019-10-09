@@ -1,0 +1,288 @@
+:root {
+    --width: 300px;
+    --height: 160px;
+  }
+  
+  .swoosh_top {
+    position: relative;
+    width: 100vw;
+    height: var(--height);
+  }
+
+
+.swoosh_top::after {
+    position: absolute;
+    bottom:0px;
+    left:0px;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxNThweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDAwMDAiPjxwYXRoIGQ9Ik0zMjAgMjhjMzIwIDAgMzIwIDg0IDY0MCA4NCAxNjAgMCAyNDAtMjEgMzIwLTQydjcwSDBWNzBjODAtMjEgMTYwLTQyIDMyMC00MnoiLz48L2c+PC9zdmc+);
+    -webkit-mask-size: cover;
+    mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxNThweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDAwMDAiPjxwYXRoIGQ9Ik0zMjAgMjhjMzIwIDAgMzIwIDg0IDY0MCA4NCAxNjAgMCAyNDAtMjEgMzIwLTQydjcwSDBWNzBjODAtMjEgMTYwLTQyIDMyMC00MnoiLz48L2c+PC9zdmc+);
+    mask-size: cover;
+}
+
+.footer::after{
+    transform: rotateY(180deg);
+}
+
+
+.swoosh_bottom {
+    position: relative;
+    width: 100vw;
+    height: var(--height);
+
+    &.reverse{
+        transform: rotateY(360deg);
+    }
+}
+
+
+.swoosh_bottom::before {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxNThweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDAwMDAiPjxwYXRoIGQ9Ik0zMjAgMjhjMzIwIDAgMzIwIDg0IDY0MCA4NCAxNjAgMCAyNDAtMjEgMzIwLTQydjcwSDBWNzBjODAtMjEgMTYwLTQyIDMyMC00MnoiLz48L2c+PC9zdmc+);
+    -webkit-mask-size: cover;
+    mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDAwMDAiPjxwYXRoIGQ9Ik0zMjAgMjhDMTYwIDI4IDgwIDQ5IDAgNzBWMGgxMjgwdjcwYy04MCAyMS0xNjAgNDItMzIwIDQyLTMyMCAwLTMyMC04NC02NDAtODR6Ii8+PC9nPjwvc3ZnPg==);
+    mask-size: cover;
+
+}
+
+  
+
+//   Color Matrix
+.swoosh_top.white::after{
+    background-color:white;
+}
+
+// General 
+
+.swoosh_top.smoke::after{
+    background-color:$smoke;
+}
+
+.swoosh_bottom.smoke::before{
+    background-color:$smoke;
+}
+
+
+// Studios
+.swoosh_top.studios::after{
+    background-color:$studios;
+}
+
+.swoosh_top.studios_light::after{
+    background-color:$studios_light;
+}
+
+.swoosh_top.studios_dark::after{
+    background-color:$studios_dark;
+}
+
+.swoosh_top.studios_black::after{
+    background-color:$studios_black;
+}
+
+// Patriots
+.swoosh_top.patriots::after{
+    background-color:$patriots;
+}
+
+.swoosh_top.patriots_light::after{
+    background-color:$patriots_light;
+}
+
+.swoosh_top.patriots_dark::after{
+    background-color:$patriots_dark;
+}
+
+.swoosh_top.patriots_black::after{
+    background-color:$patriots_black;
+}
+
+// Cares
+.swoosh_top.cares::after{
+    background-color:$cares;
+}
+
+.swoosh_top.cares_light::after{
+    background-color:$cares_light;
+}
+
+.swoosh_top.cares_dark::after{
+    background-color:$cares_dark;
+}
+
+.swoosh_top.cares_black::after{
+    background-color:$cares_black;
+}
+
+// Academy
+.swoosh_top.academy::after{
+    background-color:$academy;
+}
+
+.swoosh_top.academy_light::after{
+    background-color:$academy_light;
+}
+
+.swoosh_top.academy_dark::after{
+    background-color:$academy_dark;
+}
+
+.swoosh_top.academy_black::after{
+    background-color:$academy_black;
+}
+
+// Staffing
+.swoosh_top.staffing::after{
+    background-color:$staffing;
+}
+
+.swoosh_top.staffing_light::after{
+    background-color:$staffing_light;
+}
+
+.swoosh_top.staffing_dark::after{
+    background-color:$staffing_dark;
+}
+
+.swoosh_top.staffing_black::after{
+    background-color:$staffing_black;
+}
+
+
+// Inventive
+.swoosh_top.inventive::after{
+    background-color:$inventive;
+}
+
+.swoosh_top.inventive_light::after{
+    background-color:$inventive_light;
+}
+
+.swoosh_top.inventive_dark::after{
+    background-color:$inventive_dark;
+}
+
+.swoosh_top.inventive_black::after{
+    background-color:$inventive_black;
+}
+
+
+
+// Bottom Divider
+
+
+  //   Color Matrix
+.swoosh_bottom.white::before{
+    background-color:white;
+}
+
+// Studios
+.swoosh_bottom.studios::before{
+    background-color:$studios;
+}
+
+.swoosh_bottom.studios_light::before{
+    background-color:$studios_light;
+}
+
+.swoosh_bottom.studios_dark::before{
+    background-color:$studios_dark;
+}
+
+.swoosh_bottom.studios_black::before{
+    background-color:$studios_black;
+}
+
+// Patriots
+.swoosh_bottom.patriots::before{
+    background-color:$patriots;
+}
+
+.swoosh_bottom.patriots_light::before{
+    background-color:$patriots_light;
+}
+
+.swoosh_bottom.patriots_dark::before{
+    background-color:$patriots_dark;
+}
+
+.swoosh_bottom.patriots_black::before{
+    background-color:$patriots_black;
+}
+
+// Cares
+.swoosh_bottom.cares::before{
+    background-color:$cares;
+}
+
+.swoosh_bottom.cares_light::before{
+    background-color:$cares_light;
+}
+
+.swoosh_bottom.cares_dark::before{
+    background-color:$cares_dark;
+}
+
+.swoosh_bottom.cares_black::before{
+    background-color:$cares_black;
+}
+
+// Academy
+.swoosh_bottom.academy::before{
+    background-color:$academy;
+}
+
+.swoosh_bottom.academy_light::before{
+    background-color:$academy_light;
+}
+
+.swoosh_bottom.academy_dark::before{
+    background-color:$academy_dark;
+}
+
+.swoosh_bottom.academy_black::before{
+    background-color:$academy_black;
+}
+
+// Staffing
+.swoosh_bottom.staffing::before{
+    background-color:$staffing;
+}
+
+.swoosh_bottom.staffing_light::before{
+    background-color:$staffing_light;
+}
+
+.swoosh_bottom.staffing_dark::before{
+    background-color:$staffing_dark;
+}
+
+.swoosh_bottom.staffing_black::before{
+    background-color:$staffing_black;
+}
+
+
+// Inventive
+.swoosh_bottom.inventive::before{
+    background-color:$inventive;
+}
+
+.swoosh_bottom.inventive_light::before{
+    background-color:$inventive_light;
+}
+
+.swoosh_bottom.inventive_dark::before{
+    background-color:$inventive_dark;
+}
+
+.swoosh_bottom.inventive_black::before{
+    background-color:$inventive_black;
+}

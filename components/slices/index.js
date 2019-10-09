@@ -3,8 +3,11 @@ import Quote from './Quote'
 import Text from './Text'
 import Blade from './Blade'
 import StaffMember from './StaffMember'
+import ParallaxBlade from './ParallaxBlade'
 import Carousel from './Carousel'
 import CardView from './CardView'
-import ParallaxBlade from './ParallaxBlade'
+import CTAOne from './CTAOne'
+import Plan from './Plan'
+import BlogPosts from '../BlogPosts'
 
-export { ImageCaption, Quote, Text, Blade, StaffMember, Carousel, CardView, ParallaxBlade }
+export { ImageCaption, Quote, Plan, Text, Blade, StaffMember, BlogPosts, Carousel, CardView, ParallaxBlade, CTAOne }

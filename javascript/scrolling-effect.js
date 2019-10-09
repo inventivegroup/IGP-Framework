@@ -42,14 +42,14 @@ function check_if_in_view() {
 
 
 function parallaxScroll(element, scrolled){
-    bubbleone.css('top',(400 + (-scrolled*.15))+'px'); // Big Top Left
-    bubbletwo.css('top',( 1300 + (-scrolled*.15))+'px'); // Big Bottom Right
-    bubblethree.css('top',( 1180 + (-scrolled*.35))+'px'); // Top Left Tiny Bubble
-    bubblefour.css('top',( 1980 + (-scrolled*.35))+'px'); // Bottom Right Tiny Bubble
-    bubblefive.css('top',( 980 + (-scrolled*.25))+'px'); // Middle Left Medium Bubble
-    bubblesix.css('top',( 1400 + (-scrolled*.25))+'px'); // Middle Right Medium Bubble
-    bubbleseven.css('top',( 1500 + (-scrolled*.35))+'px'); // Middle Right Tiny Bubble
-    bubbleeight.css('top',( 1500 + (-scrolled*.35))+'px'); // Middle Right Tiny Bubble
+    bubbleone.css('top',(0 + (-scrolled*.15))+'px'); // Big Top Left
+    bubbletwo.css('top',( 130 + (-scrolled*.15))+'px'); // Big Bottom Right
+    bubblethree.css('top',( 180 + (-scrolled*.35))+'px'); // Top Left Tiny Bubble
+    bubblefour.css('top',( 980 + (-scrolled*.35))+'px'); // Bottom Right Tiny Bubble
+    bubblefive.css('top',( 80 + (-scrolled*.25))+'px'); // Middle Left Medium Bubble
+    bubblesix.css('top',( 400 + (-scrolled*.25))+'px'); // Middle Right Medium Bubble
+    bubbleseven.css('top',( 500 + (-scrolled*.35))+'px'); // Middle Right Tiny Bubble
+    bubbleeight.css('top',( 500 + (-scrolled*.35))+'px'); // Middle Right Tiny Bubble
 }
 
 $(window).bind('scroll',function(e){

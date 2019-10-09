@@ -48,11 +48,11 @@ export default class Navigation extends React.Component{
         let { data } = this.props;
         return (
             <div className="Navigation">
-            <Navbar color="black" light expand="md">
+            <Navbar color="black" className='Navigation' expand="md">
                 {/* <img className="logo" src={data.edges[0].node.logo.url}/> */}
                 <NavbarBrand>
                     <NavLink href="/">
-                        <img className="logo" src={"https://inventivedev.wpengine.com/wp-content/uploads/2018/09/inventive-logo-black-transparent.png"}/>
+                        <img className="logo" src={"https://inventivedev.wpengine.com/wp-content/uploads/2018/09/inventive-logo-white-transparent.png"}/>
                     </NavLink>
                 </NavbarBrand>
 

@@ -1,0 +1,43 @@
+
+.cta_btn_cont{
+    display:flex;
+
+    .primary_cta_btn{
+        margin:0px 10px;
+        background-color:$cares;
+        padding:0px 15px;
+        color:white;
+        border-radius:10px;
+        transition:all, 0.3s;
+        font-size:16px;
+        font-weight:bold;
+
+        display:flex;
+        align-items: center;
+
+    
+        &:hover{
+            color:white;
+            background-color:$cares_light;
+        }
+    }    
+    
+    .secondary_cta_btn{
+        margin:0px 10px;
+        background-color:$dark_smoke;
+        color:$studios;
+        padding:5px 15px;
+        border-radius:10px;
+        transition:all, 0.3s;
+        font-size:16px;
+        font-weight:bold;
+
+        display:flex;
+        align-items: center;
+    
+        &:hover{
+            color:$studios;
+            background-color:$smoke;
+        }
+    }    
+}

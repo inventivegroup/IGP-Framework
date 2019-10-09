@@ -1,77 +1,143 @@
 import React from 'react'
-import { Link } from "gatsby"
-import { RichText, Date } from 'prismic-reactjs'
-import { linkResolver } from '../utils/linkResolver'
+import { StaticQuery, graphql } from 'gatsby'
 
-// Function to retrieve a small preview of the post's text
-const firstParagraph = (post => {
-  
-  // Find the first text slice of post's body
-  let firstTextSlice = post.body.find(slice => slice.type === 'text');
-  if (firstTextSlice != null) {
-    // Set the character limit for the text we'll show in the homepage
-    const textLimit = 300
-    let text = RichText.asText(firstTextSlice.primary.text)
-    let limitedText = text.substring(0, textLimit)
 
-    if (text.length > textLimit) {
-      // Cut only up to the last word and attach '...' for readability
-      return (
-        <p>{ limitedText.substring(0, limitedText.lastIndexOf(' ')) + '...' }</p>
-      );
-    } else {
-      // If it's shorter than the limit, just show it normally
-      return <p>{ text }</p>;
+function getBlogPostHome(data) {
+  let blogPostLimit;
+
+  for(let edge of data[0].node.body) {
+    switch(edge.type) {
+      case "blog_posts": 
+        blogPostLimit = edge.primary;
     }
-  } else {
-    // If there are no slices of type 'text', return nothing
-    return null;
   }
-})
 
-// A summary of the Blog Post
-const PostSummary = ({ post }) => {
-  
-  // Store and format the blog post's publication date
-  let postDate = Date(post.date);
-  postDate = postDate ? 
-    new Intl.DateTimeFormat('en-US', {
-      month: 'short', 
-      day: '2-digit', 
-      year: 'numeric'
-    }).format(postDate) :
-    '';
-
-  // Default title when post has no title set
-  const defaultTitle = "Untitled"
-  
-  return (
-    <div className="post-summary" key={ post.id } >
-      <h2>
-        {/* We render a link to a particular post using the linkResolver for the url and its title */}
-        <Link to={ linkResolver(post._meta) }>
-          { RichText.asText(post.title).length !== 0 ? RichText.asText(post.title) : defaultTitle }
-        </Link>
-      </h2>
-      <p className="blog-post-meta">
-        <time>{ postDate }</time>
-      </p>
-      {/* Renders a small preview of the post's text */}
-      { firstParagraph(post) }
-    </div>
-  );
+  return blogPostLimit;
 }
 
-export default ({ posts }) => {
-  if(!posts) return null;
+function Posts( data ) {
+    let formattedPosts = [];
 
-  
-  return(
-    <div className="blog-posts container">
-      {posts.map((post) => {
-        console.log(post);
-        return <PostSummary post={ post.node } key={ post.node._meta.id }/>
-      })}
-    </div>
+    data.slices.allPosts.edges.map((post, index) => {
+        let { featured_image, title, short_description, post_author, date } = post.node;
+        let post_limit = getBlogPostHome(data.slices.allHomepages.edges).post_limit;
+
+        if(formattedPosts.length <= ( post_limit - 1) ){
+          formattedPosts.push(
+            <a className="post_link" href={"/blog/" + `${post.node._meta.uid}`}>
+              <div key={index} className="short_post">
+                  <div className="post_header_image" style={{backgroundImage: `url("${featured_image.url}")`, backgroundSize: "cover"}}/>
+                  <div className="content">
+                      <h3>{title[0].text}</h3>
+                      <p>{short_description[0].text}</p>
+                      <div className="post_author">
+                          <span>{post_author} - {date}</span>
+                      </div>
+                  </div>
+              </div>
+            </a>
+          )
+        } else {
+          console.log("Limit passed")
+        }
+    })
+
+    return formattedPosts;
+}
+
+const PageBody = ( data ) => {
+  let { divider_top, divider_top_color, divider_bottom1, divider_bottom_color1 } = getBlogPostHome(data.data.allHomepages.edges)
+
+  return (
+    <>
+      { divider_top === "diagonal" ? <div className={"diagonal_top " + divider_top_color}></div> : " "}
+      <div className="blog_home_container">
+          <div className="blog_home-posts_container">
+              <Posts slices={ data.data }/>
+          </div>
+      </div>
+      { divider_bottom1 === "diagonal" ? <div className={"diagonal_bottom " + divider_bottom_color1}></div> : " "}
+    </>
   )
 }
+
+export default props => ( <StaticQuery query={graphql`
+{
+  prismic{
+    allPosts{
+      edges{
+        node{
+          _meta{
+            id
+            uid
+            type
+          }
+          title
+          date
+          post_author
+          short_description
+          featured_image
+          tags{
+            tag
+          }
+
+          body{
+            __typename
+            ... on PRISMIC_PostBodyText{
+              type
+              label
+              primary{
+                text
+              }
+            }
+            ... on PRISMIC_PostBodyQuote{
+              type
+              label
+              primary{
+                quote
+                portrait_author
+                name_of_the_author
+              }
+            }
+            ... on PRISMIC_PostBodyImage_with_caption{
+              type
+              label
+              primary{
+                image
+                caption
+              }
+            }
+          }
+        }
+      }
+    }
+
+    allHomepages {
+      edges{
+        node{
+          body{
+            ... on PRISMIC_HomepageBodyBlog_posts{
+              type
+
+              primary{
+                section_title
+                description1
+                primary_blade_color1
+                secondary_blade_color1
+                divider_top
+                divider_top_color
+                divider_bottom1
+                divider_bottom_color1
+                post_limit
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`} 
+    render={ data => <PageBody data={data.prismic}></PageBody> }
+  /> 
+);

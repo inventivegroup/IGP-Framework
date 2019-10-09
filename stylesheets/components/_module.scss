@@ -1,14 +1,20 @@
 @import "./layouts/footer";
 @import "./slices/image-caption";
 @import "./slices/quote";
-@import "./slices/navigation";
+@import "./layouts/navigation";
 @import "./slices/text";
 @import "./slices/blade";
 @import "./slices/staff-member";
+@import "./slices/_cta-one.scss";
 @import "./slices/carousel";
 @import "./blog-posts";
+@import "./slices/card-view";
+@import "./slices/plan";
+
+@import "./dividers/diagonal-divider";
+@import "./dividers/swoosh-divider";
 
 
 a{
-    color:$primary_blue;
+    color:$inventive;
 }

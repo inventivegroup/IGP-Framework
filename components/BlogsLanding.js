@@ -2,7 +2,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layouts' 
-import { Text, Quote, ImageCaption } from '../components/slices'
 
 function GetFirstPost (data) {
     return (
@@ -20,24 +19,23 @@ function GetFirstPost (data) {
     )
 }
 
-function GetTags(tags){
-    console.log("tags", tags)
-    let formattedTags = [];
+// function GetTags(tags){
+//     console.log("tags", tags)
+//     let formattedTags = [];
 
-    tags.forEach((tag, index) => {
-        formattedTags.push(
-            <h2 key={index}>{tag}</h2>
-        )    
-    })
+//     tags.forEach((tag, index) => {
+//         formattedTags.push(
+//             <h2 key={index}>{tag}</h2>
+//         )    
+//     })
 
-    return formattedTags;
-}
+//     return formattedTags;
+// }
 
 const Posts = ( data ) => {
     let formattedPosts = [];
     
     data.slices.data.map((post, index) => {
-        console.log(post)
         let { featured_image, title, short_description, post_author, tags } = post.node;
         formattedPosts.push(
             <a className="post_link" href={"/blog/" + `${post.node._meta.uid}`}>

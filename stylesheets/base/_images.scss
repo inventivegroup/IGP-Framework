@@ -1,0 +1,16 @@
+.Homepage_Heading{
+    position:relative;
+}
+
+.header_image{ 
+    position:absolute;
+    z-index:99;
+    top:120px;
+    right:180px;
+    
+    img{
+        max-height:400px;
+        top:150px;
+        right:20px;
+    }
+}

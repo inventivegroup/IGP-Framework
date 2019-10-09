@@ -4,6 +4,9 @@ import { Helmet } from 'react-helmet'
 import Footer from './Footer'
 import Navigation from './Navigation'
 import parallaxScrolling from '../../javascript/scrolling-effect';
+
+import 'react-multi-carousel/lib/styles.css';
+
 import '../../stylesheets/main.scss'
 
 export default props => (

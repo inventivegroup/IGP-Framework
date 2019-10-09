@@ -1,216 +1,186 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layouts' 
-import { Blade, Text, StaffMember, Carousel, Quote, CardView, ParallaxBlade } from '../components/slices'
-
-
-export const query = graphql`
-{
-  prismic{
-    allHomepages{
-      edges{
-        node{
-            _meta{
-                id
-                type
-            }
-            headline
-            description
-            image
-            header_button {
-              __typename
-
-              ... on PRISMIC__ExternalLink{
-                url
-              }
-
-              ... on PRISMIC__FileLink{
-                name
-                url
-                size
-              }
-            }
-            header_button_text
-        
-          body{
-            ... on PRISMIC_HomepageBodyBlade{
-              type
-              label
-
-              primary{
-                section_title
-                subtitle
-                content
-                featured_image
-                image_side
-                cta_button_text
-                cta_button_color
-                blade_background_color
-                text_alignment
-                form_type
-
-                cta_button{
-                  __typename
-
-                  ... on PRISMIC__ExternalLink{
-                    url
-                  }
-
-                  ... on PRISMIC__FileLink{
-                    name
-                    url
-                    size
-                  }
-
-                }
-              }
-            }
-
-            ... on PRISMIC_HomepageBodyStaff_member{
-              type
-              label
-
-              primary{
-                section_title
-                blade_background_color
-              }
-
-              fields{
-              	full_name  
-                job_title
-                staff_image
-                bio
-              }
-            }
-
-            ... on PRISMIC_HomepageBodyCard_view{
-              type
-              label
-
-              fields{
-              	card_title  
-                card_icon
-              }
-            }
-
-            ... on PRISMIC_HomepageBodyCarousel{
-              type
-              label
-
-              primary{
-                title
-                background_color
-              }
-
-              fields{
-                image
-                content
-                title
-                image_side
-              }
-            }
-
-            ... on PRISMIC_HomepageBodyQuote{
-              type
-              label
-
-              primary{
-                quote
-                portrait_author
-                name_of_the_author
-              }
-            }
-
-            ... on PRISMIC_HomepageBodyParallax_blade{
-              type
-              label
-
-              primary{
-                title
-                content
-                bubble_one
-                bubble_two
-                bubble_three
-                bubble_four
-                bubble_five
-                bubble_six
-                bubble_seven
-                bubble_eight
-                bubble_nine
-                bubble_ten
-                bubble_eleven
-                bubble_twelve
-                bubble_thirteen
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-`
+import { CTAOne, StaffMember, Plan, BlogPosts, Carousel, ParallaxBlade } from '../components/slices'
 
 
 const PageSlices = ({ slices }) => {
   return slices.map((slice, index) => {
     const res = (() => {
-      switch(slice.type) {
-        case 'text': return (
-          <div key={ index } className="homepage-slice-wrapper">
-            { <Text slice={ slice } /> }
-          </div>
-        )
+        switch(slice.type) {
+            case 'cta_one': return (
+            <div key={ index } className="homepage-slice-wrapper">
+                { <CTAOne slice={ slice } /> }
+            </div>
+            )
 
-        case 'blade': return (
-          <div key={ index } className="homepage-slice-wrapper">
-            { <Blade slice={ slice } /> }
-          </div>
-        )
+            case 'blog_posts' : return (
+                <div key={ index } className="homepage-slice-wrapper">
+                    <BlogPosts slice={slice}></BlogPosts>
+                </div>
+            )
+            
+            case 'plan' : return (
+                <div key={ index } className="homepage-slice-wrapper">
+                    <Plan slice={slice}></Plan> 
+                </div>
+            )
+            
+            case 'parallax_blade' : return (
+                <div key={ index } className="homepage-slice-wrapper">
+                    <ParallaxBlade slice={slice}></ParallaxBlade>
+                </div>
+            )
+            
+            case 'parallax_blade' : return (
+                <div key={ index } className="homepage-slice-wrapper">
+                    <p>Parallax Blade</p>
+                    <Plan slice={slice}></Plan>
+                </div>
+            )
 
-        case 'staff_member' : return (
-          <div key={ index }>
-            { <StaffMember slice={ slice } /> }
-          </div>
-        )
+            case 'staff_member' : return (
+                <div key={ index } className="homepage-slice-wrapper">
+                    <StaffMember slice={slice}></StaffMember>
+                </div>
+            )
+           
+            case 'carousel' : return (
+                <div key={ index } className="homepage-slice-wrapper">
+                    <Carousel slice={slice}></Carousel>
+                </div>
+            )
 
-        case 'card_view' : return (
-          <div key={ index }>
-            { <CardView slice={ slice } /> }
-          </div>
-        )
-
-        case 'quote' : return (
-          <div key={ index }>
-            { <Quote slice={ slice } /> }
-          </div>
-        )
-
-        case 'parallax_blade' : return (
-          <div key={ index }>
-            { <ParallaxBlade slice={ slice } /> }
-          </div>
-        )
-
-        case 'carousel' : return (
-          <div key={ index }>
-            { <Carousel slice={ slice } /> }
-          </div>
-        )
-
-        default: return null;
-      }
+            default: return "?";
+        }
     })();
     return res;
   })
 }
 
+const getGradient = (color) => {
+  const res = (() => {
+      switch(color){
+          case "studios":
+              return '#7E5BEF';
+
+          case "studios light":
+              return '#A389F4';
+
+          case "studios dark":
+              return '#592DEA'
+
+          case "studios black":
+              return '#14001D'
+
+
+          case "patriots":
+              return '#0000FF'
+
+          case "patriots light":
+              return '#0066ff'
+
+          case "patriots dark":
+              return '#0000b2'
+
+          case "patriots black":
+              return '#000033'
+
+
+          case "inventive":
+              return '#1FB6FF'
+
+          case "inventive light":
+              return '#85D7FF'
+
+          case "inventive dark":
+              return '#009EEB'
+
+          case "inventive black":
+              return '#00151A'
+
+
+          case "cares":
+              return '#13CE66'
+
+          case "cares light":
+              return '#29EB7F'
+
+          case "cares dark":
+              return '#0F9F4F'
+
+          case "cares black":
+              return '#002A02'
+
+
+          case "staffing":
+              return '#FFC82C'
+
+          case "staffing light":
+              return '#FFD55F'
+
+          case "staffing dark":
+              return '#F8B700'
+
+          case "staffing black":
+              return '#1A1A00'
+
+
+          case "academy":
+              return '#FE8A00'
+
+          case "academy light":
+              return '#FFA827'
+
+          case "academy dark":
+              return '#DB7000'
+
+          case "academy black":
+              return '#331C00'
+
+
+          case "ventures":
+              return '#FE0500'
+
+          case "ventures light":
+              return '#FF6E6B'
+
+          case "ventures dark":
+              return '#D40000'
+
+          case "ventures black":
+              return '#330100'
+
+          case "none" : 
+              return '100%, white';
+
+          break;
+      }
+  })();
+
+  return res;
+}
+
 const PageBody = ({ page }) => {
   return (
     <div className="container">
-      <div className="Homepage-Heading" style={{width: '100vw', height: '700px', backgroundImage: `url("${page.image.url}")`}}>
-        <h1> { page.headline[0].text }  </h1>
-        <p> { page.description[0].text }  </p>
+      <div className="Homepage-Heading" style={{background: 'linear-gradient(' + ((page.gradient_angle !== null && page.gradient_angle) > 360 ? 0 : page.gradient_angle) + 'deg ,' + getGradient(page.primary_blade_color) + "," + getGradient(page.secondary_blade_color) + ')'}}>
+        <div className='content'>
+          <h1> { page.headline[0].text }  </h1>
+          <p> { page.description[0].text }  </p>
+          
+          <div className="cta_btn_cont">
+            <a href="#" className="secondary_cta_btn">Learn More.</a>
+            <a href="#" className="primary_cta_btn">Get a quote now.</a>
+          </div>
+        </div>
+
+        <div className="header_image">
+          <img src={`${page.image.url}`}/>
+        </div>
+
+        { page.divider_bottom === "diagonal" ? <div className={"diagonal_top " + page.divider_bottom_color}></div> : " "}
+        
       </div>
 
       <PageSlices slices={ page.body } />
