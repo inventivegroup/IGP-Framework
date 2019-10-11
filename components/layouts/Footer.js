@@ -11,7 +11,7 @@ export default () =>
   <div className="swoosh_top footer studios_black"></div>
   <footer className="footer">
     <div className="column">
-      <img className="footer-logo" src="https://inventive.io/wp-content/uploads/2018/09/inventive-logo-white-transparent.png"/>
+      <img className="footer-logo" src="https://prismic-io.s3.amazonaws.com/inventivestudios%2F78507ee6-8b69-4db2-9d38-772b4a7795a0_inventive-logo.webp"/>
       
       <span>7701 North Lamar Blvd</span>
       <span>Ste 500</span>

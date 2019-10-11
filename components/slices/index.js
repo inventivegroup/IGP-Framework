@@ -8,6 +8,8 @@ import Carousel from './Carousel'
 import CardView from './CardView'
 import CTAOne from './CTAOne'
 import Plan from './Plan'
+import TextColumns from './TextColumns'
+import Map from './Map'
 import BlogPosts from '../BlogPosts'
 
-export { ImageCaption, Quote, Plan, Text, Blade, StaffMember, BlogPosts, Carousel, CardView, ParallaxBlade, CTAOne }
+export { ImageCaption, Quote, Plan, Text, Blade, StaffMember, BlogPosts, Carousel, CardView, ParallaxBlade, CTAOne, TextColumns, Map }

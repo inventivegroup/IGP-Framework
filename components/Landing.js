@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layouts' 
-import { CTAOne, StaffMember, Plan, BlogPosts, Carousel, ParallaxBlade } from '../components/slices'
+import { CTAOne, StaffMember, Plan, BlogPosts, Carousel, ParallaxBlade, CardView, TextColumns, Map } from '../components/slices'
 
 
 const PageSlices = ({ slices }) => {
@@ -48,6 +48,24 @@ const PageSlices = ({ slices }) => {
             case 'carousel' : return (
                 <div key={ index } className="homepage-slice-wrapper">
                     <Carousel slice={slice}></Carousel>
+                </div>
+            )
+           
+            case 'card_view' : return (
+                <div key={ index } className="homepage-slice-wrapper">
+                    <CardView slice={slice}></CardView>
+                </div>
+            )
+           
+            case 'text_columns' : return (
+                <div key={ index } className="homepage-slice-wrapper">
+                    <TextColumns slice={slice}></TextColumns>
+                </div>
+            )
+           
+            case 'map' : return (
+                <div key={ index } className="homepage-slice-wrapper">
+                    <Map slice={slice}></Map>
                 </div>
             )
 

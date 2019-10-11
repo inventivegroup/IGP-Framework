@@ -123,6 +123,29 @@ export default props => ( <StaticQuery query={graphql`
               }
             }
 
+            ... on PRISMIC_HomepageBodyText_columns{
+              type
+              label
+
+              primary{
+                blade_title
+                text_alignment
+                primary_blade_color
+                secondary_blade_color
+                gradient_angle
+                divider_top
+                divider_bottom
+                divider_top_color
+                divider_bottom_color
+              }
+
+              fields{
+                featured_image
+                section_subtitle
+                content
+              }
+            }
+
             ... on PRISMIC_HomepageBodyParallax_blade {
               type
               label
@@ -381,6 +404,15 @@ export default props => ( <StaticQuery query={graphql`
                 full_name
                 company
                 bio
+              }
+            }
+            
+            ... on PRISMIC_HomepageBodyMap{
+              type
+              label
+
+              primary{
+                map_coordinates
               }
             }
           }
