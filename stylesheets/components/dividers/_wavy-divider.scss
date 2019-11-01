@@ -1,0 +1,569 @@
+:root {
+    --width: 300px;
+    --height: 160px;
+  }
+  
+  .wavy_top {
+    position: relative;
+    width: 100vw;
+    height: var(--height);
+  }
+
+
+.wavy_top::after {
+    position: absolute;
+    bottom:0px;
+    left:0px;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDliZjUiPjxwYXRoIGQ9Ik0xMjgwIDg2Yy0xOS45LTE3LjIxLTQwLjA4LTM5LjY5LTc5Ljg5LTM5LjY5LTU3LjQ5IDAtNTYuOTMgNDYuNTktMTE1IDQ2LjU5LTUzLjYxIDAtNTkuNzYtMzkuNjItMTE1LjYtMzkuNjJDOTIzLjcgNTMuMjcgOTI0LjI2IDg3IDg1My44OSA4N2MtODkuMzUgMC03OC43NC04Ny0xODguMi04N0M1NTQgMCA1NDMuOTUgMTIxLjggNDIzLjMyIDEyMS44Yy0xMDAuNTIgMC0xMTcuODQtNTQuODgtMTkxLjU2LTU0Ljg4LTc3LjA2IDAtMTAwIDQ4LjU3LTE1MS43NSA0OC41Ny00MCAwLTYwLTEyLjIxLTgwLTI5LjUxdjU0SDEyODB6Ii8+PC9nPjwvc3ZnPg==);
+    -webkit-mask-size: cover;
+    mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDliZjUiPjxwYXRoIGQ9Ik0xMjgwIDg2Yy0xOS45LTE3LjIxLTQwLjA4LTM5LjY5LTc5Ljg5LTM5LjY5LTU3LjQ5IDAtNTYuOTMgNDYuNTktMTE1IDQ2LjU5LTUzLjYxIDAtNTkuNzYtMzkuNjItMTE1LjYtMzkuNjJDOTIzLjcgNTMuMjcgOTI0LjI2IDg3IDg1My44OSA4N2MtODkuMzUgMC03OC43NC04Ny0xODguMi04N0M1NTQgMCA1NDMuOTUgMTIxLjggNDIzLjMyIDEyMS44Yy0xMDAuNTIgMC0xMTcuODQtNTQuODgtMTkxLjU2LTU0Ljg4LTc3LjA2IDAtMTAwIDQ4LjU3LTE1MS43NSA0OC41Ny00MCAwLTYwLTEyLjIxLTgwLTI5LjUxdjU0SDEyODB6Ii8+PC9nPjwvc3ZnPg==);
+    mask-size: cover;
+}
+
+.footer::after{
+    transform: rotateY(180deg);
+}
+
+
+.wavy_bottom {
+    position: relative;
+    width: 100vw;
+    height: var(--height);
+
+    &.reverse{
+        transform: rotateY(360deg);
+    }
+}
+
+
+.wavy_bottom::before {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDliZjUiPjxwYXRoIGQ9Ik0wIDB2MTAwYzIwIDE3LjMgNDAgMjkuNTEgODAgMjkuNTEgNTEuNzkgMCA3NC42OS00OC41NyAxNTEuNzUtNDguNTcgNzMuNzIgMCA5MSA1NC44OCAxOTEuNTYgNTQuODhDNTQzLjk1IDEzNS44IDU1NCAxNCA2NjUuNjkgMTRjMTA5LjQ2IDAgOTguODUgODcgMTg4LjIgODcgNzAuMzcgMCA2OS44MS0zMy43MyAxMTUuNi0zMy43MyA1NS44NSAwIDYyIDM5LjYyIDExNS42IDM5LjYyIDU4LjA4IDAgNTcuNTItNDYuNTkgMTE1LTQ2LjU5IDM5LjggMCA2MCAyMi40OCA3OS44OSAzOS42OVYweiIvPjwvZz48L3N2Zz4=);
+    -webkit-mask-size: cover;
+    mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDliZjUiPjxwYXRoIGQ9Ik0wIDB2MTAwYzIwIDE3LjMgNDAgMjkuNTEgODAgMjkuNTEgNTEuNzkgMCA3NC42OS00OC41NyAxNTEuNzUtNDguNTcgNzMuNzIgMCA5MSA1NC44OCAxOTEuNTYgNTQuODhDNTQzLjk1IDEzNS44IDU1NCAxNCA2NjUuNjkgMTRjMTA5LjQ2IDAgOTguODUgODcgMTg4LjIgODcgNzAuMzcgMCA2OS44MS0zMy43MyAxMTUuNi0zMy43MyA1NS44NSAwIDYyIDM5LjYyIDExNS42IDM5LjYyIDU4LjA4IDAgNTcuNTItNDYuNTkgMTE1LTQ2LjU5IDM5LjggMCA2MCAyMi40OCA3OS44OSAzOS42OVYweiIvPjwvZz48L3N2Zz4=);
+    mask-size: cover;
+
+}
+
+  
+
+//   Color Matrix
+.wavy_top.white::after{
+    background-color:white;
+}
+
+// General 
+
+.wavy_top.smoke::after{
+    background-color:$smoke;
+}
+
+.wavy_bottom.smoke::before{
+    background-color:$smoke;
+}
+
+
+// Studios
+.wavy_top.studios::after{
+    background-color:$studios;
+}
+
+.wavy_top.studios_light::after{
+    background-color:$studios_light;
+}
+
+.wavy_top.studios_dark::after{
+    background-color:$studios_dark;
+}
+
+.wavy_top.studios_black::after{
+    background-color:$studios_black;
+}
+
+// Patriots
+.wavy_top.patriots::after{
+    background-color:$patriots;
+}
+
+.wavy_top.patriots_light::after{
+    background-color:$patriots_light;
+}
+
+.wavy_top.patriots_dark::after{
+    background-color:$patriots_dark;
+}
+
+.wavy_top.patriots_black::after{
+    background-color:$patriots_black;
+}
+
+// Cares
+.wavy_top.cares::after{
+    background-color:$cares;
+}
+
+.wavy_top.cares_light::after{
+    background-color:$cares_light;
+}
+
+.wavy_top.cares_dark::after{
+    background-color:$cares_dark;
+}
+
+.wavy_top.cares_black::after{
+    background-color:$cares_black;
+}
+
+// Academy
+.wavy_top.academy::after{
+    background-color:$academy;
+}
+
+.wavy_top.academy_light::after{
+    background-color:$academy_light;
+}
+
+.wavy_top.academy_dark::after{
+    background-color:$academy_dark;
+}
+
+.wavy_top.academy_black::after{
+    background-color:$academy_black;
+}
+
+// Staffing
+.wavy_top.staffing::after{
+    background-color:$staffing;
+}
+
+.wavy_top.staffing_light::after{
+    background-color:$staffing_light;
+}
+
+.wavy_top.staffing_dark::after{
+    background-color:$staffing_dark;
+}
+
+.wavy_top.staffing_black::after{
+    background-color:$staffing_black;
+}
+
+
+// Inventive
+.wavy_top.inventive::after{
+    background-color:$inventive;
+}
+
+.wavy_top.inventive_light::after{
+    background-color:$inventive_light;
+}
+
+.wavy_top.inventive_dark::after{
+    background-color:$inventive_dark;
+}
+
+.wavy_top.inventive_black::after{
+    background-color:$inventive_black;
+}
+
+
+
+// Bottom Divider
+
+
+  //   Color Matrix
+.wavy_bottom.white::before{
+    background-color:white;
+}
+
+// Studios
+.wavy_bottom.studios::before{
+    background-color:$studios;
+}
+
+.wavy_bottom.studios_light::before{
+    background-color:$studios_light;
+}
+
+.wavy_bottom.studios_dark::before{
+    background-color:$studios_dark;
+}
+
+.wavy_bottom.studios_black::before{
+    background-color:$studios_black;
+}
+
+// Patriots
+.wavy_bottom.patriots::before{
+    background-color:$patriots;
+}
+
+.wavy_bottom.patriots_light::before{
+    background-color:$patriots_light;
+}
+
+.wavy_bottom.patriots_dark::before{
+    background-color:$patriots_dark;
+}
+
+.wavy_bottom.patriots_black::before{
+    background-color:$patriots_black;
+}
+
+// Cares
+.wavy_bottom.cares::before{
+    background-color:$cares;
+}
+
+.wavy_bottom.cares_light::before{
+    background-color:$cares_light;
+}
+
+.wavy_bottom.cares_dark::before{
+    background-color:$cares_dark;
+}
+
+.wavy_bottom.cares_black::before{
+    background-color:$cares_black;
+}
+
+// Academy
+.wavy_bottom.academy::before{
+    background-color:$academy;
+}
+
+.wavy_bottom.academy_light::before{
+    background-color:$academy_light;
+}
+
+.wavy_bottom.academy_dark::before{
+    background-color:$academy_dark;
+}
+
+.wavy_bottom.academy_black::before{
+    background-color:$academy_black;
+}
+
+// Staffing
+.wavy_bottom.staffing::before{
+    background-color:$staffing;
+}
+
+.wavy_bottom.staffing_light::before{
+    background-color:$staffing_light;
+}
+
+.wavy_bottom.staffing_dark::before{
+    background-color:$staffing_dark;
+}
+
+.wavy_bottom.staffing_black::before{
+    background-color:$staffing_black;
+}
+
+
+// Inventive
+.wavy_bottom.inventive::before{
+    background-color:$inventive;
+}
+
+.wavy_bottom.inventive_light::before{
+    background-color:$inventive_light;
+}
+
+.wavy_bottom.inventive_dark::before{
+    background-color:$inventive_dark;
+}
+
+.wavy_bottom.inventive_black::before{
+    background-color:$inventive_black;
+}
+
+
+
+////////////////////////////////////////////////////////////
+
+
+.wavy_top-vertically-flip {
+    position: relative;
+    width: 100vw;
+    height: var(--height);
+    transform: rotateY(180deg);
+}
+
+.wavy_top-vertically-flip::after {
+    position: absolute;
+    bottom:0px;
+    left:0px;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDliZjUiPjxwYXRoIGQ9Ik0xMjgwIDg2Yy0xOS45LTE3LjIxLTQwLjA4LTM5LjY5LTc5Ljg5LTM5LjY5LTU3LjQ5IDAtNTYuOTMgNDYuNTktMTE1IDQ2LjU5LTUzLjYxIDAtNTkuNzYtMzkuNjItMTE1LjYtMzkuNjJDOTIzLjcgNTMuMjcgOTI0LjI2IDg3IDg1My44OSA4N2MtODkuMzUgMC03OC43NC04Ny0xODguMi04N0M1NTQgMCA1NDMuOTUgMTIxLjggNDIzLjMyIDEyMS44Yy0xMDAuNTIgMC0xMTcuODQtNTQuODgtMTkxLjU2LTU0Ljg4LTc3LjA2IDAtMTAwIDQ4LjU3LTE1MS43NSA0OC41Ny00MCAwLTYwLTEyLjIxLTgwLTI5LjUxdjU0SDEyODB6Ii8+PC9nPjwvc3ZnPg==);
+    -webkit-mask-size: cover;
+
+    mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDliZjUiPjxwYXRoIGQ9Ik0xMjgwIDg2Yy0xOS45LTE3LjIxLTQwLjA4LTM5LjY5LTc5Ljg5LTM5LjY5LTU3LjQ5IDAtNTYuOTMgNDYuNTktMTE1IDQ2LjU5LTUzLjYxIDAtNTkuNzYtMzkuNjItMTE1LjYtMzkuNjJDOTIzLjcgNTMuMjcgOTI0LjI2IDg3IDg1My44OSA4N2MtODkuMzUgMC03OC43NC04Ny0xODguMi04N0M1NTQgMCA1NDMuOTUgMTIxLjggNDIzLjMyIDEyMS44Yy0xMDAuNTIgMC0xMTcuODQtNTQuODgtMTkxLjU2LTU0Ljg4LTc3LjA2IDAtMTAwIDQ4LjU3LTE1MS43NSA0OC41Ny00MCAwLTYwLTEyLjIxLTgwLTI5LjUxdjU0SDEyODB6Ii8+PC9nPjwvc3ZnPg==);
+    mask-size: cover;
+}
+
+
+.wavy_top-vertically-flip.white::after{
+    background-color:white;
+}
+
+.wavy_top-vertically-flip.smoke::after{
+    background-color:$smoke;
+}
+
+.wavy_bottom.smoke::before{
+    background-color:$smoke;
+}
+
+
+// Studios
+.wavy_top-vertically-flip.studios::after{
+    background-color:$studios;
+}
+
+.wavy_top-vertically-flip.studios_light::after{
+    background-color:$studios_light;
+}
+
+.wavy_top-vertically-flip.studios_dark::after{
+    background-color:$studios_dark;
+}
+
+.wavy_top-vertically-flip.studios_black::after{
+    background-color:$studios_black;
+}
+
+// Patriots
+.wavy_top-vertically-flip.patriots::after{
+    background-color:$patriots;
+}
+
+.wavy_top-vertically-flip.patriots_light::after{
+    background-color:$patriots_light;
+}
+
+.wavy_top-vertically-flip.patriots_dark::after{
+    background-color:$patriots_dark;
+}
+
+.wavy_top-vertically-flip.patriots_black::after{
+    background-color:$patriots_black;
+}
+
+// Cares
+.wavy_top-vertically-flip.cares::after{
+    background-color:$cares;
+}
+
+.wavy_top-vertically-flip.cares_light::after{
+    background-color:$cares_light;
+}
+
+.wavy_top-vertically-flip.cares_dark::after{
+    background-color:$cares_dark;
+}
+
+.wavy_top-vertically-flip.cares_black::after{
+    background-color:$cares_black;
+}
+
+// Academy
+.wavy_top-vertically-flip.academy::after{
+    background-color:$academy;
+}
+
+.wavy_top-vertically-flip.academy_light::after{
+    background-color:$academy_light;
+}
+
+.wavy_top-vertically-flip.academy_dark::after{
+    background-color:$academy_dark;
+}
+
+.wavy_top-vertically-flip.academy_black::after{
+    background-color:$academy_black;
+}
+
+// Staffing
+.wavy_top-vertically-flip.staffing::after{
+    background-color:$staffing;
+}
+
+.wavy_top-vertically-flip.staffing_light::after{
+    background-color:$staffing_light;
+}
+
+.wavy_top-vertically-flip.staffing_dark::after{
+    background-color:$staffing_dark;
+}
+
+.wavy_top-vertically-flip.staffing_black::after{
+    background-color:$staffing_black;
+}
+
+
+// Inventive
+.wavy_top-vertically-flip.inventive::after{
+    background-color:$inventive;
+}
+
+.wavy_top-vertically-flip.inventive_light::after{
+    background-color:$inventive_light;
+}
+
+.wavy_top-vertically-flip.inventive_dark::after{
+    background-color:$inventive_dark;
+}
+
+.wavy_top-vertically-flip.inventive_black::after{
+    background-color:$inventive_black;
+}
+
+
+
+
+
+//////////////////////////////////////// Bottom Divider
+
+.wavy_bottom-vertically-flip {
+    position: relative;
+    width: 100vw;
+    height: var(--height);
+    transform: rotateY(180deg);
+}
+
+.wavy_bottom-vertically-flip::before {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--top-color);
+  
+    -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDliZjUiPjxwYXRoIGQ9Ik0wIDB2MTAwYzIwIDE3LjMgNDAgMjkuNTEgODAgMjkuNTEgNTEuNzkgMCA3NC42OS00OC41NyAxNTEuNzUtNDguNTcgNzMuNzIgMCA5MSA1NC44OCAxOTEuNTYgNTQuODhDNTQzLjk1IDEzNS44IDU1NCAxNCA2NjUuNjkgMTRjMTA5LjQ2IDAgOTguODUgODcgMTg4LjIgODcgNzAuMzcgMCA2OS44MS0zMy43MyAxMTUuNi0zMy43MyA1NS44NSAwIDYyIDM5LjYyIDExNS42IDM5LjYyIDU4LjA4IDAgNTcuNTItNDYuNTkgMTE1LTQ2LjU5IDM5LjggMCA2MCAyMi40OCA3OS44OSAzOS42OVYweiIvPjwvZz48L3N2Zz4=);
+    -webkit-mask-size: cover;
+  
+    mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDliZjUiPjxwYXRoIGQ9Ik0wIDB2MTAwYzIwIDE3LjMgNDAgMjkuNTEgODAgMjkuNTEgNTEuNzkgMCA3NC42OS00OC41NyAxNTEuNzUtNDguNTcgNzMuNzIgMCA5MSA1NC44OCAxOTEuNTYgNTQuODhDNTQzLjk1IDEzNS44IDU1NCAxNCA2NjUuNjkgMTRjMTA5LjQ2IDAgOTguODUgODcgMTg4LjIgODcgNzAuMzcgMCA2OS44MS0zMy43MyAxMTUuNi0zMy43MyA1NS44NSAwIDYyIDM5LjYyIDExNS42IDM5LjYyIDU4LjA4IDAgNTcuNTItNDYuNTkgMTE1LTQ2LjU5IDM5LjggMCA2MCAyMi40OCA3OS44OSAzOS42OVYweiIvPjwvZz48L3N2Zz4=);
+    mask-size: cover;
+}
+
+.wavy_bottom-vertically-flip.white::before{
+    background-color:white;
+}
+
+// Studios
+.wavy_bottom-vertically-flip.studios::before{
+    background-color:$studios;
+}
+
+.wavy_bottom-vertically-flip.studios_light::before{
+    background-color:$studios_light;
+}
+
+.wavy_bottom-vertically-flip.studios_dark::before{
+    background-color:$studios_dark;
+}
+
+.wavy_bottom-vertically-flip.studios_black::before{
+    background-color:$studios_black;
+}
+
+// Patriots
+.wavy_bottom-vertically-flip.patriots::before{
+    background-color:$patriots;
+}
+
+.wavy_bottom-vertically-flip.patriots_light::before{
+    background-color:$patriots_light;
+}
+
+.wavy_bottom-vertically-flip.patriots_dark::before{
+    background-color:$patriots_dark;
+}
+
+.wavy_bottom-vertically-flip.patriots_black::before{
+    background-color:$patriots_black;
+}
+
+// Cares
+.wavy_bottom-vertically-flip.cares::before{
+    background-color:$cares;
+}
+
+.wavy_bottom-vertically-flip.cares_light::before{
+    background-color:$cares_light;
+}
+
+.wavy_bottom-vertically-flip.cares_dark::before{
+    background-color:$cares_dark;
+}
+
+.wavy_bottom-vertically-flip.cares_black::before{
+    background-color:$cares_black;
+}
+
+// Academy
+.wavy_bottom-vertically-flip.academy::before{
+    background-color:$academy;
+}
+
+.wavy_bottom-vertically-flip.academy_light::before{
+    background-color:$academy_light;
+}
+
+.wavy_bottom-vertically-flip.academy_dark::before{
+    background-color:$academy_dark;
+}
+
+.wavy_bottom-vertically-flip.academy_black::before{
+    background-color:$academy_black;
+}
+
+// Staffing
+.wavy_bottom-vertically-flip.staffing::before{
+    background-color:$staffing;
+}
+
+.wavy_bottom-vertically-flip.staffing_light::before{
+    background-color:$staffing_light;
+}
+
+.wavy_bottom-vertically-flip.staffing_dark::before{
+    background-color:$staffing_dark;
+}
+
+.wavy_bottom-vertically-flip.staffing_black::before{
+    background-color:$staffing_black;
+}
+
+
+// Inventive
+.wavy_bottom-vertically-flip.inventive::before{
+    background-color:$inventive;
+}
+
+.wavy_bottom-vertically-flip.inventive_light::before{
+    background-color:$inventive_light;
+}
+
+.wavy_bottom-vertically-flip.inventive_dark::before{
+    background-color:$inventive_dark;
+}
+
+.wavy_bottom-vertically-flip.inventive_black::before{
+    background-color:$inventive_black;
+}
+
+

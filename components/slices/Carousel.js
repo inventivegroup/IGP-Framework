@@ -3,104 +3,105 @@ import { RichText } from 'prismic-reactjs';
 import { linkResolver } from '../../utils/linkResolver';
 import htmlSerializer from '../../utils/htmlSerializer';
 import Carousel from 'react-multi-carousel';
+import { Divider } from '.';
 
 
 const getGradient = (color) => {
     const res = (() => {
         switch(color){
             case "studios":
-                return '#7E5BEF';
+                return '7E5BEF';
 
             case "studios light":
-                return '#A389F4';
+                return 'A389F4';
 
             case "studios dark":
-                return '#592DEA'
+                return '592DEA'
 
             case "studios black":
-                return '#14001D'
+                return '14001D'
 
 
             case "patriots":
-                return '#0000FF'
+                return '0000FF'
 
             case "patriots light":
-                return '#0066ff'
+                return '0066ff'
 
             case "patriots dark":
-                return '#0000b2'
+                return '0000b2'
 
             case "patriots black":
-                return '#000033'
+                return '000033'
 
 
             case "inventive":
-                return '#1FB6FF'
+                return '1FB6FF'
 
             case "inventive light":
-                return '#85D7FF'
+                return '85D7FF'
 
             case "inventive dark":
-                return '#009EEB'
+                return '009EEB'
 
             case "inventive black":
-                return '#00151A'
+                return '00151A'
 
 
             case "cares":
-                return '#13CE66'
+                return '13CE66'
 
             case "cares light":
-                return '#29EB7F'
+                return '29EB7F'
 
             case "cares dark":
-                return '#0F9F4F'
+                return '0F9F4F'
 
             case "cares black":
-                return '#002A02'
+                return '002A02'
 
 
             case "staffing":
-                return '#FFC82C'
+                return 'FFC82C'
 
             case "staffing light":
-                return '#FFD55F'
+                return 'FFD55F'
 
             case "staffing dark":
-                return '#F8B700'
+                return 'F8B700'
 
             case "staffing black":
-                return '#1A1A00'
+                return '1A1A00'
 
 
             case "academy":
-                return '#FE8A00'
+                return 'FE8A00'
 
             case "academy light":
-                return '#FFA827'
+                return 'FFA827'
 
             case "academy dark":
-                return '#DB7000'
+                return 'DB7000'
 
             case "academy black":
-                return '#331C00'
+                return '331C00'
 
 
             case "ventures":
-                return '#FE0500'
+                return 'FE0500'
 
             case "ventures light":
-                return '#FF6E6B'
+                return 'FF6E6B'
 
             case "ventures dark":
-                return '#D40000'
+                return 'D40000'
 
             case "ventures black":
-                return '#330100'
+                return '330100'
 
 
             case "smoke" : 
-                return '#E0E6ED';
+                return 'E0E6ED';
 
             case "none" : 
                 return '100%, white';
@@ -136,48 +137,57 @@ const responsive = {
 };
 
 
-export default ({ slice }) =>
-<>
-    { slice.primary.divider_top === "diagonal" ? <div className={"diagonal_top " + slice.primary.divider_top_color}></div> : " "}
-    { slice.primary.divider_top === "swoosh" ? <div className={"swoosh_top " + slice.primary.divider_top_color}></div> : " "}   
+export default ({ slice }) => {
+    const { divider_bottom, divider_bottom_color, divider_bottom_flipped, divider_top, divider_top_color, divider_top_flipped, gradient_angle1, primary_blade_color1, secondary_blade_color1, } = slice.primary;
 
-    <div className={"carousel-container "} style={{background: 'linear-gradient(' + ((slice.primary.gradient_angle1 !== null && slice.primary.gradient_angle1) > 360 ? 0 : slice.primary.gradient_angle1) + 'deg ,' + getGradient(slice.primary.primary_blade_color1) + "," + getGradient(slice.primary.secondary_blade_color1) + ')'}}>
-        
-        <Carousel
-            responsive={responsive}
-            swipeable={true}
-            draggable={true}
-            showDots={false}
-            ssr={true}
-            infinite={false}
-            autoPlaySpeed={1000}
-            keyBoardControl={true}
-            customTransition="all .8"
-            transitionDuration={500}
-            containerClass="Carousel"
-            removeArrowOnDeviceType={["tablet", "mobile"]}
-            dotListClass="custom-dot-list-style"
-        >
-            {slice.fields.map(item => {
-                return (
-                    <div className="carousel_item">
-                        <div className="carousel_bg_img"  style={{backgroundImage: `url("${item.image.url}")`, backgroundSize: 'cover'}}>
-                            {/* <hr className={"seperator " + slice.primary.primary_blade_color1 }/> */}
-                            <div className="carousel_content" style={{backgroundColor: `${getGradient(item.item_background_color)}`}}>
-                                <h3 className="carousel-header">{item.carousel_item_title[0].text}</h3>
-                                {item.content !== null ? RichText.render(item.content, linkResolver, htmlSerializer) : " " }
-                                <div className="cta_btn_cont">
-                                    <a href={`${item.primary_cta_btn.url}`} className="secondary_cta_btn">{RichText.asText(item.custom_cta_text, linkResolver, htmlSerializer)}</a>
-                                    {/* <a href={`${item.primary_cta_btn.url}`} className="primary_cta_btn">{RichText.asText(item.custom_cta_text, linkResolver, htmlSerializer)}</a> */}
+    return ( 
+        <>
+            <Divider type={divider_top} backgroundColor={divider_top_color} side="bottom" flipped={divider_top_flipped} />
+
+            <div className={"carousel-container "} style={{background: 'linear-gradient(' + ((gradient_angle1 !== null && gradient_angle1) > 360 ? 0 : gradient_angle1) + 'deg , #' + getGradient(primary_blade_color1) + ", #" + getGradient(secondary_blade_color1) + ')'}}>
+                
+                <Carousel
+                    responsive={responsive}
+                    swipeable={true}
+                    draggable={true}
+                    showDots={false}
+                    ssr={true}
+                    infinite={false}
+                    autoPlaySpeed={800}
+                    keyBoardControl={true}
+                    customTransition="all 1.5s"
+                    transitionDuration={500}
+                    containerClass="Carousel"
+                    removeArrowOnDeviceType={["tablet", "mobile"]}
+                    dotListClass="custom-dot-list-style"
+                >
+                    {slice.fields.map(item => {
+                        return (
+                            <div className="carousel_item">
+                                <div className="carousel_bg_img"  style={{backgroundImage: `url("${!!item.image ? item.image.url : false }")`, backgroundSize: 'cover'}}>
+                                    
+                                    <div className="carousel_content" style={{backgroundColor: `#${getGradient(item.item_background_color)}E6`}}>
+                                        
+                                        {!!item.carousel_item_title ? <h3 className="carousel-header">{item.carousel_item_title[0].text}</h3> : false }
+                                        
+                                        {item.content !== null ? RichText.render(item.content, linkResolver, htmlSerializer) : " " }
+                                        
+                                        { !!item.primary_cta_btn ? 
+                                            <div className="cta_btn_cont">
+                                             <a href={`${item.primary_cta_btn.url}`} className="secondary_cta_btn">{RichText.asText(item.custom_cta_text, linkResolver, htmlSerializer)}</a>
+                                             <a href='https://share.hsforms.com/1fEf8S6OtS0KMeT9VJqHG0A2glvq' className="primary_cta_btn">Get A Quote!</a>
+                                            </div>
+                                        : false }
+
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                );
-            })}
-        </Carousel>
-    </div>
+                        );
+                    })}
+                </Carousel>
+            </div>
 
-    { slice.primary.divider_bottom1 === "diagonal" ? <div className={"diagonal_bottom " + slice.primary.divider_bottom_color1}></div> : " "}
-    { slice.primary.divider_bottom1 === "swoosh" ? <div className={"swoosh_bottom " + slice.primary.divider_bottom_color1}></div> : " "}   
-</>
+            <Divider type={divider_bottom} backgroundColor={divider_bottom_color} side="bottom" flipped={divider_bottom_flipped} />
+        </>
+    )
+}

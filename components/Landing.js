@@ -1,7 +1,6 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 import Layout from '../components/layouts' 
-import { CTAOne, StaffMember, Plan, BlogPosts, Carousel, ParallaxBlade, CardView, TextColumns, Map } from '../components/slices'
+import { CTAOne, StaffMember, Plan, BlogPosts, Carousel, ParallaxBlade, CardView, TextColumns, Map, Divider } from '../components/slices'
 
 
 const PageSlices = ({ slices }) => {
@@ -29,13 +28,6 @@ const PageSlices = ({ slices }) => {
             case 'parallax_blade' : return (
                 <div key={ index } className="homepage-slice-wrapper">
                     <ParallaxBlade slice={slice}></ParallaxBlade>
-                </div>
-            )
-            
-            case 'parallax_blade' : return (
-                <div key={ index } className="homepage-slice-wrapper">
-                    <p>Parallax Blade</p>
-                    <Plan slice={slice}></Plan>
                 </div>
             )
 
@@ -79,101 +71,102 @@ const PageSlices = ({ slices }) => {
 const getGradient = (color) => {
   const res = (() => {
       switch(color){
-          case "studios":
-              return '#7E5BEF';
+        case "studios":
+            return '#7E5BEF';
 
-          case "studios light":
-              return '#A389F4';
+        case "studios light":
+            return '#A389F4';
 
-          case "studios dark":
-              return '#592DEA'
+        case "studios dark":
+            return '#592DEA'
 
-          case "studios black":
-              return '#14001D'
-
-
-          case "patriots":
-              return '#0000FF'
-
-          case "patriots light":
-              return '#0066ff'
-
-          case "patriots dark":
-              return '#0000b2'
-
-          case "patriots black":
-              return '#000033'
+        case "studios black":
+            return '#14001D'
 
 
-          case "inventive":
-              return '#1FB6FF'
+        case "patriots":
+            return '#0000FF'
 
-          case "inventive light":
-              return '#85D7FF'
+        case "patriots light":
+            return '#0066ff'
 
-          case "inventive dark":
-              return '#009EEB'
+        case "patriots dark":
+            return '#0000b2'
 
-          case "inventive black":
-              return '#00151A'
-
-
-          case "cares":
-              return '#13CE66'
-
-          case "cares light":
-              return '#29EB7F'
-
-          case "cares dark":
-              return '#0F9F4F'
-
-          case "cares black":
-              return '#002A02'
+        case "patriots black":
+            return '#000033'
 
 
-          case "staffing":
-              return '#FFC82C'
+        case "inventive":
+            return '#1FB6FF'
 
-          case "staffing light":
-              return '#FFD55F'
+        case "inventive light":
+            return '#85D7FF'
 
-          case "staffing dark":
-              return '#F8B700'
+        case "inventive dark":
+            return '#009EEB'
 
-          case "staffing black":
-              return '#1A1A00'
-
-
-          case "academy":
-              return '#FE8A00'
-
-          case "academy light":
-              return '#FFA827'
-
-          case "academy dark":
-              return '#DB7000'
-
-          case "academy black":
-              return '#331C00'
+        case "inventive black":
+            return '#00151A'
 
 
-          case "ventures":
-              return '#FE0500'
+        case "cares":
+            return '#13CE66'
 
-          case "ventures light":
-              return '#FF6E6B'
+        case "cares light":
+            return '#29EB7F'
 
-          case "ventures dark":
-              return '#D40000'
+        case "cares dark":
+            return '#0F9F4F'
 
-          case "ventures black":
-              return '#330100'
+        case "cares black":
+            return '#002A02'
 
-          case "none" : 
-              return '100%, white';
 
-          break;
-      }
+        case "staffing":
+            return '#FFC82C'
+
+        case "staffing light":
+            return '#FFD55F'
+
+        case "staffing dark":
+            return '#F8B700'
+
+        case "staffing black":
+            return '#1A1A00'
+
+
+        case "academy":
+            return '#FE8A00'
+
+        case "academy light":
+            return '#FFA827'
+
+        case "academy dark":
+            return '#DB7000'
+
+        case "academy black":
+            return '#331C00'
+
+
+        case "ventures":
+            return '#FE0500'
+
+        case "ventures light":
+            return '#FF6E6B'
+
+        case "ventures dark":
+            return '#D40000'
+
+        case "ventures black":
+            return '#330100'
+
+        case "none" : 
+            return '100%, white';
+
+        default :
+            return '100%, white';
+        }
   })();
 
   return res;
@@ -188,17 +181,17 @@ const PageBody = ({ page }) => {
           <p> { page.description[0].text }  </p>
           
           <div className="cta_btn_cont">
-            <a href="#" className="secondary_cta_btn">Learn More.</a>
-            <a href="#" className="primary_cta_btn">Get a quote now.</a>
+            <a href={page.header_button.url} className="secondary_cta_btn">{page.header_button_text[0].text}</a>
+            <a href="https://share.hsforms.com/1fEf8S6OtS0KMeT9VJqHG0A2glvq" className="primary_cta_btn">Get a quote now!</a>
           </div>
         </div>
 
         <div className="header_image">
-          <img src={`${page.image.url}`}/>
+          <img alt="Fun Graphic Of A Person At Their Computer" src={`${page.image.url}`}/>
         </div>
 
-        { page.divider_bottom === "diagonal" ? <div className={"diagonal_top " + page.divider_bottom_color}></div> : " "}
-        
+        <Divider type={page.page_divider_bottom} side="top" backgroundColor={page.page_divider_bottom_color} flipped={false} />
+
       </div>
 
       <PageSlices slices={ page.body } />

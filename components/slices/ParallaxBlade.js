@@ -1,7 +1,8 @@
 import React from 'react';
 import { RichText } from 'prismic-reactjs';
-// import { linkResolver } from '../../utils/linkResolver';
-// import htmlSerializer from '../../utils/htmlSerializer';
+import { Divider } from './index';
+import { linkResolver } from 'gatsby-source-prismic-graphql';
+import htmlSerializer from '../../utils/htmlSerializer';
 
 
 const getGradient = (color) => {
@@ -117,31 +118,32 @@ const getGradient = (color) => {
 export default ({ slice }) =>  {
     return (
         <>
-            { slice.primary.divider_top === "diagonal" ? <div className={"diagonal_top " + slice.primary.divider_top_color}></div> : " "}
-            <div className={"parallax-blade blade"} style={{background: 'linear-gradient(' + ((slice.primary.gradient_angle1 !== null && slice.primary.gradient_angle1) > 360 ? 0 : slice.primary.gradient_angle1) + 'deg ,' + getGradient(slice.primary.primary_blade_color1) + "," + getGradient(slice.primary.secondary_blade_color1) + ')'}}>
+            <Divider type={slice.primary.divider_top} backgroundColor={slice.primary.divider_top_color} side="top" flipped={slice.primary.divider_top_flipped} />
+
+            <div className={"parallax-blade cardView blade"} style={{background: 'linear-gradient(' + ((slice.primary.gradient_angle1 !== null && slice.primary.gradient_angle1) > 360 ? 0 : slice.primary.gradient_angle1) + 'deg ,' + getGradient(slice.primary.primary_blade_color1) + "," + getGradient(slice.primary.secondary_blade_color1) + ')'}}>
                 
-                <div id="bubble-one" className="bubble one sizeOne"> <img alt="asdf" src={slice.primary.bubble_one.url}/> </div>
-                <div id="bubble-three" className="bubble three sizeThree "> <img alt="asdf" src={slice.primary.bubble_two.url}/> </div>
-                <div id="bubble-five" className="bubble five sizeFour"> <img alt="asdf" src={slice.primary.bubble_five.url}/> </div>
-                <div id="bubble-seven" className="bubble seven sizeThree"> <img alt="asdf" src={slice.primary.bubble_three.url}/> </div>
+                {/* <div id="bubble-one" className="bubble one sizeOne"> <img alt="asdf" src={slice.primary.bubble_one.url}/> </div> */}
+                {/* <div id="bubble-three" className="bubble three sizeThree "> <img alt="asdf" src={slice.primary.bubble_two.url}/> </div> */}
+                {/* <div id="bubble-five" className="bubble five sizeFour"> <img alt="asdf" src={slice.primary.bubble_five.url}/> </div> */}
+                {/* <div id="bubble-seven" className="bubble seven sizeThree"> <img alt="asdf" src={slice.primary.bubble_three.url}/> </div> */}
                 {/* <div id="bubble-nine" className="bubble nine sizeFour"> <img src={slice.primary.bubble_seven.url}/> </div> */}
                 {/* <div id="bubble-eleven" className="bubble eleven sizeTwo"> <img src={slice.primary.bubble_eight.url}/> </div> */}
-                {/* <div id="bubble-thirteen" className="bubble thirteen sizeFour"> <img src={slice.primary.bubble_ten.url}/> </div> */}
 
                 <div className="content-container">
                     <h1  className="big_title">{ RichText.asText(slice.primary.section_title) }</h1>
-                    <p> { RichText.asText(slice.primary.description1) } </p>
+                    <p> { RichText.render(slice.primary.description1, linkResolver, htmlSerializer) } </p>
                 </div>
                 
                 {/* <div id="bubble-twelve" className="bubble twelve sizeTwo"> <img src={slice.primary.bubble_nine.url}/> </div> */}
-                <div id="bubble-six" className="bubble six sizeFour"> <img alt="asdf" src={slice.primary.bubble_twelve.url}/> </div>
-                <div id="bubble-four" className="bubble four sizeThree"> <img alt="asdf" src={slice.primary.bubble_four.url}/> </div>
-                <div id="bubble-two" className="bubble two sizeOne"> <img alt="asdf" src={slice.primary.bubble_thirteen.url}/> </div> 
-                <div id="bubble-eight" className="bubble eight sizeThree"> <img alt="asdf" src={slice.primary.bubble_six.url}/> </div>
+                {/* <div id="bubble-six" className="bubble six sizeFour"> <img alt="asdf" src={slice.primary.bubble_twelve.url}/> </div> */}
+                {/* <div id="bubble-four" className="bubble four sizeThree"> <img alt="asdf" src={slice.primary.bubble_four.url}/> </div> */}
+                {/* <div id="bubble-two" className="bubble two sizeOne"> <img alt="asdf" src={slice.primary.bubble_thirteen.url}/> </div>  */}
+                {/* <div id="bubble-eight" className="bubble eight sizeThree"> <img alt="asdf" src={slice.primary.bubble_six.url}/> </div> */}
                 {/* <div id="bubble-ten" className="bubble ten sizeFour"> <img src={slice.primary.bubble_eleven.url}/> </div> */}
 
             </div>
-            { slice.primary.divider_bottom1 === "diagonal" ? <div className={"diagonal_bottom " + slice.primary.divider_bottom_color1}></div> : " "}
+
+            <Divider type={slice.primary.divider_bottom} backgroundColor={slice.primary.divider_bottom_color} side="bottom" flipped={slice.primary.divider_bottom_flipped} />
         </>
     )
 }

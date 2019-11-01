@@ -13,9 +13,13 @@ body {
   color: #353535;
   line-height: 1.5;
   font-family: $font-serif;
-  font-size: 20px;
 
   @media (max-width: $max-width-sm) {
     padding-top: 1rem;
   }
+}
+
+
+.flex-wrap{
+  flex-wrap:wrap;
 }

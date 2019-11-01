@@ -3,10 +3,6 @@
     .big_title a, h1, h2, h3, h4, h5{
         color:white;
         text-transform:uppercase;
-        margin:0px 0px 0px 100px;
-        padding-top:5px;
-        font-size:80px;
-
     }
 
     &.center{
@@ -17,12 +13,14 @@
         &.row{
             display:flex;
             flex-wrap:wrap;
-            justify-content:center;
+            justify-content:space-around;
             align-items:center;
 
             .card img{
-                width:15vw;
-                min-width:250px;
+                max-width:300px;
+                max-height:200px;
+
+                min-width:200px;
                 margin:80px 20px;
             }
         }

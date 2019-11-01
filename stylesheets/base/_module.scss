@@ -3,5 +3,10 @@
 @import "./base";
 @import "./prismic-edit-button";
 @import "./typography";
-@import "./buttons";
 @import "./_images.scss";
+@import "./buttons";
+@import "./animated-button";
+
+
+// Responsive View styling
+@import "./mobile";

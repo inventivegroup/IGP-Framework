@@ -1,0 +1,287 @@
+:root {
+    --width: 300px;
+    --height: 160px;
+  }
+  
+  .round_top {
+    position: relative;
+    width: 100vw;
+    height: var(--height);
+  }
+
+
+.round_top::after {
+    position: absolute;
+    bottom:0px;
+    left:0px;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDliZjUiPjxwYXRoIGQ9Ik0xMjgwIDE0MFYwUzk5My40NiAxNDAgNjQwIDEzOSAwIDAgMCAwdjE0MHoiLz48L2c+PC9zdmc+);
+    -webkit-mask-size: cover;
+    mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDliZjUiPjxwYXRoIGQ9Ik0xMjgwIDE0MFYwUzk5My40NiAxNDAgNjQwIDEzOSAwIDAgMCAwdjE0MHoiLz48L2c+PC9zdmc+);
+    mask-size: cover;
+}
+
+.footer::after{
+    transform: rotateY(180deg);
+}
+
+
+.round_bottom {
+    position: relative;
+    width: 100vw;
+    height: var(--height);
+
+    &.reverse{
+        transform: rotateY(360deg);
+    }
+}
+
+
+.round_bottom::before {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDliZjUiPjxwYXRoIGQ9Ik02NDAgMTQwQzI4Ni41NCAxNDAgMCAwIDAgMGgxMjgwUzk5My40NiAxNDAgNjQwIDE0MHoiLz48L2c+PC9zdmc+);
+    -webkit-mask-size: cover;
+    mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDliZjUiPjxwYXRoIGQ9Ik02NDAgMTQwQzI4Ni41NCAxNDAgMCAwIDAgMGgxMjgwUzk5My40NiAxNDAgNjQwIDE0MHoiLz48L2c+PC9zdmc+);
+    mask-size: cover;
+}
+
+  
+
+//   Color Matrix
+.round_top.white::after{
+    background-color:white;
+}
+
+// General 
+
+.round_top.smoke::after{
+    background-color:$smoke;
+}
+
+.round_bottom.smoke::before{
+    background-color:$smoke;
+}
+
+
+// Studios
+.round_top.studios::after{
+    background-color:$studios;
+}
+
+.round_top.studios_light::after{
+    background-color:$studios_light;
+}
+
+.round_top.studios_dark::after{
+    background-color:$studios_dark;
+}
+
+.round_top.studios_black::after{
+    background-color:$studios_black;
+}
+
+// Patriots
+.round_top.patriots::after{
+    background-color:$patriots;
+}
+
+.round_top.patriots_light::after{
+    background-color:$patriots_light;
+}
+
+.round_top.patriots_dark::after{
+    background-color:$patriots_dark;
+}
+
+.round_top.patriots_black::after{
+    background-color:$patriots_black;
+}
+
+// Cares
+.round_top.cares::after{
+    background-color:$cares;
+}
+
+.round_top.cares_light::after{
+    background-color:$cares_light;
+}
+
+.round_top.cares_dark::after{
+    background-color:$cares_dark;
+}
+
+.round_top.cares_black::after{
+    background-color:$cares_black;
+}
+
+// Academy
+.round_top.academy::after{
+    background-color:$academy;
+}
+
+.round_top.academy_light::after{
+    background-color:$academy_light;
+}
+
+.round_top.academy_dark::after{
+    background-color:$academy_dark;
+}
+
+.round_top.academy_black::after{
+    background-color:$academy_black;
+}
+
+// Staffing
+.round_top.staffing::after{
+    background-color:$staffing;
+}
+
+.round_top.staffing_light::after{
+    background-color:$staffing_light;
+}
+
+.round_top.staffing_dark::after{
+    background-color:$staffing_dark;
+}
+
+.round_top.staffing_black::after{
+    background-color:$staffing_black;
+}
+
+
+// Inventive
+.round_top.inventive::after{
+    background-color:$inventive;
+}
+
+.round_top.inventive_light::after{
+    background-color:$inventive_light;
+}
+
+.round_top.inventive_dark::after{
+    background-color:$inventive_dark;
+}
+
+.round_top.inventive_black::after{
+    background-color:$inventive_black;
+}
+
+
+
+// Bottom Divider
+
+
+  //   Color Matrix
+.round_bottom.white::before{
+    background-color:white;
+}
+
+// Studios
+.round_bottom.studios::before{
+    background-color:$studios;
+}
+
+.round_bottom.studios_light::before{
+    background-color:$studios_light;
+}
+
+.round_bottom.studios_dark::before{
+    background-color:$studios_dark;
+}
+
+.round_bottom.studios_black::before{
+    background-color:$studios_black;
+}
+
+// Patriots
+.round_bottom.patriots::before{
+    background-color:$patriots;
+}
+
+.round_bottom.patriots_light::before{
+    background-color:$patriots_light;
+}
+
+.round_bottom.patriots_dark::before{
+    background-color:$patriots_dark;
+}
+
+.round_bottom.patriots_black::before{
+    background-color:$patriots_black;
+}
+
+// Cares
+.round_bottom.cares::before{
+    background-color:$cares;
+}
+
+.round_bottom.cares_light::before{
+    background-color:$cares_light;
+}
+
+.round_bottom.cares_dark::before{
+    background-color:$cares_dark;
+}
+
+.round_bottom.cares_black::before{
+    background-color:$cares_black;
+}
+
+// Academy
+.round_bottom.academy::before{
+    background-color:$academy;
+}
+
+.round_bottom.academy_light::before{
+    background-color:$academy_light;
+}
+
+.round_bottom.academy_dark::before{
+    background-color:$academy_dark;
+}
+
+.round_bottom.academy_black::before{
+    background-color:$academy_black;
+}
+
+// Staffing
+.round_bottom.staffing::before{
+    background-color:$staffing;
+}
+
+.round_bottom.staffing_light::before{
+    background-color:$staffing_light;
+}
+
+.round_bottom.staffing_dark::before{
+    background-color:$staffing_dark;
+}
+
+.round_bottom.staffing_black::before{
+    background-color:$staffing_black;
+}
+
+
+// Inventive
+.round_bottom.inventive::before{
+    background-color:$inventive;
+}
+
+.round_bottom.inventive_light::before{
+    background-color:$inventive_light;
+}
+
+.round_bottom.inventive_dark::before{
+    background-color:$inventive_dark;
+}
+
+.round_bottom.inventive_black::before{
+    background-color:$inventive_black;
+}

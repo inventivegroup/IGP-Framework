@@ -1,20 +1,41 @@
+// layouts
 @import "./layouts/footer";
+@import "./layouts/navigation";
+@import "./layouts/not-found";
+
+// slices
 @import "./slices/image-caption";
 @import "./slices/quote";
-@import "./layouts/navigation";
 @import "./slices/text";
 @import "./slices/blade";
 @import "./slices/staff-member";
 @import "./slices/_cta-one.scss";
 @import "./slices/carousel";
-@import "./blog-posts";
 @import "./slices/card-view";
 @import "./slices/plan";
+@import "./slices/text-columns";
+@import "./slices/sidebar";
+@import "./slices/map";
 
+// custom
+@import "./blog-posts";
+@import "./bubbles";
+
+// dividers
 @import "./dividers/diagonal-divider";
 @import "./dividers/swoosh-divider";
+@import "./dividers/wavy-divider";
+@import "./dividers/round-divider";
 
 
-a{
-    color:$inventive;
+.colored-layover{
+    padding:50px;
+    background-color: rgba( 0, 0, 0, 0.5);
+    width:100vw;
+    height:100%;
+
+    &.flex {
+      display:flex;
+      flex-direction:column;
+      justify-content:center;}
 }

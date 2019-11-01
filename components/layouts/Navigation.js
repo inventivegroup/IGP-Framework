@@ -1,8 +1,6 @@
 import React from 'react';
 import {
-    Collapse,
     Navbar,
-    NavbarToggler,
     NavbarBrand,
     Nav,
     NavItem,
@@ -11,6 +9,8 @@ import {
     DropdownToggle,
     DropdownMenu,
     DropdownItem } from 'reactstrap';
+
+import { Link } from 'gatsby';
 
 
 function getSubItems(data){
@@ -47,34 +47,35 @@ export default class Navigation extends React.Component{
     render(){
         let { data } = this.props;
         return (
-            <div className="Navigation">
+            <NavItem className="Navigation">
             <Navbar color="black" className='Navigation' expand="md">
-                {/* <img className="logo" src={data.edges[0].node.logo.url}/> */}
                 <NavbarBrand>
-                    <NavLink href="/">
-                        <img className="logo" src={"https://inventivedev.wpengine.com/wp-content/uploads/2018/09/inventive-logo-white-transparent.png"}/>
-                    </NavLink>
+                    <Link to="/">
+                        <img alt="Inventive Logo" className="logo" src={"https://inventivedev.wpengine.com/wp-content/uploads/2018/09/inventive-logo-white-transparent.png"}/>
+                    </Link>
                 </NavbarBrand>
 
-                <Nav className="ml-auto" navbar>
-                    {/* { data.edges.map(edge => {
+                <Nav className="ml-auto container" navbar>
+                    { data.edges.map(edge => {
                         let navItems = [];
                             {
-                                edge.node.nav.forEach(navItem => {
+                                edge.node.nav.forEach((navItem, index) => {
+
                                     navItems.push(
                                         <>
-                                            {navItem.fields[0].sub_nav_link_label !== null ? (
+                                            { !!navItem.fields[0] && navItem.fields[0].sub_nav_link_label !== null ? (
                                                 <>
-                                                <DropdownToggle onClick={() => this.toggle()} > 
-                                                    {navItem.primary.label[0].text}
-                                                </DropdownToggle>
-                                                <Dropdown isOpen={this.state.isOpen} nav>
-                                                    <DropdownMenu right>
-                                                        {getSubItems(navItem.fields)}
-                                                    </DropdownMenu>
-                                                </Dropdown> </>) : (
-                                                <NavItem>
-                                                    <NavLink href={'/' + navItem.primary.label[0].text + '/'}>{ navItem.primary.label[0].text }</NavLink>
+                                                    <DropdownToggle onClick={() => this.toggle()} > 
+                                                        {navItem.primary.label[0].text}
+                                                    </DropdownToggle>
+                                                    <Dropdown isOpen={this.state.isOpen} nav>
+                                                        <DropdownMenu right>
+                                                            {getSubItems(navItem.fields)}
+                                                        </DropdownMenu>
+                                                    </Dropdown> 
+                                                </>) : (
+                                                <NavItem className="effect effect-5 navItem">
+                                                    <NavLink href={navItem.primary.link.__typename === "PRISMIC_Post" ? '/blog/' + navItem.primary.link._meta.uid : navItem.primary.link.url}>{ navItem.primary.label[0].text }</NavLink>
                                                 </NavItem>)
                                             }
                                         </>
@@ -83,14 +84,10 @@ export default class Navigation extends React.Component{
                             }
                             return navItems;
                         })
-                    } */}
-
-                    <NavItem>
-                        <NavLink href={'/blog/'}>Blog</NavLink>
-                    </NavItem>
+                    }
                 </Nav>
             </Navbar>
-        </div>
+        </NavItem>
         )
     }
 }

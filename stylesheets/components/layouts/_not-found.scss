@@ -1,0 +1,30 @@
+.not-found{
+    background-image:url("https://inventive.io/wp-content/uploads/2019/04/InventiveMarvelCharacters-1.png");
+    background-position:top center;
+    background-size:cover;
+    background-repeat:no-repeat;
+
+    height:137vh;
+    max-height:1050px;
+    width:100vw;
+}
+
+.not-found-msg{
+    padding:100px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+
+    h1{
+        font-size:4em;
+    }
+
+    h3{
+        font-size:2em;
+        font-weight:lighter;
+        text-transform:uppercase;
+    }
+
+}

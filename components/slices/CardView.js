@@ -3,7 +3,9 @@ import { RichText } from 'prismic-reactjs';
 import { linkResolver } from '../../utils/linkResolver';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import htmlSerializer from '../../utils/htmlSerializer';
-// import { Coffee, Bolt } from '@fortawesome/free-solid-svg-icons';
+
+import { Divider } from './index';
+
 
 const getGradient = (color) => {
     const res = (() => {
@@ -117,8 +119,7 @@ const getGradient = (color) => {
 
 export default ({ slice }) =>
 <>
-    { slice.primary.divider_top1 === "diagonal" && slice.primary.divider_top_flipped === "false" ? <div className={" diagonal_top " + slice.primary.divider_top_color1}></div> : " "}
-    { slice.primary.divider_top1 === "diagonal" && slice.primary.divider_top_flipped === "true" ? <div className={" diagonal_bottom " + slice.primary.divider_top_color1}></div> : " "}
+    <Divider type={slice.primary.divider_top} backgroundColor={slice.primary.divider_top_color} side="top" flipped={slice.primary.divider_top_flipped} />
 
     <div className={"cardView"} style={{background: 'linear-gradient(' + ((slice.primary.slice_gradient_angle !== null && slice.primary.slice_gradient_angle) > 360 ? 0 : slice.primary.slice_gradient_angle) + 'deg ,' + getGradient(slice.primary.primary_blade_color1) + "," + getGradient(slice.primary.secondary_blade_color1) + ')'}}>
         <h1 className="big_title">{RichText.render(slice.primary.section_title, linkResolver, htmlSerializer)}</h1>
@@ -135,7 +136,7 @@ export default ({ slice }) =>
                 );
             })}
         </div>
-        { slice.primary.divider_bottom1 === "diagonal" && slice.primary.divider_bottom_flipped === "false" ? <div className={" diagonal_bottom " + slice.primary.divider_bottom_color1}></div> : " "}
-        { slice.primary.divider_bottom1 === "diagonal" && slice.primary.divider_bottom_flipped === "true" ? <div className={" diagonal_top " + slice.primary.divider_bottom_color1}></div> : " "}
+        
+        <Divider type={slice.primary.divider_bottom} backgroundColor={slice.primary.divider_bottom_color} side="bottom" flipped={slice.primary.divider_bottom_flipped} />
     </div>
 </>

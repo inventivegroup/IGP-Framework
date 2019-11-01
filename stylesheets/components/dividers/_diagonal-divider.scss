@@ -1,14 +1,13 @@
 :root {
     --width: 300px;
     --height: 100px;
-  }
+}
   
-  .diagonal_top {
+.diagonal_top {
     position: relative;
     width: 100vw;
     height: var(--height);
-  }
-
+}
 
 .diagonal_top::after {
     position: absolute;
@@ -25,14 +24,10 @@
     mask-size: cover;
 }
 
-  
 
-//   Color Matrix
 .diagonal_top.white::after{
     background-color:white;
 }
-
-// General 
 
 .diagonal_top.smoke::after{
     background-color:$smoke;
@@ -148,14 +143,15 @@
 
 
 
-// Bottom Divider
+
+
+//////////////////////////////////////// Bottom Divider
 
 .diagonal_bottom {
     position: relative;
     width: 100vw;
     height: var(--height);
-  }
-
+}
 
 .diagonal_bottom::before {
     position: absolute;
@@ -170,10 +166,8 @@
   
     mask-image: url(https://rawgit.com/ahmadnassri/css-diagonal-separators/master/svg-mask/diagonal.svg#top);
     mask-size: cover;
-  }
+}
 
-
-  //   Color Matrix
 .diagonal_bottom.white::before{
     background-color:white;
 }
@@ -280,3 +274,282 @@
 .diagonal_bottom.inventive_black::before{
     background-color:$inventive_black;
 }
+
+
+
+////////////////////////////////////////////////////////////
+
+
+.diagonal_top-vertically-flip {
+    position: relative;
+    width: 100vw;
+    height: var(--height);
+}
+
+.diagonal_top-vertically-flip::after {
+    position: absolute;
+    bottom:0px;
+    left:0px;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDAiPjxwYXRoIGQ9Ik0xMjgwIDE0MFYwSDBsMTI4MCAxNDB6Ii8+PC9nPjwvc3ZnPg==);
+    -webkit-mask-size: cover;
+
+    mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDAiPjxwYXRoIGQ9Ik0xMjgwIDE0MFYwSDBsMTI4MCAxNDB6Ii8+PC9nPjwvc3ZnPg==);
+    mask-size: cover;
+}
+
+
+.diagonal_top-vertically-flip.white::after{
+    background-color:white;
+}
+
+.diagonal_top-vertically-flip.smoke::after{
+    background-color:$smoke;
+}
+
+.diagonal_bottom.smoke::before{
+    background-color:$smoke;
+}
+
+
+// Studios
+.diagonal_top-vertically-flip.studios::after{
+    background-color:$studios;
+}
+
+.diagonal_top-vertically-flip.studios_light::after{
+    background-color:$studios_light;
+}
+
+.diagonal_top-vertically-flip.studios_dark::after{
+    background-color:$studios_dark;
+}
+
+.diagonal_top-vertically-flip.studios_black::after{
+    background-color:$studios_black;
+}
+
+// Patriots
+.diagonal_top-vertically-flip.patriots::after{
+    background-color:$patriots;
+}
+
+.diagonal_top-vertically-flip.patriots_light::after{
+    background-color:$patriots_light;
+}
+
+.diagonal_top-vertically-flip.patriots_dark::after{
+    background-color:$patriots_dark;
+}
+
+.diagonal_top-vertically-flip.patriots_black::after{
+    background-color:$patriots_black;
+}
+
+// Cares
+.diagonal_top-vertically-flip.cares::after{
+    background-color:$cares;
+}
+
+.diagonal_top-vertically-flip.cares_light::after{
+    background-color:$cares_light;
+}
+
+.diagonal_top-vertically-flip.cares_dark::after{
+    background-color:$cares_dark;
+}
+
+.diagonal_top-vertically-flip.cares_black::after{
+    background-color:$cares_black;
+}
+
+// Academy
+.diagonal_top-vertically-flip.academy::after{
+    background-color:$academy;
+}
+
+.diagonal_top-vertically-flip.academy_light::after{
+    background-color:$academy_light;
+}
+
+.diagonal_top-vertically-flip.academy_dark::after{
+    background-color:$academy_dark;
+}
+
+.diagonal_top-vertically-flip.academy_black::after{
+    background-color:$academy_black;
+}
+
+// Staffing
+.diagonal_top-vertically-flip.staffing::after{
+    background-color:$staffing;
+}
+
+.diagonal_top-vertically-flip.staffing_light::after{
+    background-color:$staffing_light;
+}
+
+.diagonal_top-vertically-flip.staffing_dark::after{
+    background-color:$staffing_dark;
+}
+
+.diagonal_top-vertically-flip.staffing_black::after{
+    background-color:$staffing_black;
+}
+
+
+// Inventive
+.diagonal_top-vertically-flip.inventive::after{
+    background-color:$inventive;
+}
+
+.diagonal_top-vertically-flip.inventive_light::after{
+    background-color:$inventive_light;
+}
+
+.diagonal_top-vertically-flip.inventive_dark::after{
+    background-color:$inventive_dark;
+}
+
+.diagonal_top-vertically-flip.inventive_black::after{
+    background-color:$inventive_black;
+}
+
+
+
+
+
+//////////////////////////////////////// Bottom Divider
+
+.diagonal_bottom-vertically-flip {
+    position: relative;
+    width: 100vw;
+    height: var(--height);
+}
+
+.diagonal_bottom-vertically-flip::before {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--top-color);
+  
+    -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDliZjUiPjxwYXRoIGQ9Ik0xMjgwIDE0MFYwSDBsMTI4MCAxNDB6Ii8+PC9nPjwvc3ZnPg==);
+    -webkit-mask-size: cover;
+  
+    mask-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDBweCIgdmlld0JveD0iMCAwIDEyODAgMTQwIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiMwMDliZjUiPjxwYXRoIGQ9Ik0xMjgwIDE0MFYwSDBsMTI4MCAxNDB6Ii8+PC9nPjwvc3ZnPg==);
+    mask-size: cover;
+}
+
+.diagonal_bottom-vertically-flip.white::before{
+    background-color:white;
+}
+
+// Studios
+.diagonal_bottom-vertically-flip.studios::before{
+    background-color:$studios;
+}
+
+.diagonal_bottom-vertically-flip.studios_light::before{
+    background-color:$studios_light;
+}
+
+.diagonal_bottom-vertically-flip.studios_dark::before{
+    background-color:$studios_dark;
+}
+
+.diagonal_bottom-vertically-flip.studios_black::before{
+    background-color:$studios_black;
+}
+
+// Patriots
+.diagonal_bottom-vertically-flip.patriots::before{
+    background-color:$patriots;
+}
+
+.diagonal_bottom-vertically-flip.patriots_light::before{
+    background-color:$patriots_light;
+}
+
+.diagonal_bottom-vertically-flip.patriots_dark::before{
+    background-color:$patriots_dark;
+}
+
+.diagonal_bottom-vertically-flip.patriots_black::before{
+    background-color:$patriots_black;
+}
+
+// Cares
+.diagonal_bottom-vertically-flip.cares::before{
+    background-color:$cares;
+}
+
+.diagonal_bottom-vertically-flip.cares_light::before{
+    background-color:$cares_light;
+}
+
+.diagonal_bottom-vertically-flip.cares_dark::before{
+    background-color:$cares_dark;
+}
+
+.diagonal_bottom-vertically-flip.cares_black::before{
+    background-color:$cares_black;
+}
+
+// Academy
+.diagonal_bottom-vertically-flip.academy::before{
+    background-color:$academy;
+}
+
+.diagonal_bottom-vertically-flip.academy_light::before{
+    background-color:$academy_light;
+}
+
+.diagonal_bottom-vertically-flip.academy_dark::before{
+    background-color:$academy_dark;
+}
+
+.diagonal_bottom-vertically-flip.academy_black::before{
+    background-color:$academy_black;
+}
+
+// Staffing
+.diagonal_bottom-vertically-flip.staffing::before{
+    background-color:$staffing;
+}
+
+.diagonal_bottom-vertically-flip.staffing_light::before{
+    background-color:$staffing_light;
+}
+
+.diagonal_bottom-vertically-flip.staffing_dark::before{
+    background-color:$staffing_dark;
+}
+
+.diagonal_bottom-vertically-flip.staffing_black::before{
+    background-color:$staffing_black;
+}
+
+
+// Inventive
+.diagonal_bottom-vertically-flip.inventive::before{
+    background-color:$inventive;
+}
+
+.diagonal_bottom-vertically-flip.inventive_light::before{
+    background-color:$inventive_light;
+}
+
+.diagonal_bottom-vertically-flip.inventive_dark::before{
+    background-color:$inventive_dark;
+}
+
+.diagonal_bottom-vertically-flip.inventive_black::before{
+    background-color:$inventive_black;
+}
+
+

@@ -62,7 +62,13 @@
 
             .content{
                 max-width:50vw;
-                padding:20px 30px;
+                padding:0px 30px;
+            }
+
+            .seperator{
+                max-width:180px;
+                margin:20px 0px;
+                border:solid 3px $cares;
             }
         }
     
@@ -89,29 +95,18 @@
 
 
                 .carousel_content{
-                    width:50vw;
                     max-width:500px;
                     border-radius: 15px;
                     padding: 30px 20px;
                     color: white;
                     position: absolute;
-                    top:-70px;
-                    left: -70px;
                     z-index: 99;
+
+                    .carousel-header{
+                        font-size:30px;
+                    }
                 }
             }
-            
-            
-    
         }
-        
     }
 }
-
-// li.react-multi-carousel-item.react-multi-carousel-item--active{
-//     max-width:620px;
-// }
-
-// li.react-multi-carousel-item {
-//     max-width:620px;
-// }

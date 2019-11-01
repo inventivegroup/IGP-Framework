@@ -3,6 +3,10 @@ import { RichText } from 'prismic-reactjs';
 import { linkResolver } from '../../utils/linkResolver';
 import htmlSerializer from '../../utils/htmlSerializer';
 import Carousel from 'react-multi-carousel';
+import { Divider } from './index';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import { faQuoteLeft } from '@fortawesome/free-solid-svg-icons'
 
 
 const getGradient = (color) => {
@@ -138,8 +142,7 @@ const responsive = {
 export default ({ slice }) => {
 
     return ( <>
-        { slice.primary.divider_top === "diagonal" ? <div className={"diagonal_top " + slice.primary.divider_top_color}></div> : " "}
-        { slice.primary.divider_top === "swoosh" ? <div className={"swoosh_top " + slice.primary.divider_top_color}></div> : " "}
+        <Divider type={slice.primary.divider_top} backgroundColor={slice.primary.divider_top_color} side="top" flipped={slice.primary.divider_top_flipped} />
 
             <div className={"carousel-container staff_members"} style={{background: 'linear-gradient(' + ((slice.primary.gradient_angle1 !== null && slice.primary.gradient_angle1) > 360 ? 0 : slice.primary.gradient_angle1) + 'deg ,' + getGradient(slice.primary.primary_blade_color1) + "," + getGradient(slice.primary.secondary_blade_color1) + ')'}}>
                 <Carousel
@@ -151,20 +154,20 @@ export default ({ slice }) => {
                     infinite={false}
                     autoPlaySpeed={1000}
                     keyBoardControl={true}
-                    customTransition="all .8"
+                    customTransition="all 1.5s"
                     transitionDuration={500}
                     containerClass="Carousel"
                     removeArrowOnDeviceType={["tablet", "mobile"]}
                     dotListClass="custom-dot-list-style"
                 >
                     {slice.fields.map(item => {
-                        console.log(item);
                         return (
                             <div className="staff_item">
                                 <div><div className="image"  style={{backgroundImage: `url("${item.staff_image.url}")`, backgroundSize: 'cover'}}></div></div>
-                                <hr className={"seperator " + slice.primary.secondary_blade_color1 }/>
                                 <div className="content">
+                                    <FontAwesomeIcon icon={faQuoteLeft} color="lightgrey" size="lg" />
                                     {item.bio !== null ? RichText.render(item.bio, linkResolver, htmlSerializer) : " " }
+                                    <hr className={"seperator" }/>
                                     <h3>{RichText.asText(item.job_title, linkResolver, htmlSerializer)}</h3>
                                 </div>
                             </div>
@@ -173,7 +176,6 @@ export default ({ slice }) => {
                 </Carousel>
             </div>
 
-        { slice.primary.divider_bottom1 === "diagonal" ? <div className={"diagonal_bottom " + slice.primary.divider_bottom_color1}></div> : " "}
-        { slice.primary.divider_bottom1 === "swoosh" ? <div className={"swoosh_bottom " + slice.primary.divider_bottom_color1}></div> : " "}
+        <Divider type={slice.primary.divider_bottom} backgroundColor={slice.primary.divider_bottom_color} side="bottom" flipped={slice.primary.divider_bottom_flipped} />
     </> )
 }

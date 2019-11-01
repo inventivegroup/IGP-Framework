@@ -28,7 +28,6 @@ query PageQuery($uid: String) {
                 section_subtitle
                 section_title
                 content
-                
 
                 cta_text
                 text_alignment
@@ -36,8 +35,8 @@ query PageQuery($uid: String) {
                 secondary_blade_color
                 gradient_angle
                 divider_top
-                divider_bottom
                 divider_top_color
+                divider_bottom
                 divider_bottom_color
                 image
                 layout

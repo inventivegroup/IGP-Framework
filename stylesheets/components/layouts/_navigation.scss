@@ -1,5 +1,9 @@
 .Navigation{
-    position:fixed;
+    position:absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+
     display:flex;
     background-color:transparent;
     top:0px;
@@ -8,25 +12,33 @@
     z-index:999;
 
     .navbar{
-        padding:20px;
+        padding:30px 70px;
+
         display:flex;
         align-items:center;
-
+        
         ul{
             display:flex;
             list-style-type:none;
             justify-content: flex-start;
+            align-items:center;
     
             li{
                 a{
                     color:white;
                 }
+                
+                &:last-child{
+                    padding:8px 20px;
+                    border-radius:10px;
+                    background-color:$cares;
+                }
             }
+
         }
     
         .navbar-brand{
             flex:1;
-            font-size:20px;
             font-weight:normal;
         }
     }
@@ -51,4 +63,10 @@
     top: 50px;
     position: relative;
     box-shadow: 0px 20px 20px 0px #333;
+}
+
+.navItem{
+    font-size:15px;
+    margin:0px 10px;
+    font-weight:550;
 }

@@ -1,0 +1,52 @@
+.post-container{
+    padding:100px;
+
+    h1{
+        color:$studios;
+    }
+
+    h2, h3 {
+        color:$studios_light;
+    }
+
+    p{
+        color:$black;
+        font-size:18px;
+    }
+
+    ul, ol {
+        color: $slate;
+    }
+}
+
+.more-stories{
+    background-color:$studios;
+    padding:50px;
+
+    .blade_title {
+        color:$studios_light;
+        font-size:55px;
+        text-transform:uppercase;
+    }
+}
+
+.contact-form-container{
+    padding:50px;
+    
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+
+    h3{
+        text-transform:uppercase;
+        color:$studios_black;
+        font-size:28px;
+    }
+
+    p{
+        font-size:16px;
+        max-width:35vw;
+        text-align:center;
+    }
+}

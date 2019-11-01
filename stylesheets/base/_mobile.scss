@@ -1,0 +1,163 @@
+@import '../_variables';
+
+@media screen and (max-width: $phone-width){
+    .header_image{ 
+        display:none;
+    }
+
+    .Homepage-Heading{
+        .content{
+            margin:150px 0px !important;
+
+            h1{
+                padding:0px;
+                max-width:90vw;
+                margin:20px 10vw;
+            }
+
+            p{
+                padding:0px;
+                max-width:90vw;
+                margin:20px 10vw;
+            }
+
+            .cta_btn_cont a, button {
+                margin:0px 10px 0px 0px;
+            }
+
+        }
+    }
+
+    .Carousel {
+        .carousel_item{
+            height:650px;
+
+            .carousel_bg_img{
+                height: 550px;
+
+                .carousel_content{
+                    width:100%;
+                    height:100%;
+                    top:0px;
+                    left:0px;
+                    z-index: 99;
+                }
+            }
+        }
+    }
+
+    .big_title, h1, h2{
+        font-size:50px;
+    }
+
+
+    .cardView .big_title a, .cardView h1, .cardView h2, .cardView h3, .cardView h4, .cardView h5 {
+        margin:0px;
+        padding:0px;
+        font-size:60px;
+        text-align:center;
+    }
+}
+
+@media screen and (min-width: $phone-width) and (max-width: $tablet-width){
+    .header_image{ 
+        display:none;
+    }
+
+    .Carousel {
+        .carousel_item{
+            height:600px;
+
+            .carousel_bg_img{
+                height:500px;
+
+                .carousel_content{
+                    width:100%;
+                    top:0px;
+                    left:0px;
+                    z-index: 99;
+                }
+            }
+        }
+    }
+
+    .big_title, h1, h2{
+        font-size:70px;
+    }
+
+    .cardView .big_title a, .cardView h1, .cardView h2, .cardView h3, .cardView h4, .cardView h5 {
+        margin:0px;
+        padding:0px;
+        font-size:60px;
+        text-align:center;
+    }
+}
+
+
+@media screen and (min-width: $tablet-width) and (max-width: $desktop-width) {
+    .header_image{ 
+        top:20%;
+        right:10%;
+    }
+
+    .Carousel {
+        .carousel_item{
+            height:600px;
+
+            .carousel_bg_img{
+                height:500px;
+
+                .carousel_content{
+                    position:absolute;
+
+                    width:50vw;
+                    max-width:500px;
+                    top:-70px;
+                    left: -70px;
+                    z-index: 99;
+                }
+            }
+        }
+    }
+
+    .cardView .big_title a, .cardView h1, .cardView h2, .cardView h3, .cardView h4, .cardView h5 {
+        margin:0px 0px 0px 100px;
+        padding-top:5px;
+        font-size:90px;
+        text-align:left;
+    }
+}
+
+@media screen and (min-width: $desktop-width){
+    .header_image{ 
+        top:25%;
+        right:10%;
+    }
+
+    .Carousel {
+        .carousel_item{
+            height:600px;
+
+            .carousel_bg_img{
+                height:500px;
+
+                .carousel_content{
+                    position:absolute;
+
+                    width:50vw;
+                    max-width:500px;
+                    top:-70px;
+                    left: -70px;
+                    z-index: 99;
+                }
+            }
+        }
+    }
+
+    .cardView .big_title a, .cardView h1, .cardView h2, .cardView h3, .cardView h4, .cardView h5 {
+        margin:0px 0px 0px 100px;
+        padding-top:5px;
+        font-size:90px;
+        text-align:left;
+    }
+}

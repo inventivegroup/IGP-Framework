@@ -23,15 +23,34 @@ export default props => ( <StaticQuery query={graphql`
                 id
                 type
             }
+
             headline
             description
             image
-
             primary_blade_color
             secondary_blade_color
-            divider_bottom
-            divider_bottom_color
+            page_divider_bottom
+            page_divider_bottom_color
             gradient_angle
+
+            header_button_text
+            header_button{
+              ... on PRISMIC__ExternalLink{
+                url
+              }
+
+              ... on PRISMIC__FileLink{
+                name
+                url
+                size
+              }
+
+              ... on PRISMIC_Blog_home {
+                _meta{
+                  uid
+                }
+              }
+            }
             
         
           body{
@@ -85,9 +104,11 @@ export default props => ( <StaticQuery query={graphql`
                 secondary_blade_color1
                 gradient_angle1
                 divider_top
+                divider_top_flipped
                 divider_top_color
-                divider_bottom1
-                divider_bottom_color1
+                divider_bottom
+                divider_bottom_flipped
+                divider_bottom_color
               }
 
               fields{
@@ -134,8 +155,9 @@ export default props => ( <StaticQuery query={graphql`
                 secondary_blade_color
                 gradient_angle
                 divider_top
-                divider_bottom
                 divider_top_color
+                divider_bottom
+                divider_bottom_flipped
                 divider_bottom_color
               }
 
@@ -157,9 +179,11 @@ export default props => ( <StaticQuery query={graphql`
                 secondary_blade_color1
                 gradient_angle1
                 divider_top
+                divider_top_flipped
                 divider_top_color
-                divider_bottom1
-                divider_bottom_color1
+                divider_bottom
+                divider_bottom_flipped
+                divider_bottom_color
 
                 bubble_one
                 bubble_two
@@ -186,9 +210,11 @@ export default props => ( <StaticQuery query={graphql`
                 primary_blade_color1
                 secondary_blade_color1
                 divider_top
+                divider_top_flipped
                 divider_top_color
-                divider_bottom1
-                divider_bottom_color1
+                divider_bottom
+                divider_bottom_flipped
+                divider_bottom_color
                 post_limit
               }
             }
@@ -204,9 +230,9 @@ export default props => ( <StaticQuery query={graphql`
                 divider_top
                 divider_top_flipped
                 divider_top_color
-                divider_bottom1
+                divider_bottom
                 divider_bottom_flipped
-                divider_bottom_color1
+                divider_bottom_color
                 layout
                 item_background_color
               }
@@ -227,12 +253,12 @@ export default props => ( <StaticQuery query={graphql`
                 primary_section_color
                 secondary_section_color
                 gradient_angle1
-                section_divider_top
-                section_divider_top_flipped
-                section_divider_top_color
-                section_divider_bottom
-                section_divider_bottom_flipped
-                section_divider_bottom_color
+                divider_top
+                divider_top_flipped
+                divider_top_color
+                divider_bottom
+                divider_bottom_flipped
+                divider_bottom_color
                 popular_plan
 
                 plan_one_icon_name
@@ -391,10 +417,11 @@ export default props => ( <StaticQuery query={graphql`
                 secondary_blade_color1
                 gradient_angle1
                 divider_top
+                divider_top_flipped
                 divider_top_color
-                divider_bottom1
-                divider_bottom_color1
-                layout
+                divider_bottom
+                divider_bottom_flipped
+                divider_bottom_color
               }
 
               fields{
@@ -412,7 +439,14 @@ export default props => ( <StaticQuery query={graphql`
               label
 
               primary{
-                map_coordinates
+                divider_top
+                divider_top_color
+                divider_top_flipped
+                
+                divider_bottom
+                divider_bottom_color
+                divider_bottom_flipped
+                marker
               }
             }
           }

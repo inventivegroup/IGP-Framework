@@ -1,0 +1,18 @@
+.text-col{
+    padding:50px;
+
+    h2, h3, h4, h5, h6{
+        text-align:center;
+        color:$studios;
+        padding-bottom:20px;
+    }
+
+    .columns{
+        display:flex;
+        justify-content: space-around;
+
+        .featured_image{
+            max-width:250px;
+        }
+    }
+}

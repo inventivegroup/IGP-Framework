@@ -5,8 +5,6 @@ import htmlSerializer from '../../utils/htmlSerializer';
 import { Button } from 'reactstrap';
 
 
-// Sort and display the different slice options
-
 const getGradient = (color) => {
     const res = (() => {
         switch(color){

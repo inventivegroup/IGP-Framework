@@ -5,7 +5,7 @@
     .primary_cta_btn{
         margin:0px 10px;
         background-color:$cares;
-        padding:0px 15px;
+        padding:10px 15px;
         color:white;
         border-radius:10px;
         transition:all, 0.3s;
@@ -25,6 +25,25 @@
     .secondary_cta_btn{
         margin:0px 10px;
         background-color:$dark_smoke;
+        color:$studios;
+        padding:5px 15px;
+        border-radius:10px;
+        transition:all, 0.3s;
+        font-size:16px;
+        font-weight:bold;
+
+        display:flex;
+        align-items: center;
+    
+        &:hover{
+            color:$studios;
+            background-color:$smoke;
+        }
+    }    
+   
+    .border_cta_btn{
+        margin:0px 10px;
+        border:solid 2px $smoke;
         color:$studios;
         padding:5px 15px;
         border-radius:10px;

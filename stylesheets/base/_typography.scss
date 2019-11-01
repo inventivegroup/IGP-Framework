@@ -1,5 +1,4 @@
 a {
-  color: #353535;
   text-decoration: none;
   background-repeat: repeat-x;
   background-size: 2px 2px;
@@ -61,5 +60,125 @@ em {
   }
   pre {
     font-size: 14px;
+  }
+}
+
+.subtitle {
+  &.academy{
+      color:$academy;
+  }
+  
+  &.academy_light{
+      color:$academy_light;
+  }
+  
+  &.academy_dark{
+      color:$academy_dark;
+  }
+  
+  &.academy_black{
+      color:$academy_black;
+  }
+  
+ 
+  &.patriots{
+      color:$patriots;
+  }
+  
+  &.patriots_light{
+      color:$patriots_light;
+  }
+  
+  &.patriots_dark{
+      color:$patriots_dark;
+  }
+  
+  &.patriots_black{
+      color:$patriots_black;
+  }
+  
+  
+  &.studios{
+      color:$studios;
+  }
+  
+  &.studios_light{
+      color:$studios_light;
+  }
+  
+  &.studios_dark{
+      color:$studios_dark;
+  }
+  
+  &.studios_black{
+      color:$studios_black;
+  }
+
+  
+  &.patriots{
+      color:$patriots;
+  }
+  
+  &.patriots_light{
+      color:$patriots_light;
+  }
+  
+  &.patriots_dark{
+      color:$patriots_dark;
+  }
+  
+  &.patriots_black{
+      color:$patriots_black;
+  }
+  
+
+  &.ventures{
+      color:$ventures;
+  }
+  
+  &.ventures_light{
+      color:$ventures_light;
+  }
+  
+  &.ventures_dark{
+      color:$ventures_dark;
+  }
+  
+  &.ventures_black{
+      color:$ventures_black;
+  }
+  
+
+  &.inventive{
+      color:$inventive;
+  }
+  
+  &.inventive_light{
+      color:$inventive_light;
+  }
+  
+  &.inventive_dark{
+      color:$inventive_dark;
+  }
+  
+  &.inventive_black{
+      color:$inventive_black;
+  }
+
+
+  &.cares{
+      color:$cares;
+  }
+  
+  &.cares_light{
+      color:$cares_light;
+  }
+  
+  &.cares_dark{
+      color:$cares_dark;
+  }
+  
+  &.cares_black{
+      color:$cares_black;
   }
 }
