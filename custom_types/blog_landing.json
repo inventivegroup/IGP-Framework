@@ -1,0 +1,87 @@
+{
+    "Main" : {
+      "featured_post_title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1",
+          "label" : "Featured Post Title",
+          "placeholder" : "Featured Post Title"
+        }
+      },
+      "featured_post_custom_description" : {
+        "type" : "StructuredText",
+        "config" : {
+          "multi" : "paragraph, strong, em, hyperlink",
+          "label" : "Featured Post Custom Description",
+          "placeholder" : "Featured Post Custom Description"
+        }
+      },
+      "post_author" : {
+        "type" : "Select",
+        "config" : {
+          "options" : [ "Maisy", "Laura", "Andy", "James", "Miguel", "Other" ],
+          "label" : "Post Author",
+          "placeholder" : "Post Author"
+        }
+      },
+      "body" : {
+        "type" : "Slices",
+        "fieldset" : "Slice zone",
+        "config" : {
+          "choices" : {
+            "newsletter_blade" : {
+              "type" : "Slice",
+              "fieldset" : "Newsletter Blade",
+              "description" : "An Invitation to our weekly newsletter section",
+              "icon" : "announcement",
+              "display" : "list",
+              "non-repeat" : {
+                "featured_image" : {
+                  "type" : "Image",
+                  "config" : {
+                    "constraint" : { },
+                    "thumbnails" : [ ],
+                    "label" : "Featured Image"
+                  }
+                },
+                "background_color" : {
+                  "type" : "Select",
+                  "config" : {
+                    "options" : [ "purple", "blue", "green", "navy green", "yellow", "orange", "red", "white" ],
+                    "default_value" : "purple",
+                    "label" : "Background Color",
+                    "placeholder" : "Background Color"
+                  }
+                },
+                "subtitle" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "single" : "heading3",
+                    "label" : "Subtitle",
+                    "placeholder" : "Subtitle"
+                  }
+                },
+                "title" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "single" : "heading2",
+                    "label" : "Title",
+                    "placeholder" : "Title"
+                  }
+                },
+                "content" : {
+                  "type" : "StructuredText",
+                  "config" : {
+                    "multi" : "paragraph, strong, em",
+                    "label" : "Content",
+                    "placeholder" : "Content"
+                  }
+                }
+              },
+              "repeat" : { }
+            }
+          }
+        }
+      }
+    }
+  }

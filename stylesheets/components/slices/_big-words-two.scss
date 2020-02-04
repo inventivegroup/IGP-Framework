@@ -1,0 +1,24 @@
+.big-words-two{
+    padding: 30px;
+    min-height: 400px;
+    .big-words-box{
+        max-width: 600px;
+        .big-words-subtitle{
+            font-size: 42px;
+            line-height: 44px;
+            word-break: break-word;
+        }
+        .big-words-title{
+            font-size: 96px;
+            line-height: 100px;
+            word-break: break-word;
+        }
+        .big-words-content{
+            font-size: 18px;
+            line-height: 22px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            word-break: break-word;
+        }
+    }
+}

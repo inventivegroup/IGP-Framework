@@ -1,24 +1,34 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby'
+import Banner from '../general/Banner';
 
 const Sidebar = ({ data }) => {
+    let postData = data.allPosts.edges;
+    let sidebarData = data.allPost_sidebars.edges[0].node.banner;
+
+    console.log(sidebarData);
     return (
-        <div className="sidebar col-md-4">
+        <div className="sidebar col-md-3">
+            <div className="banner-container">
+              {sidebarData.map((bannerData, index) => {
+                return <Banner data={bannerData}/>
+              })}
+            </div>
+
             <div className="recent-posts">
                 <h3>Recent Posts</h3>
-                <hr/>
-                {data.map((post, index) => {
+                {postData.map((post, index) => {
                     if(index < 5 ){ // Wont show more than 6 post titles
                         return <div key={index}><a className="post-title-link" href={`/blog/${post.node._meta.uid}`} key={index}>{post.node.title[0].text}</a></div>
                     } 
                     return "No Recent Posts";
                 })}
+                <hr/>
             </div>
 
             <div className="categories"> 
                 <h3>Categories</h3>
-                <hr/>
-
+                
                 <div>
                     <div><a className="category-link" href={`/blog#all`}>All</a></div>
                     <div><a className="category-link" href={`/blog#academy`}>Academy</a></div>
@@ -57,9 +67,43 @@ export default props => ( <StaticQuery query={graphql`
         }
       }
     }
+    allPost_sidebars{
+      edges{
+       node{
+         sidebar_background_color
+         banner{
+           featured_image
+           short_description
+           banner_cta_button{
+             __typename
+
+            ... on PRISMIC__FileLink{
+              url
+            }
+            
+            ... on PRISMIC__ExternalLink{
+              url
+            }
+            
+            ... on PRISMIC_Post {
+              _meta{
+                uid
+              }
+            }
+            ... on PRISMIC_Page {
+              _meta{
+                uid
+              }
+            }
+           }
+           custom_cta_button_text
+         }
+       }
+     }
+   }
   }
 }
 `} 
-    render={ data => <Sidebar data={data.prismic.allPosts.edges}></Sidebar> }
+    render={ data => <Sidebar data={data.prismic}></Sidebar> }
   /> 
 );

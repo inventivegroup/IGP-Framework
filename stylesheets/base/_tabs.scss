@@ -1,0 +1,112 @@
+.tabs{
+    min-height:300px;
+    padding:20px;
+    
+    .tab-container{
+        // border: solid 6px $cares;
+        margin:30px;
+
+
+        .nav-tabs{
+            display:flex;
+            width:100%;
+
+
+            .nav-item{
+                flex:1;
+                background-color:$smoke;
+                text-align:center;
+                
+                .nav-link{
+                    height: 60px;
+                    min-width:150px;
+                    display:Flex;
+                    align-items:Center;
+                    justify-content:center;
+                    border-radius:0px;
+                    border:0px;
+                    font-weight:600;
+                    text-transform:uppercase;
+                    color:$steel;
+                    
+                    &.active{
+                        background-color:$cares_light;
+                        color:white;
+                    }
+                }
+            }
+        }
+
+        .tab{
+            background-color: #f9f9f9;
+            border: solid 5px $smoke;
+            // padding:20px;
+            margin-top:20px;
+            
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+
+            .tab-pane{
+                width:100%;
+            }
+
+            .popular{
+                border-color:$cares;
+            }
+
+            a{
+                margin:10px auto;
+            }
+
+            .perks{
+                padding:10px 20px;
+
+            }
+
+            .pricing{
+                width:100%;
+            }
+
+            .price, span{
+                font-size:35px;
+                font-weight:800;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            p{
+                margin:0px;
+                padding:0px;
+            }
+
+            p:first-child{
+                margin-top:10px;
+            }
+
+            svg{
+                font-size:70px;
+            }
+
+            .plan_image{
+                background-size:cover;
+                background-position:center;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+
+                flex:1;
+        
+                min-height:300px;
+                min-width:400px;
+            }
+
+            .content{
+                flex:1;
+                padding:20px;
+            }
+        }
+    }
+}

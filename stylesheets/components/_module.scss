@@ -16,9 +16,18 @@
 @import "./slices/text-columns";
 @import "./slices/sidebar";
 @import "./slices/map";
+@import "./slices/drop-in";
+@import "./slices/list";
+@import "./slices/count-up";
+@import "./slices/media";
+@import "./slices/big-words-one";
+@import "./slices/big-words-two";
+
+// general
+@import "./general/blade-container";
+@import "./slices/blog-posts.scss";
 
 // custom
-@import "./blog-posts";
 @import "./bubbles";
 
 // dividers

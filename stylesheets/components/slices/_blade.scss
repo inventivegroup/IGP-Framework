@@ -7,7 +7,6 @@
     justify-content:space-between;
     
     p, h1, h2, h3, h4 {
-        color:white;
         text-align:left;
         padding:0px 50px;
         max-width:70vw;
@@ -24,6 +23,19 @@
 
     .content{
         margin:150px 50px 0px 0px;
+        
+        
+        &.white{
+            color:white;
+        }
+        
+        &.black{
+            color:$black;
+        }
+        
+        &.smoke{
+            color:$smoke;
+        }
     }
 }
 
@@ -33,6 +45,7 @@
     color:white;
     position:relative;
     padding:0px 0px;
+    min-height:700px;
 
     .content-container{
         width:100vw;
@@ -44,6 +57,17 @@
             margin:0px auto;
 
          }
+
+        .big-content{
+            color:black;
+            font-size:28px;
+            text-align:left;
+            
+        }
+
+        .parallax-content-container{
+            height:80%;
+        }
     }
 
     .bubble{
@@ -63,7 +87,12 @@
             align-items:center;
             justify-content: center;
             padding:20px;
+            max-height:77px;
+            max-width:77px;
 
+            svg{
+                font-size:35px;
+            }
 
             img{
                 height:77px;
@@ -76,6 +105,12 @@
             display:flex;
             align-items:center;
             justify-content: center;
+            max-height:100px;
+            max-width:100px;
+
+            svg{
+                font-size:45px;
+            }
 
             img{
                 height:100px;
@@ -88,6 +123,12 @@
             display:flex;
             align-items:center;
             justify-content: center;
+            max-height:120px;
+            max-width:120px; 
+
+            svg{
+                font-size:50px
+            }
 
 
             img{
@@ -101,6 +142,12 @@
             align-items:center;
             justify-content: center;
             padding:10px;
+            max-height:43px;
+            max-width:43px;
+
+            svg{
+                font-size:20px
+            }
 
             img{
                 height:43px;
@@ -108,75 +155,6 @@
             }
         }
     
-    
-        &.one{ // Top Left Big Bubble
-            top:-100px;
-            left: calc(53% - 28.88889vw);
-    
-        }
-
-        &.two{ // Bottom right big Bubble
-            top:760px;
-            right:350px;
-    
-        }
-
-        &.three{ // Top Left Small Bubble
-            top:-50px;
-            left:570px;
-        }
-
-
-        &.four{ // Bottom Right Small Bubble
-            top:700px;
-            right:170px;
-        }
-
-
-        &.five{ // Middle Left medium Bubble
-            top:100px;
-            left:180px;
-        }
-
-        &.six{ // Bottom Middle Medium Bubble
-            top:420px;
-            right:280px;
-        }
-
-        &.seven{ // Middle Bottom Small Bubble
-            top:0px;
-            left:100px;
-        }
-
-        &.eight{ // Bottom Left Small Bubble
-            top:0px;
-            right:100px;
-        }
-
-        // &.nine{ // Bottom Middle SM/MD Bubble
-        //     top:300px;
-        //     left:-100px;
-        // }
-
-        // &.ten{ // Left Middle Medium bubble
-        //     top:100px;
-        //     left:-300px;
-        // }
-
-        // &.eleven{
-        //     top:450px;
-        //     left:80px;
-        // }
-
-        // &.twelve{
-        //     top:-180px;
-        //     left:260px;
-        // }
-
-        // &.thirteen{
-        //     top:100px;
-        //     left:-200px;
-        // }
     }
     
 }

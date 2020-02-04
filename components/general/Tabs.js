@@ -12,8 +12,6 @@ export default class Tabs extends React.Component{
 
         // const { tabs } = this.props;
 
-        // console.log(this.props);
-
         return (
             <div>
                 {/* <Nav tabs>

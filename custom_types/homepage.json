@@ -1,0 +1,3155 @@
+{
+  "Main": {
+    "headline": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Headline",
+        "placeholder": "Main title..."
+      }
+    },
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "heading2",
+        "label": "Description",
+        "placeholder": "Sub-title..."
+      }
+    },
+    "header_button": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Header Button",
+        "placeholder": "Header Button"
+      }
+    },
+    "header_button_text": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading3",
+        "label": "Header Button Text",
+        "placeholder": "Header Button Text"
+      }
+    },
+    "primary_blade_color": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "white",
+          "smoke",
+          "studios light",
+          "studios",
+          "studios dark",
+          "studios black",
+          "patriots light",
+          "patriots",
+          "patriots dark",
+          "patriots black",
+          "inventive light",
+          "inventive",
+          "inventive dark",
+          "inventive black",
+          "cares light",
+          "cares",
+          "cares dark",
+          "cares black",
+          "staffing light",
+          "staffing",
+          "staffing dark",
+          "staffing black",
+          "academy light",
+          "academy",
+          "academy dark",
+          "academy black",
+          "ventures light",
+          "ventures",
+          "ventures dark",
+          "ventures black"
+        ],
+        "label": "Primary Blade Color",
+        "placeholder": "Primary Background Color"
+      }
+    },
+    "secondary_blade_color": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "none",
+          "white",
+          "smoke",
+          "studios light",
+          "studios",
+          "studios dark",
+          "studios black",
+          "patriots light",
+          "patriots",
+          "patriots dark",
+          "patriots black",
+          "inventive light",
+          "inventive",
+          "inventive dark",
+          "inventive black",
+          "cares light",
+          "cares",
+          "cares dark",
+          "cares black",
+          "staffing light",
+          "staffing",
+          "staffing dark",
+          "staffing black",
+          "academy light",
+          "academy",
+          "academy dark",
+          "academy black",
+          "ventures light",
+          "ventures",
+          "ventures dark",
+          "ventures black"
+        ],
+        "default_value": "none",
+        "label": "Secondary Blade Color",
+        "placeholder": "Secondary Background Color"
+      }
+    },
+    "gradient_angle": {
+      "type": "Number",
+      "config": {
+        "label": "Gradient angle",
+        "placeholder": "Angle ( 0 - 360 )"
+      }
+    },
+    "page_divider_bottom": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "none",
+          "diagonal",
+          "wavy",
+          "round",
+          "swoosh"
+        ],
+        "label": "Page Divider Bottom",
+        "placeholder": "Divider Bottom"
+      }
+    },
+    "page_divider_bottom_color": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "white",
+          "smoke",
+          "studios light",
+          "studios",
+          "studios dark",
+          "studios black",
+          "patriots light",
+          "patriots",
+          "patriots dark",
+          "patriots black",
+          "inventive light",
+          "inventive",
+          "inventive dark",
+          "inventive black",
+          "cares light",
+          "cares",
+          "cares dark",
+          "cares black",
+          "staffing light",
+          "staffing",
+          "staffing dark",
+          "staffing black",
+          "academy light",
+          "academy",
+          "academy dark",
+          "academy black",
+          "ventures light",
+          "ventures",
+          "ventures dark",
+          "ventures black"
+        ],
+        "label": "Page Divider Bottom Color",
+        "placeholder": "Page Divider Bottom Color"
+      }
+    },
+    "image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Image"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "choices": {
+          "cta_one": {
+            "type": "Slice",
+            "fieldset": "CTA One",
+            "description": "Title / Text / CTA Button / Image",
+            "icon": "art_track",
+            "display": "list",
+            "non-repeat": {
+              "section_subtitle": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "Section Subtitle",
+                  "placeholder": "Colorful statement above the title"
+                }
+              },
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Title",
+                  "placeholder": "Section Title"
+                }
+              },
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, strong, em, hyperlink, embed, list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Content",
+                  "placeholder": "Main Text"
+                }
+              },
+              "cta": {
+                "type": "Link",
+                "config": {
+                  "label": "CTA",
+                  "placeholder": "CTA"
+                }
+              },
+              "cta_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "allowTargetBlank": true,
+                  "label": "Cta Text",
+                  "placeholder": "Custom Text on CTA"
+                }
+              },
+              "text_alignment": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "left",
+                    "right",
+                    "center"
+                  ],
+                  "default_value": "left",
+                  "label": "Text Alignment",
+                  "placeholder": "Text Alignment"
+                }
+              },
+              "primary_blade_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "default_value": "white",
+                  "label": "Primary Blade Color",
+                  "placeholder": "Primary Blade Color"
+                }
+              },
+              "secondary_blade_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "default_value": "none",
+                  "label": "Secondary Blade Color",
+                  "placeholder": "Secondary Blade Color"
+                }
+              },
+              "gradient_angle": {
+                "type": "Number",
+                "config": {
+                  "label": "Gradient Angle",
+                  "placeholder": "Gradient 0 - 360"
+                }
+              },
+              "divider_top": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "wavy",
+                    "round",
+                    "swoosh"
+                  ],
+                  "default_value": "none",
+                  "label": "Divider Top",
+                  "placeholder": "Divider Top"
+                }
+              },
+              "divider_top_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "false",
+                    "true"
+                  ],
+                  "label": "Divider Top Flipped",
+                  "placeholder": "Flip Divider Top"
+                }
+              },
+              "divider_top_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "default_value": "white",
+                  "label": "Divider Top Color",
+                  "placeholder": "Divider Top Color"
+                }
+              },
+              "divider_bottom": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "wavy",
+                    "round",
+                    "swoosh"
+                  ],
+                  "default_value": "none",
+                  "label": "Divider Bottom",
+                  "placeholder": "Divider Bottom"
+                }
+              },
+              "divider_bottom_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "false",
+                    "true"
+                  ],
+                  "label": "Divider Bottom Flipped",
+                  "placeholder": "Flip Divider Bottom"
+                }
+              },
+              "divider_bottom_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "default_value": "white",
+                  "label": "Divider Bottom Color",
+                  "placeholder": "Divider Bottom Color"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              },
+              "layout": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "image left",
+                    "image right"
+                  ],
+                  "default_value": "image left",
+                  "label": "layout",
+                  "placeholder": "Layout"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "cta_three": {
+            "type": "Slice",
+            "fieldset": "CTA Three",
+            "description": "Title / Text / CTA Button(s) / Bg Video, Image, or Color",
+            "icon": "chrome_reader_mode",
+            "display": "list",
+            "non-repeat": {
+              "section_subtitle": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "Section Subtitle",
+                  "placeholder": "Colorful statement above the title"
+                }
+              },
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Title",
+                  "placeholder": "Section Title"
+                }
+              },
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, strong, em, hyperlink, embed, list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Content",
+                  "placeholder": "Main Text"
+                }
+              },
+              "text_alignment": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "left",
+                    "right",
+                    "center"
+                  ],
+                  "default_value": "left",
+                  "label": "Text Alignment",
+                  "placeholder": "Text Alignment"
+                }
+              },
+              "primary_blade_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "default_value": "white",
+                  "label": "Primary Blade Color",
+                  "placeholder": "Primary Blade Color"
+                }
+              },
+              "secondary_blade_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "default_value": "none",
+                  "label": "Secondary Blade Color",
+                  "placeholder": "Secondary Blade Color"
+                }
+              },
+              "gradient_angle": {
+                "type": "Number",
+                "config": {
+                  "label": "Gradient Angle",
+                  "placeholder": "Gradient 0 - 360"
+                }
+              },
+              "divider_top": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "wavy",
+                    "round",
+                    "swoosh"
+                  ],
+                  "default_value": "none",
+                  "label": "Divider Top",
+                  "placeholder": "Divider Top"
+                }
+              },
+              "divider_top_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "false",
+                    "true"
+                  ],
+                  "label": "Divider Top Flipped",
+                  "placeholder": "Flip Divider Top"
+                }
+              },
+              "divider_top_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "default_value": "white",
+                  "label": "Divider Top Color",
+                  "placeholder": "Divider Top Color"
+                }
+              },
+              "divider_bottom": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "wavy",
+                    "round",
+                    "swoosh"
+                  ],
+                  "default_value": "none",
+                  "label": "Divider Bottom",
+                  "placeholder": "Divider Bottom"
+                }
+              },
+              "divider_bottom_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "false",
+                    "true"
+                  ],
+                  "label": "Divider Bottom Flipped",
+                  "placeholder": "Flip Divider Bottom"
+                }
+              },
+              "divider_bottom_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "default_value": "white",
+                  "label": "Divider Bottom Color",
+                  "placeholder": "Divider Bottom Color"
+                }
+              },
+              "layout": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "content left",
+                    "content center",
+                    "content right"
+                  ],
+                  "default_value": "content left",
+                  "label": "layout",
+                  "placeholder": "Layout"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Background Image"
+                }
+              },
+              "video": {
+                "type": "Embed",
+                "config": {
+                  "label": "Background Video",
+                  "placeholder": "Background Video"
+                }
+              }
+            },
+            "repeat": {
+              "cta": {
+                "type": "Link",
+                "config": {
+                  "label": "CTA",
+                  "placeholder": "CTA Button"
+                }
+              },
+              "cta_text": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph",
+                  "label": "CTA Text",
+                  "placeholder": "Custom Text on CTA"
+                }
+              }
+            }
+          },
+          "card_view": {
+            "type": "Slice",
+            "fieldset": "Card View",
+            "description": "Different card Views ( can also be used for staff members )",
+            "icon": "apps",
+            "display": "grid",
+            "non-repeat": {
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2, heading3",
+                  "label": "Section Title",
+                  "placeholder": "Section Title"
+                }
+              },
+              "primary_blade_color1": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "default_value": "white",
+                  "label": "Primary Blade Color",
+                  "placeholder": "Primary Blade Color"
+                }
+              },
+              "secondary_blade_color1": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Secondary Blade Color",
+                  "placeholder": "Secondary Blade Color"
+                }
+              },
+              "slice_gradient_angle": {
+                "type": "Number",
+                "config": {
+                  "label": "Slice Gradient Angle",
+                  "placeholder": "Angle ( 0 - 360 )"
+                }
+              },
+              "divider_top": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "wavy",
+                    "round",
+                    "swoosh"
+                  ],
+                  "label": "Divider Top",
+                  "placeholder": "Divider Top"
+                }
+              },
+              "divider_top_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "true",
+                    "false"
+                  ],
+                  "label": "Divider Top Flipped",
+                  "placeholder": "Flip Divider Top (horizontally)"
+                }
+              },
+              "divider_top_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Divider Top Color",
+                  "placeholder": "Divider Top Color"
+                }
+              },
+              "divider_bottom": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "diagonal reverse",
+                    "wavy",
+                    "round",
+                    "swoosh"
+                  ],
+                  "label": "Divider Bottom",
+                  "placeholder": "Divider Bottom"
+                }
+              },
+              "divider_bottom_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "true",
+                    "false"
+                  ],
+                  "label": "Divider Bottom Flipped",
+                  "placeholder": "Flip Divider Bottom ( horizontaly )"
+                }
+              },
+              "divider_bottom_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "divider Bottom Color",
+                  "placeholder": "Divider Bottom Color"
+                }
+              },
+              "layout": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "image-right",
+                    "image-top-bg-color",
+                    "image-top-no-bg-color"
+                  ],
+                  "label": "Layout",
+                  "placeholder": "All Items Layout"
+                }
+              },
+              "item_background_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "white",
+                    "light_grey"
+                  ],
+                  "default_value": "none",
+                  "label": "Item Background Color",
+                  "placeholder": "Item Background Color"
+                }
+              }
+            },
+            "repeat": {
+              "image1": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              },
+              "icon": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Icon",
+                  "placeholder": "Icon Name ( don't include the fa fa- ) just the name! :)"
+                }
+              },
+              "big_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Big Title",
+                  "placeholder": "Big Title"
+                }
+              },
+              "subtitle": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "Subtitle",
+                  "placeholder": "Subtitle"
+                }
+              },
+              "description1": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, strong, em",
+                  "label": "description",
+                  "placeholder": "Description"
+                }
+              }
+            }
+          },
+          "blog_posts": {
+            "type": "Slice",
+            "fieldset": "Blog Posts",
+            "description": "A card view of all our top ten blog posts",
+            "icon": "dialpad",
+            "display": "grid",
+            "non-repeat": {
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Section Title",
+                  "placeholder": "Title"
+                }
+              },
+              "description1": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading4, strong, em, list-item, o-list-item",
+                  "label": "Description",
+                  "placeholder": "Short Description"
+                }
+              },
+              "primary_blade_color1": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Primary Blade Color",
+                  "placeholder": "Primary BG Color"
+                }
+              },
+              "secondary_blade_color1": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "default_value": "none",
+                  "label": "Secondary Blade Color",
+                  "placeholder": "Secondary Blade Color"
+                }
+              },
+              "divider_top": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "wavy",
+                    "round",
+                    "swoosh"
+                  ],
+                  "default_value": "none",
+                  "label": "Divider Top",
+                  "placeholder": "Divider Top"
+                }
+              },
+              "divider_top_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "true",
+                    "false"
+                  ],
+                  "label": "Divider Top Flipped",
+                  "placeholder": "Flip Divider Top"
+                }
+              },
+              "divider_top_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Divider Top Color",
+                  "placeholder": "Divider Top Color"
+                }
+              },
+              "divider_bottom": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "wavy",
+                    "round",
+                    "swoosh"
+                  ],
+                  "default_value": "none",
+                  "label": "Divider Bottom",
+                  "placeholder": "Divider Bottom"
+                }
+              },
+              "divider_bottom_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "false",
+                    "true"
+                  ],
+                  "label": "Divider Bottom Flipped",
+                  "placeholder": "Flip Divider Bottom"
+                }
+              },
+              "divider_bottom_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Divider Bottom Color",
+                  "placeholder": "Divider Bottom Color"
+                }
+              },
+              "post_limit": {
+                "type": "Number",
+                "config": {
+                  "label": "Post Limit",
+                  "placeholder": "Limit of posts in section"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "carousel": {
+            "type": "Slice",
+            "fieldset": "Carousel",
+            "description": "A sliding image gallery with a content section",
+            "icon": "blur_linear",
+            "display": "grid",
+            "non-repeat": {
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Section Title",
+                  "placeholder": "Section Title"
+                }
+              },
+              "description1": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading4, strong, em, hyperlink, list-item, o-list-item",
+                  "label": "Description",
+                  "placeholder": "Description"
+                }
+              },
+              "primary_blade_color1": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Primary Blade Color",
+                  "placeholder": "Primary Blade Color"
+                }
+              },
+              "secondary_blade_color1": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "default_value": "none",
+                  "label": "Secondary Blade Color",
+                  "placeholder": "Secondary Blade Color"
+                }
+              },
+              "gradient_angle1": {
+                "type": "Number",
+                "config": {
+                  "label": "Gradient Angle",
+                  "placeholder": "Angle 0 - 360"
+                }
+              },
+              "divider_top": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "wavy",
+                    "round",
+                    "swoosh"
+                  ],
+                  "label": "Divider Top",
+                  "placeholder": "Divider Top"
+                }
+              },
+              "divider_top_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "false",
+                    "true"
+                  ],
+                  "label": "Divider Top Flipped",
+                  "placeholder": "Flip Divider Top"
+                }
+              },
+              "divider_top_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Divider Top Color",
+                  "placeholder": "Divider Top Color"
+                }
+              },
+              "divider_bottom": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "wavy",
+                    "round",
+                    "swoosh"
+                  ],
+                  "label": "Divider Bottom",
+                  "placeholder": "Divider Bottom"
+                }
+              },
+              "divider_bottom_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "true",
+                    "false"
+                  ],
+                  "label": "Divider Bottom Flipped",
+                  "placeholder": "Flip divider Bottom"
+                }
+              },
+              "divider_bottom_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Divider Bottom Color",
+                  "placeholder": "Divider Bottom Color"
+                }
+              }
+            },
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              },
+              "item_background_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Item Background Color",
+                  "placeholder": "Item Background Color"
+                }
+              },
+              "carousel_item_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "Carousel Item Title",
+                  "placeholder": "Carousel Item Title"
+                }
+              },
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item, o-list-item",
+                  "label": "Content",
+                  "placeholder": "Content"
+                }
+              },
+              "primary_cta_btn": {
+                "type": "Link",
+                "config": {
+                  "label": "Primary CTA Btn",
+                  "placeholder": "Primary CTA Btn"
+                }
+              },
+              "custom_cta_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, strong, em",
+                  "label": "Custom CTA Text",
+                  "placeholder": "Custom CTA Text"
+                }
+              }
+            }
+          },
+          "parallax_blade": {
+            "type": "Slice",
+            "fieldset": "Parallax Blade",
+            "description": "Blade with floating bubbles",
+            "icon": "blur_on",
+            "display": "list",
+            "non-repeat": {
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Section Title",
+                  "placeholder": "Section Title"
+                }
+              },
+              "description1": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading3, strong, em, hyperlink, list-item",
+                  "label": "Description",
+                  "placeholder": "Description"
+                }
+              },
+              "primary_blade_color1": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Primary Blade Color",
+                  "placeholder": "Primary Blade Color"
+                }
+              },
+              "secondary_blade_color1": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Secondary Blade Color",
+                  "placeholder": "Secondary Blade Color"
+                }
+              },
+              "gradient_angle1": {
+                "type": "Number",
+                "config": {
+                  "label": "Gradient Angle",
+                  "placeholder": "Angle 0 - 360"
+                }
+              },
+              "divider_top": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "wavy",
+                    "round",
+                    "swoosh"
+                  ],
+                  "label": "Divider Top",
+                  "placeholder": "Divider Top"
+                }
+              },
+              "divider_top_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "true",
+                    "false"
+                  ],
+                  "label": "Divider Top Flipped",
+                  "placeholder": "Flip Divider Top"
+                }
+              },
+              "divider_top_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Divider Top Color",
+                  "placeholder": "Divider Top Color"
+                }
+              },
+              "divider_bottom": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "wavy",
+                    "round",
+                    "swoosh"
+                  ],
+                  "label": "Divider Bottom",
+                  "placeholder": "Divider Bottom"
+                }
+              },
+              "divider_bottom_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "true",
+                    "false"
+                  ],
+                  "label": "Divider Bottom Flipped",
+                  "placeholder": "Flip Divider Bottom"
+                }
+              },
+              "divider_bottom_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Divider Bottom Color",
+                  "placeholder": "Divider Bottom Color"
+                }
+              },
+              "bubble_one": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Bubble One"
+                }
+              },
+              "bubble_two": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Bubble Two"
+                }
+              },
+              "bubble_three": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Bubble Three"
+                }
+              },
+              "bubble_four": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Bubble Four"
+                }
+              },
+              "bubble_five": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Bubble Five"
+                }
+              },
+              "bubble_six": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Bubble Six"
+                }
+              },
+              "bubble_seven": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Bubble Seven"
+                }
+              },
+              "bubble_eight": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Bubble Eight"
+                }
+              },
+              "bubble_nine": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Bubble Nine"
+                }
+              },
+              "bubble_ten": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Bubble Ten"
+                }
+              },
+              "bubble_eleven": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Bubble Eleven"
+                }
+              },
+              "bubble_twelve": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Bubble Twelve"
+                }
+              },
+              "bubble_thirteen": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Bubble Thirteen"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "plan": {
+            "type": "Slice",
+            "fieldset": "Plan",
+            "description": "Five long vertical cards with data",
+            "icon": "view_week",
+            "display": "list",
+            "non-repeat": {
+              "primary_section_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Primary Section Color",
+                  "placeholder": "Primary Section Color"
+                }
+              },
+              "secondary_section_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Secondary Section Color",
+                  "placeholder": "Secondary Section Color"
+                }
+              },
+              "gradient_angle1": {
+                "type": "Number",
+                "config": {
+                  "label": "Gradient Angle",
+                  "placeholder": "Angle 0 - 360"
+                }
+              },
+              "divider_top": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "wavy",
+                    "round",
+                    "swoosh"
+                  ],
+                  "label": "Divider Top",
+                  "placeholder": "Divider Top"
+                }
+              },
+              "divider_top_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Divider Top Color",
+                  "placeholder": "Divider Top Color"
+                }
+              },
+              "divider_top_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "false",
+                    "true"
+                  ],
+                  "default_value": "false",
+                  "label": "Divider Top Flipped",
+                  "placeholder": "Flip Divider Top"
+                }
+              },
+              "divider_bottom": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "wavy",
+                    "round",
+                    "swoosh"
+                  ],
+                  "label": "Divider Bottom",
+                  "placeholder": "Divider Bottom"
+                }
+              },
+              "divider_bottom_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Divider Bottom Color",
+                  "placeholder": "Divider Bottom Color"
+                }
+              },
+              "divider_bottom_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "false",
+                    "true"
+                  ],
+                  "default_value": "false",
+                  "label": "Divider Bottom Flipped",
+                  "placeholder": "Flip Divider Bottom"
+                }
+              },
+              "popular_plan": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "plan_one",
+                    "plan_two",
+                    "plan_three",
+                    "plan_four",
+                    "plan_five"
+                  ],
+                  "label": "Popular plan",
+                  "placeholder": "Popular Plan"
+                }
+              },
+              "plan_one_icon_name": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Plan One Icon Name",
+                  "placeholder": "Plan One Icon Name"
+                }
+              },
+              "plan_one_name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "Plan One Name",
+                  "placeholder": "Plan One Name"
+                }
+              },
+              "plan_one_price": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Plan One Price",
+                  "placeholder": "Plan One Price"
+                }
+              },
+              "plan_one_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Plan One Link",
+                  "placeholder": "Plan One Link"
+                }
+              },
+              "plan_one_custom_link_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Plan One Custom Link Text",
+                  "placeholder": "Plan One Custom Link Text"
+                }
+              },
+              "plan_one_perks": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "label": "Plan One Perks",
+                  "placeholder": "Plan One Perks"
+                }
+              },
+              "plan_two_icon_name": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Plan Two Icon Name",
+                  "placeholder": "Plan Two Icon Name"
+                }
+              },
+              "plan_two_name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "Plan Two Name",
+                  "placeholder": "Plan Two Name"
+                }
+              },
+              "plan_two_price": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Plan Two Price",
+                  "placeholder": "Plan Two Price"
+                }
+              },
+              "plan_two_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Plan Two Link",
+                  "placeholder": "Plan Two Link"
+                }
+              },
+              "plan_two_custom_link_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Plan Two Custom Link Text",
+                  "placeholder": "Plan Two Custom Link Text"
+                }
+              },
+              "plan_two_perks": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "label": "Plan Two Perks",
+                  "placeholder": "Plan Two Perks"
+                }
+              },
+              "plan_three_icon_name": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Plan Three Icon Name",
+                  "placeholder": "Plan Three Icon Name"
+                }
+              },
+              "plan_three_name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "Plan Three Name",
+                  "placeholder": "Plan Three Name"
+                }
+              },
+              "plan_three_price": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Plan Three Price",
+                  "placeholder": "Plan Three Price"
+                }
+              },
+              "plan_three_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Plan Three Link",
+                  "placeholder": "Plan Three Link"
+                }
+              },
+              "plan_three_custom_link_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Plan Three Custom Link Text",
+                  "placeholder": "Plan Three Custom Link Text"
+                }
+              },
+              "plan_three_perks": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "label": "Plan Three Perks",
+                  "placeholder": "Plan Three Perks"
+                }
+              },
+              "plan_four_icon_name": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Plan Four Icon Name",
+                  "placeholder": "Plan Four Icon Name"
+                }
+              },
+              "plan_four_name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "Plan Four Name",
+                  "placeholder": "Plan Four Name"
+                }
+              },
+              "plan_four_price": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Plan Four Price",
+                  "placeholder": "Plan Four Price"
+                }
+              },
+              "plan_four_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Plan Four Link",
+                  "placeholder": "Plan Four Link"
+                }
+              },
+              "plan_four_custom_link_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Plan Four Custom Link Text",
+                  "placeholder": "Plan Four Custom Link Text"
+                }
+              },
+              "plan_four_perks": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "label": "Plan Four Perks",
+                  "placeholder": "Plan Four Perks"
+                }
+              },
+              "plan_five_icon_name": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Plan Five Icon Name",
+                  "placeholder": "Plan Five Icon Name"
+                }
+              },
+              "plan_five_name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "Plan Five Name",
+                  "placeholder": "Plan Five Name"
+                }
+              },
+              "plan_five_price": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Plan Five Price",
+                  "placeholder": "Plan Five Price"
+                }
+              },
+              "plan_five_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Plan Five Link",
+                  "placeholder": "Plan Five Link"
+                }
+              },
+              "plan_five_custom_link_text": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Plan Five Custom Link Text",
+                  "placeholder": "Plan Five Custom Link Text"
+                }
+              },
+              "plan_five_perks": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+                  "label": "Plan Five Perks",
+                  "placeholder": "Plan Five Perks"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "text_columns": {
+            "type": "Slice",
+            "fieldset": "Text Columns",
+            "description": "Repeatable text column / Optional paragraph header",
+            "icon": "format_align_justify",
+            "display": "list",
+            "non-repeat": {
+              "blade_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Blade Title",
+                  "placeholder": "Blade Title"
+                }
+              },
+              "text_alignment": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "left",
+                    "right",
+                    "center"
+                  ],
+                  "default_value": "left",
+                  "label": "Text Alignment",
+                  "placeholder": "Text Alignment"
+                }
+              },
+              "primary_blade_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "default_value": "white",
+                  "label": "Primary Blade Color",
+                  "placeholder": "Primary Blade Color"
+                }
+              },
+              "secondary_blade_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "default_value": "none",
+                  "label": "Secondary Blade Color",
+                  "placeholder": "Secondary Blade Color"
+                }
+              },
+              "gradient_angle": {
+                "type": "Number",
+                "config": {
+                  "label": "Gradient Angle",
+                  "placeholder": "Gradient 0 - 360"
+                }
+              },
+              "divider_top": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "wavy",
+                    "round",
+                    "swoosh"
+                  ],
+                  "default_value": "none",
+                  "label": "Divider Top",
+                  "placeholder": "Divider Top"
+                }
+              },
+              "divider_top_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "true",
+                    "false"
+                  ],
+                  "label": "Divider Top Flipped",
+                  "placeholder": "Flip Top divider?"
+                }
+              },
+              "divider_top_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "studios",
+                    "patriots",
+                    "inventive",
+                    "cares",
+                    "staffing",
+                    "academy",
+                    "ventures"
+                  ],
+                  "default_value": "white",
+                  "label": "Divider Top Color",
+                  "placeholder": "Divider Top Color"
+                }
+              },
+              "divider_bottom": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "wavy",
+                    "round",
+                    "swoosh"
+                  ],
+                  "default_value": "none",
+                  "label": "Divider Bottom",
+                  "placeholder": "Divider Bottom"
+                }
+              },
+              "divider_bottom_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "true",
+                    "false"
+                  ],
+                  "label": "divider_bottom_flipped",
+                  "placeholder": "Flip Bottom Divider"
+                }
+              },
+              "divider_bottom_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "studios",
+                    "patriots",
+                    "inventive",
+                    "cares",
+                    "staffing",
+                    "academy",
+                    "ventures"
+                  ],
+                  "default_value": "white",
+                  "label": "Divider Bottom Color",
+                  "placeholder": "Divider Bottom Color"
+                }
+              }
+            },
+            "repeat": {
+              "featured_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Featured Image"
+                }
+              },
+              "section_subtitle": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Section Subtitle",
+                  "placeholder": "Optional paragraph header"
+                }
+              },
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "content",
+                  "placeholder": "Paragraph text"
+                }
+              }
+            }
+          },
+          "staff_member": {
+            "type": "Slice",
+            "fieldset": "Staff Member",
+            "description": "Our team members ( image, name, job title, bio )",
+            "icon": "wc",
+            "display": "list",
+            "non-repeat": {
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2, heading3",
+                  "label": "Section Title",
+                  "placeholder": "Section Title"
+                }
+              },
+              "primary_blade_color1": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Primary Blade Color",
+                  "placeholder": "Primary Blader Color"
+                }
+              },
+              "secondary_blade_color1": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Secondary Blade Color",
+                  "placeholder": "Secondary Blade Color"
+                }
+              },
+              "gradient_angle1": {
+                "type": "Number",
+                "config": {
+                  "label": "Gradient Angle",
+                  "placeholder": "Angle 0 - 360"
+                }
+              },
+              "divider_top": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "swoosh",
+                    "wavy",
+                    "round"
+                  ],
+                  "label": "Divider Top",
+                  "placeholder": "Divider Top"
+                }
+              },
+              "divider_top_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "true",
+                    "false"
+                  ],
+                  "label": "divider_top_flipped",
+                  "placeholder": "Divider Top Flip?"
+                }
+              },
+              "divider_top_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Divider Top Color",
+                  "placeholder": "Divider Top Color"
+                }
+              },
+              "divider_bottom": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "swoosh",
+                    "wavy",
+                    "round"
+                  ],
+                  "label": "Divider Bottom",
+                  "placeholder": "Divider Bottom"
+                }
+              },
+              "divider_bottom_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "true",
+                    "false"
+                  ],
+                  "label": "Divider Bottom Flipped",
+                  "placeholder": "Divider Bottom Flip?"
+                }
+              },
+              "divider_bottom_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Divider Bottom Color",
+                  "placeholder": "Divider Bottom Color"
+                }
+              }
+            },
+            "repeat": {
+              "staff_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              },
+              "icon": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Icon",
+                  "placeholder": "Icon Name ( don't include the fa fa- ) just the name! :)"
+                }
+              },
+              "company": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "Studios",
+                    "Group",
+                    "Works",
+                    "Academy",
+                    "Ventures",
+                    "Cares",
+                    "Patriots",
+                    "Life"
+                  ],
+                  "label": "Company",
+                  "placeholder": "Company"
+                }
+              },
+              "job_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Job Title",
+                  "placeholder": "Job Title"
+                }
+              },
+              "full_name": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading3",
+                  "label": "Full Name",
+                  "placeholder": "Full Name"
+                }
+              },
+              "bio": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, strong, em",
+                  "label": "Short Bio",
+                  "placeholder": "Short Bio"
+                }
+              }
+            }
+          },
+          "map": {
+            "type": "Slice",
+            "fieldset": "Map",
+            "description": "Map with Location Maker",
+            "icon": "location_on",
+            "display": "list",
+            "non-repeat": {
+              "marker": {
+                "type": "GeoPoint",
+                "config": {
+                  "label": "Marker"
+                }
+              },
+              "divider_top": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "swoosh",
+                    "wavy",
+                    "round"
+                  ],
+                  "label": "Divider Top",
+                  "placeholder": "Divider Top"
+                }
+              },
+              "divider_top_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "true",
+                    "false"
+                  ],
+                  "label": "Divider Top Flipped",
+                  "placeholder": "Divider Top Flipped?"
+                }
+              },
+              "divider_top_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Divider Top Color",
+                  "placeholder": "Divider Top Color"
+                }
+              },
+              "divider_bottom": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "none",
+                    "diagonal",
+                    "swoosh",
+                    "wavy",
+                    "round"
+                  ],
+                  "label": "Divider Bottom",
+                  "placeholder": "Divider Bottom"
+                }
+              },
+              "divider_bottom_flipped": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "true",
+                    "false"
+                  ],
+                  "label": "Divider Bottom Flipped",
+                  "placeholder": "Divider Bottom Flipped"
+                }
+              },
+              "divider_bottom_color": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "white",
+                    "smoke",
+                    "studios light",
+                    "studios",
+                    "studios dark",
+                    "studios black",
+                    "patriots light",
+                    "patriots",
+                    "patriots dark",
+                    "patriots black",
+                    "inventive light",
+                    "inventive",
+                    "inventive dark",
+                    "inventive black",
+                    "cares light",
+                    "cares",
+                    "cares dark",
+                    "cares black",
+                    "staffing light",
+                    "staffing",
+                    "staffing dark",
+                    "staffing black",
+                    "academy light",
+                    "academy",
+                    "academy dark",
+                    "academy black",
+                    "ventures light",
+                    "ventures",
+                    "ventures dark",
+                    "ventures black"
+                  ],
+                  "label": "Divider Bottom Color",
+                  "placeholder": "Divider Bottom Color"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  }
+}

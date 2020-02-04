@@ -1,12 +1,17 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+
 import { RichText } from 'prismic-reactjs';
 import { linkResolver } from '../../utils/linkResolver';
 import htmlSerializer from '../../utils/htmlSerializer';
-import Carousel from 'react-multi-carousel';
-import { Divider } from './index';
-import Tabs from '../general/Tabs';
 
+import { Divider } from './index';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import classnames from 'classnames';
+
+library.add(fas)
 
 const getGradient = (color) => {
     const res = (() => {
@@ -118,244 +123,514 @@ const getGradient = (color) => {
     return res;
 }
 
+export default class Plans extends React.Component{
+    constructor(props){
+        super(props);
 
-const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 1,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
-};
+        this.state = {
+            width: '1200px',
+            activeTab: '1'
+        }
+    }
 
+    componentWillMount() {
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', this.handleWindowSizeChange);
+            this.setState({width: window.innerWidth})
+            
+        }
+    }
 
-export default ({ slice }) =>{
-    let {primary_section_color,
-        secondary_section_color,
-        gradient_angle1,
-        divider_top,
-        divider_top_color,
-        divider_top_flipped,
-        divider_bottom,
-        divider_bottom_color,
-        divider_bottom_flipped,
-        popular_plan,
+    componentWillUnmount() {
+        if (typeof window !== 'undefined') {
+            window.removeEventListener('resize', this.handleWindowSizeChange);
+            
+        }
+    }
+    
+    handleWindowSizeChange = () => {
+        this.setState({ width: window.innerWidth });
+    };
 
-        plan_one_icon_name,
-        plan_one_name,
-        plan_one_price,
-        plan_one_link,
-        plan_one_custom_link_text,
-        plan_one_perks,
-        
-        plan_two_icon_name,
-        plan_two_name,
-        plan_two_price,
-        plan_two_link,
-        plan_two_custom_link_text,
-        plan_two_perks,
-        
-        plan_three_icon_name,
-        plan_three_name,
-        plan_three_price,
-        plan_three_link,
-        plan_three_custom_link_text,
-        plan_three_perks,
-        
-        plan_four_icon_name,
-        plan_four_name,
-        plan_four_price,
-        plan_four_link,
-        plan_four_custom_link_text,
-        plan_four_perks,
-        
-        plan_five_icon_name,
-        plan_five_name,
-        plan_five_price,
-        plan_five_link,
-        plan_five_custom_link_text,
-        plan_five_perks
-    } = slice.primary;
+    viewportWidth = () => {
+        return window.innerWidth;
+    }
 
-    const tabViews = [
-        {
-            plan_one_icon_name: plan_one_icon_name,
-            plan_one_name: plan_one_name,
-            plan_one_price: plan_one_price,
-            plan_one_link: plan_one_link,
-            plan_one_custom_link_text: plan_one_custom_link_text,
-            plan_one_perks: plan_one_perks,
-        },
-        {
+    setActive = (tabNum) => {
+        this.setState({activeTab: tabNum});
+    }
+    
+
+    render(){
+        let { slice } = this.props;
+
+        let { 
+            primary_section_color,
+            secondary_section_color,
+            gradient_angle1,
+            divider_top,
+            divider_top_color,
+            divider_top_flipped,
+            divider_bottom,
+            divider_bottom_color,
+            divider_bottom_flipped,
+            popular_plan,
+            display_as,
+            section_title,
+    
+            plan_one_icon_name,
+            plan_one_image,
+            plan_one_name,
+            show_plan_one,
+            plan_one_price,
+            plan_one_link,
+            plan_one_custom_link_text,
+            plan_one_perks,
+            
             plan_two_icon_name,
+            plan_two_image,
             plan_two_name,
+            show_plan_two,
             plan_two_price,
             plan_two_link,
             plan_two_custom_link_text,
             plan_two_perks,
-        },
-        {
+            
             plan_three_icon_name,
+            plan_three_image,
             plan_three_name,
+            show_plan_three,
             plan_three_price,
             plan_three_link,
             plan_three_custom_link_text,
             plan_three_perks,
-        },
-        {
+            
             plan_four_icon_name,
+            plan_four_image,
             plan_four_name,
+            show_plan_four,
             plan_four_price,
             plan_four_link,
             plan_four_custom_link_text,
             plan_four_perks,
-        },
-        {
+            
             plan_five_icon_name,
+            plan_five_image,
             plan_five_name,
+            show_plan_five,
             plan_five_price,
             plan_five_link,
             plan_five_custom_link_text,
-            plan_five_perks,
-        }
-    ];
+            plan_five_perks 
+        } = slice.primary;
 
-    return (
-        <>
-            <Divider type={divider_top} backgroundColor={divider_top_color} side="top" flipped={divider_top_flipped} />
+        const { width, activeTab } = this.state;
+
+        const isMobile = width <= 1400;
+
+        return (
+            <>
+                <Divider type={divider_top} backgroundColor={divider_top_color} side="top" flipped={divider_top_flipped} />
             
-            <div id="plans-container" className={"cardView"} style={{background: 'linear-gradient(' + ((gradient_angle1 !== null && gradient_angle1) > 360 ? 0 : gradient_angle1) + 'deg ,' + getGradient(primary_section_color) + "," + getGradient(secondary_section_color) + ')'}}>
-                <div className="plans">
-                    <div className={"plan " + (popular_plan === "plan_one" ? "popular" : "") }>
+                { isMobile ? 
 
-                        {plan_one_icon_name !== null ? <FontAwesomeIcon icon={['fa-' + plan_one_icon_name[0].text]} /> : ''}
+                    <div className="tabs" id="mobile-plans-container" style={{background: 'linear-gradient(' + ((!!gradient_angle1 && gradient_angle1) > 360 ? 0 : gradient_angle1) + 'deg ,' + getGradient(primary_section_color) + "," + getGradient(secondary_section_color) + ')'}}>
+                        <div className="tab-container">
+                            <Nav tabs>
+                                {!!show_plan_one && show_plan_one !== 'false' ?
+                                    <NavItem>
+                                    <NavLink
+                                        className={classnames({ active: activeTab === '1' })}
+                                        onClick={() => { this.setActive('1'); }}
+                                    >
+                                        { RichText.asText(plan_one_name)}
+                                    </NavLink>
+                                    </NavItem>
+                                : false}
 
-                        {plan_one_name !== null ? <h3>{plan_one_name[0].text}</h3> : ""}
-                        { plan_one_price[0].text !== null && plan_one_price[0].text ===  "Free" ? <p>{plan_one_price[0].text}</p> : <p><span className="price">${plan_one_price[0].text}</span>/mo</p>}
-                        
-                        { plan_one_link !== null ?
-                            <div className="cta_btn_cont">
-                                <p>{ !!plan_one_link._meta && plan_one_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_one_link._meta.uid}`}>{plan_one_custom_link_text !== null ? plan_one_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_one_link.url}`}>{plan_one_custom_link_text !== null ? plan_one_custom_link_text[0].text : "Learn more."}</a> }</p>
-                            </div> 
+                                {!!show_plan_two && show_plan_two !== 'false' ?
+                                    <NavItem>
+                                    <NavLink
+                                        className={classnames({ active: activeTab === '2' })}
+                                        onClick={() => { this.setActive('2'); }}
+                                    >
+                                        { RichText.asText(plan_two_name) }
+                                    </NavLink>
+                                    </NavItem>
+                                : false}
+
+                                {!!show_plan_three && show_plan_three !== 'false' ?
+                                    <NavItem>
+                                    <NavLink
+                                        className={classnames({ active: activeTab === '3' })}
+                                        onClick={() => { this.setActive('3'); }}
+                                    >
+                                        { RichText.asText(plan_three_name)}
+                                    </NavLink>
+                                    </NavItem>
+                                : false}
+                                
+                                {!!show_plan_four && show_plan_four !== 'false' ?
+                                    <NavItem>
+                                    <NavLink
+                                        className={classnames({ active: activeTab === '4' })}
+                                        onClick={() => { this.setActive('4'); }}
+                                    >
+                                        { RichText.asText(plan_four_name)}
+                                    </NavLink>
+                                    </NavItem>
+                                : false}
+                                
+                                {!!show_plan_five && show_plan_five !== 'false' ? 
+                                    <NavItem>
+                                        <NavLink
+                                            className={classnames({ active: activeTab === '5' })}
+                                            onClick={() => { this.setActive('5'); }}
+                                        >
+                                            {RichText.asText(plan_five_name)}
+                                        </NavLink>
+                                    </NavItem>
+                                : false}
+                            </Nav>
                             
-                            : ''
-                        }
+                            <TabContent className="tab" activeTab={activeTab}>
+                                { !!show_plan_one && show_plan_one !== 'false' ?
+                                    <TabPane tabId="1">
+                                        <div className="d-flex flex-wrap">
+                                            { !!plan_one_image ? <div className="plan_image" style={{backgroundImage:'url("' + plan_one_image.url + '")'}}></div> : false}
 
-                        { plan_one_perks !== null?
-                            <div className="perks">
-                                {RichText.render(plan_one_perks, linkResolver, htmlSerializer)}
-                            </div>
+                                            <div className='content'>
+                                                { !!plan_one_icon_name ? <FontAwesomeIcon icon={plan_one_icon_name[0].text} /> : false}
+                        
+                                                { display_as === 'pricing' ? <> { !!plan_one_name ? <h3>{RichText.render(plan_one_name, linkResolver, htmlSerializer )}</h3> : false} </> : <> { !!plan_one_name ? <span className="image_shadow"><h3>{RichText.render(plan_one_name, linkResolver, htmlSerializer)}</h3></span> : false} </>  }
+                                                
+                                                { display_as === 'pricing' ?
+                                                    <>
+                                                        { !!plan_one_price && plan_one_price[0].text ===  "Free" ? <span className="pricingText">{RichText.render(plan_one_price, linkResolver, htmlSerializer)}</span> : <span><span className="price">${RichText.render(plan_one_price, linkResolver, htmlSerializer)}</span>/mo</span>} 
+                                                        { !!plan_one_link ?
+                                                            <div className="cta_btn_cont center">
+                                                                { !!plan_one_link._meta && !!plan_one_link._meta ? <a className="border_cta_btn" href={`${plan_one_link._meta.uid}`}>{!!plan_one_custom_link_text ? plan_one_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_one_link.url}`}>{!!plan_one_custom_link_text ? plan_one_custom_link_text[0].text : "Learn more."}</a> }
+                                                            </div> : false
+                                                        } 
+                                                    </>
+                                                : false }
 
-                            : ''
-                        }
+                                                { !!plan_one_perks ?
+                                                    <div className="perks">
+                                                        {RichText.render(plan_one_perks, linkResolver, htmlSerializer)}
+                                                    </div>
+                                                    : false
+                                                }
+                                            </div>
+                                        </div>
+                                    </TabPane>
+                                : false }
+                                
+                                { !!show_plan_two && show_plan_two !== 'false' ? 
+                                    <TabPane tabId="2">
+                                        <div className="d-flex flex-wrap">
+                                            { !!plan_two_image ?  <div className="plan_image" style={{backgroundImage:'url("' + plan_two_image.url + '")'}}></div> : false}
+                                            
+                                            <div className="content">
+                                                { !!plan_two_icon_name ? <FontAwesomeIcon icon={plan_two_icon_name[0].text} /> : false}
+                        
+                                                { display_as === 'pricing' ? <> { !!plan_two_name ? <h3>{plan_two_name[0].text}</h3> : false} </> : <> { !!plan_two_name ? <span className="image_shadow"><h3>{plan_two_name[0].text}</h3></span> : false} </>  }
+                                                
+                                                { display_as === 'pricing' ?  
+                                                
+                                                <> 
+                                                    { !!plan_two_price && plan_two_price[0].text ===  "Free" ? <span className="pricingText">{plan_two_price[0].text}</span> : <span><span className="price">${plan_two_price[0].text}</span>/mo</span>}
+                                                    { !!plan_two_link ?
+                                                        <div className="cta_btn_cont center">
+                                                            { !!plan_two_link._meta && plan_two_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_two_link._meta.uid}`}>{!!plan_two_custom_link_text ? plan_two_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_two_link.url}`}>{!!plan_two_custom_link_text ? plan_two_custom_link_text[0].text : "Learn more."}</a> }
+                                                        </div> : false
+                                                    } 
+                                                </>
+
+                                                : false }
+
+                                                { !!plan_two_perks ?
+                                                    <div className="perks">
+                                                        {RichText.render(plan_two_perks, linkResolver, htmlSerializer)}
+                                                    </div>
+
+                                                    : ''
+                                                }
+                                            </div>
+                                        </div>
+                                    </TabPane>
+                                : false }
+
+                                { !!show_plan_three && show_plan_three !== 'false' ? 
+                                    <TabPane tabId="3">
+                                        <div className="d-flex flex-wrap">
+                                            { !!plan_three_image ? <div className="plan_image" style={{backgroundImage:'url("' + plan_three_image.url + '")'}}></div> : false }
+                                            <div className="content">
+                                                { !!plan_three_icon_name ? <FontAwesomeIcon icon={plan_three_icon_name[0].text} /> : false}
+                        
+                                                { display_as === 'pricing' ? <> { !!plan_three_name ? <h3>{plan_three_name[0].text}</h3> : false} </> : <> { !!plan_three_name ? <span className="image_shadow"><h3>{plan_three_name[0].text}</h3></span> : false} </>  }
+                                                
+                                                { display_as === 'pricing' ?  
+                                                
+                                                <> 
+                                                    { !!plan_three_price && plan_three_price[0].text ===  "Free" ? <span className="pricingText">{plan_three_price[0].text}</span> : <span><span className="price">${plan_three_price[0].text}</span>/mo</span>} 
+                                                    { !!plan_three_link ?
+                                                        <div className="cta_btn_cont center">
+                                                            { !!plan_three_link._meta && plan_three_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_three_link._meta.uid}`}>{!!plan_three_custom_link_text ? plan_three_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_three_link.url}`}>{!!plan_three_custom_link_text ? plan_three_custom_link_text[0].text : "Learn more."}</a> }
+                                                        </div> : false
+                                                    } 
+                                                </>
+
+                                                : false }
+
+                                                { !!plan_three_perks ?
+                                                    <div className="perks">
+                                                        {RichText.render(plan_three_perks, linkResolver, htmlSerializer)}
+                                                    </div>
+
+                                                    : ''
+                                                }
+                                            </div>
+                                        </div>
+                                    </TabPane>
+                                : false }
+
+                                 { !!show_plan_four && show_plan_four !== 'false' ? 
+                                    <TabPane tabId="4">
+                                        <div className="d-flex flex-wrap">
+                                            { !!plan_four_image ? <div className="plan_image" style={{backgroundImage:'url("' + plan_four_image.url + '")'}}></div> : false }
+                                            <div className="content">
+
+                                                { !!plan_four_icon_name ? <FontAwesomeIcon icon={plan_four_icon_name[0].text} /> : false}
+                        
+                                                { display_as === 'pricing' ? <> { !!plan_four_name ? <h3>{plan_four_name[0].text}</h3> : false} </> : <> { !!plan_four_name ? <span className="image_shadow"><h3>{plan_four_name[0].text}</h3></span> : false} </> }
+                                                
+                                                { display_as === 'pricing' ?  
+                                                
+                                                <> 
+                                                    { !!plan_four_price && plan_four_price[0].text ===  "Free" || plan_four_price[0].text ===  "Inquire"  ? <span  className="pricingText">{plan_four_price[0].text}</span> : <span><span className="price">${plan_four_price[0].text}</span>/mo</span>} 
+                                                    { !!plan_four_link ?
+                                                        <div className="cta_btn_cont center">
+                                                            { !!plan_four_link._meta && plan_four_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_four_link._meta.uid}`}>{!!plan_four_custom_link_text ? plan_four_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_four_link.url}`}>{!!plan_four_custom_link_text ? plan_four_custom_link_text[0].text : "Learn more."}</a> }
+                                                        </div> : false
+                                                    } 
+                                                </>
+
+                                                : false }
+
+                                                { !!plan_four_perks ?
+                                                    <div className="perks">
+                                                        {RichText.render(plan_four_perks, linkResolver, htmlSerializer)}
+                                                    </div>
+
+                                                    : ''
+                                                }
+                                            </div>
+                                        </div>
+                                    </TabPane>
+                                : false }
+
+                                { !!show_plan_five && show_plan_five !== 'false' ?
+                                    <TabPane tabId="5">
+                                        <div classNam="d-flex flex-wrap">
+                                            { !!plan_five_image ? <div className="plan_image" style={{backgroundImage:'url("' + plan_five_image.url + '")'}}></div> : false }
+
+                                            <div className="content">
+                                                { !!plan_five_icon_name ? <FontAwesomeIcon icon={plan_five_icon_name[0].text} /> : false}
+                        
+                                                { display_as === 'pricing' ? <> { !!plan_five_name ? <h3>{plan_five_name[0].text}</h3> : false} </> : <> { !!plan_five_image && !!plan_five_name ? <span className="image_shadow"><h3>{plan_five_name[0].text}</h3></span> : false} </>  }
+                                                
+                                                { display_as === 'pricing' ?  
+                                                    <> 
+                                                        { !!plan_five_price && plan_five_price[0].text ===  "Free" || plan_five_price[0].text ===  "Inquire"  ? <span  className="pricingText">{plan_five_price[0].text}</span> : <span><span className="price">${plan_five_price[0].text}</span>/mo</span>} 
+                                                        { !!plan_five_link ?
+                                                            <div className="cta_btn_cont center">
+                                                                { !!plan_five_link && !!plan_five_link._meta ? <a className="border_cta_btn" href={`${plan_five_link._meta.uid}`}>{!!plan_five_custom_link_text ? plan_five_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_five_link.url}`}>{!!plan_five_custom_link_text ? plan_five_custom_link_text[0].text : "Learn more."}</a> }
+                                                            </div> : false
+                                                        } 
+                                                    </>
+                                                : false }
+
+                                                { !!plan_five_perks ?
+                                                    <div className="perks">
+                                                        {RichText.render(plan_five_perks, linkResolver, htmlSerializer)}
+                                                    </div>
+                                                    : false
+                                                }
+                                            </div>
+                                        </div>
+                                    </TabPane>
+                                : false}
+
+                            </TabContent>
+                        
+                        </div>
+                    </div>
+                
+                :
+
+                <div id="plans-container" className={"cardView"} style={{background: 'linear-gradient(' + ((!!gradient_angle1 && gradient_angle1) > 360 ? 0 : gradient_angle1) + 'deg ,' + getGradient(primary_section_color) + "," + getGradient(secondary_section_color) + ')'}}>
+                    <div>
+                        { !!section_title ? <h2 className="big_title uppercase smoke p-lg">{RichText.asText(section_title, linkResolver, htmlSerializer)}</h2> : false }
                     </div>
                     
-                    <div className={"plan " + (popular_plan === "plan_two" ? "popular" : "") }>
-                        {plan_two_icon_name !== null ? <FontAwesomeIcon icon={'fa-' + plan_two_icon_name[0].text} /> : ''}
-                        {plan_two_name !== null ? <h3>{plan_two_name[0].text}</h3> : ""}
-                        { plan_two_price[0].text !== null && plan_two_price[0].text ===  "Free" ? <span className="price">{plan_two_price[0].text}</span>: <p><span className="price">${plan_two_price[0].text}</span>/mo</p>}
-                        
-                        { plan_two_link !== null ?
-                            <div className="cta_btn_cont">
-                                <p>{ !!plan_two_link._meta && plan_two_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_two_link._meta.uid}`}>{plan_two_custom_link_text !== null ? plan_two_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_two_link.url}`}>{plan_two_custom_link_text !== null ? plan_two_custom_link_text[0].text : "Learn more."}</a> }</p>
-                            </div> 
-                            
-                            : ''
-                        }
+                    <div className={"plans " + display_as}>
+                        { show_plan_one === 'true' ? 
+                            <div className={display_as + " " + (popular_plan === "plan_one" ? "popular" : "") }>
 
-                        { plan_two_perks !== null?
-                            <div className="perks">
-                                {RichText.render(plan_two_perks, linkResolver, htmlSerializer)}
+                                { !!plan_one_icon_name ? <FontAwesomeIcon icon={plan_one_icon_name[0].text} /> : ''}
+        
+                                { display_as === 'pricing' ? <> { !!plan_one_name ? <h3>{plan_one_name[0].text}</h3> : false} </> : <> { !!plan_one_name ? <div className="plan_image" style={{backgroundImage:'url("' + plan_one_image.url + '")'}}><span className="image_shadow"><h3 className="uppercase">{plan_one_name[0].text}</h3></span></div> : false} </>  }
+                                
+                                { display_as === 'pricing' ?
+                                
+                                <> 
+                                    { !!plan_one_price && plan_one_price[0].text ===  "Free" ? <span className="pricingText">{plan_one_price[0].text}</span> : <span><span className="price">${plan_one_price[0].text}</span>/mo</span>} 
+                                    { !!plan_one_link ?
+                                        <div className="cta_btn_cont center">
+                                            { !!plan_one_link._meta && plan_one_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_one_link._meta.uid}`}>{!!plan_one_custom_link_text ? plan_one_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_one_link.url}`}>{!!plan_one_custom_link_text ? plan_one_custom_link_text[0].text : "Learn more."}</a> }
+                                        </div> : false
+                                    } 
+                                </>
+
+                                : false }
+
+                                { !!plan_one_perks ?
+                                    <div className="perks">
+                                        {RichText.render(plan_one_perks, linkResolver, htmlSerializer)}
+                                    </div>
+
+                                    : ''
+                                }
                             </div>
-
-                            : ''
-                        }
-                    </div>
-                    
-                    <div className={"plan " + (popular_plan === "plan_three" ? "popular" : "") }>
-                        {plan_three_icon_name !== null ? <FontAwesomeIcon icon={'fa-' + plan_three_icon_name[0].text} /> : ''}
-                        {plan_three_name !== null ? <h3>{plan_three_name[0].text}</h3> : ""}
-                        { plan_three_price[0].text !== null && plan_three_price[0].text ===  "Free" ? <span className="price">{plan_three_price[0].text}</span> : <p><span className="price">${plan_three_price[0].text}</span>/mo</p>}
+                        : false }
                         
-                        { plan_three_link !== null ?
-                            <div className="cta_btn_cont">
-                                <p>{ !!plan_three_link._meta && plan_three_link._meta !== undefined ? <a className="primary_cta_btn p-2" href={`${plan_three_link._meta.uid}`}>{plan_three_custom_link_text !== null ? plan_three_custom_link_text[0].text : "Learn more."}</a> : <a className="primary_cta_btn p-2" href={`${plan_three_link.url}`}>{plan_three_custom_link_text !== null ? plan_three_custom_link_text[0].text : "Learn more."}</a> }</p>
-                            </div> 
-                            
-                            : ''
-                        }
+                        { show_plan_two === 'true' ? 
+                            <div className={display_as + " " + (popular_plan === "plan_two" ? "popular" : "") }>
 
-                        { plan_three_perks !== null?
-                            <div className="perks">
-                                {RichText.render(plan_three_perks, linkResolver, htmlSerializer)}
+                                { !!plan_two_icon_name ? <FontAwesomeIcon icon={plan_two_icon_name[0].text} /> : ''}
+        
+                                { display_as === 'pricing' ? <> { !!plan_two_name ? <h3>{plan_two_name[0].text}</h3> : false} </> : <> { !!plan_two_name ? <div className="plan_image" style={{backgroundImage:'url("' + plan_two_image.url + '")'}}><span className="image_shadow"><h3 className="uppercase">{plan_two_name[0].text}</h3></span></div> : false} </>  }
+                                
+                                { display_as === 'pricing' ?  
+                                
+                                <> 
+                                    { !!plan_two_price && plan_two_price[0].text ===  "Free" ? <span className="pricingText">{plan_two_price[0].text}</span> : <span><span className="price">${plan_two_price[0].text}</span>/mo</span>}
+                                    { !!plan_two_link ?
+                                        <div className="cta_btn_cont center">
+                                            { !!plan_two_link._meta && plan_two_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_two_link._meta.uid}`}>{!!plan_two_custom_link_text ? plan_two_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_two_link.url}`}>{!!plan_two_custom_link_text ? plan_two_custom_link_text[0].text : "Learn more."}</a> }
+                                        </div> : false
+                                    } 
+                                </>
+
+                                : false }
+
+                                { !!plan_two_perks ?
+                                    <div className="perks">
+                                        {RichText.render(plan_two_perks, linkResolver, htmlSerializer)}
+                                    </div>
+
+                                    : ''
+                                }
                             </div>
-
-                            : ''
-                        }
-                    </div>
-                    
-                    <div className={"plan " + (popular_plan === "plan_four" ? "popular" : "") }>
-                        {plan_four_icon_name !== null ? <FontAwesomeIcon icon={'fa-' + plan_four_icon_name[0].text} /> : ''}
-                        {plan_four_name !== null ? <h3>{plan_four_name[0].text}</h3> : ""}
-                        { plan_four_price[0].text !== null && plan_four_price[0].text ===  "Inquire" ? <span className="price">{plan_four_price[0].text}</span> : <p><span className="price">${plan_four_price[0].text}</span>/mo</p>}
+                        : false }
                         
-                        { plan_four_link !== null ?
-                            <div className="cta_btn_cont">
-                                <p>{ !!plan_four_link._meta && plan_four_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_four_link._meta.uid}`}>{plan_four_custom_link_text !== null ? plan_four_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_four_link.url}`}>{plan_four_custom_link_text !== null ? plan_four_custom_link_text[0].text : "Learn more."}</a> }</p>
-                            </div> 
-                            
-                            : ''
-                        }
+                        { show_plan_three === 'true' ? 
+                            <div className={display_as + " " + (popular_plan === "plan_three" ? "popular" : "") }>
 
-                        { plan_four_perks !== null?
-                            <div className="perks">
-                                {RichText.render(plan_four_perks, linkResolver, htmlSerializer)}
+                                { !!plan_three_icon_name ? <FontAwesomeIcon icon={plan_three_icon_name[0].text} /> : ''}
+        
+                                { display_as === 'pricing' ? <> { !!plan_three_name ? <h3>{plan_three_name[0].text}</h3> : false} </> : <> { !!plan_three_name ? <div className="plan_image" style={{backgroundImage:'url("' + plan_three_image.url + '")'}}><span className="image_shadow"><h3 className="uppercase">{plan_three_name[0].text}</h3></span></div>: false} </>  }
+                                
+                                { display_as === 'pricing' ?  
+                                
+                                <> 
+                                    { !!plan_three_price && plan_three_price[0].text ===  "Free" ? <span className="pricingText">{plan_three_price[0].text}</span> : <span><span className="price">${plan_three_price[0].text}</span>/mo</span>} 
+                                    { !!plan_three_link ?
+                                        <div className="cta_btn_cont center">
+                                            { !!plan_three_link._meta && plan_three_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_three_link._meta.uid}`}>{!!plan_three_custom_link_text ? plan_three_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_three_link.url}`}>{!!plan_three_custom_link_text ? plan_three_custom_link_text[0].text : "Learn more."}</a> }
+                                        </div> : false
+                                    } 
+                                </>
+
+                                : false }
+
+                                { !!plan_three_perks ?
+                                    <div className="perks">
+                                        {RichText.render(plan_three_perks, linkResolver, htmlSerializer)}
+                                    </div>
+
+                                    : ''
+                                }
                             </div>
-
-                            : ''
-                        }
-                    </div>
-                    
-                    <div className={"plan " + (popular_plan === "plan_five" ? "popular" : "") }>
-                        {plan_five_icon_name !== null ? <FontAwesomeIcon icon={'fa-' + plan_five_icon_name[0].text} /> : ''}
-                        {plan_five_name !== null ? <h3>{plan_five_name[0].text}</h3> : ""}
-                        { !!plan_five_price[0].text && plan_five_price[0].text ===  "Free" ? <span className="price">{plan_five_price[0].text}</span> : <p><span className="price">${plan_five_price[0].text}</span>/mo</p>}
+                        : false }
                         
-                        { plan_five_link !== null ?
-                            <div className="cta_btn_cont">
-                                { !!plan_five_link._meta ? <a className="border_cta_btn" href={`${plan_five_link._meta.uid}`}>{plan_five_custom_link_text !== null ? plan_five_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_five_link.url}`}>{plan_five_custom_link_text !== null ? plan_five_custom_link_text[0].text : "Learn more."}</a> }
-                            </div> 
-                            
-                            : ''
-                        }
+                        { show_plan_four === 'true' ? 
+                            <div className={display_as + " " + (popular_plan === "plan_four" ? "popular" : "") }>
 
-                        { plan_five_perks !== null?
-                            <div className="perks">
-                                {RichText.render(plan_five_perks, linkResolver, htmlSerializer)}
+                                { !!plan_four_icon_name ? <FontAwesomeIcon icon={plan_four_icon_name[0].text} /> : ''}
+        
+                                { display_as === 'pricing' ? <> { !!plan_four_name ? <h3>{plan_four_name[0].text}</h3> : false} </> : <> { !!plan_four_name ? <div className="plan_image" style={{backgroundImage:'url("' + plan_four_image.url + '")'}}><span className="image_shadow"><h3 className="uppercase">{plan_four_name[0].text}</h3></span></div> : false} </> }
+                                
+                                { display_as === 'pricing' ?  
+                                
+                                <> 
+                                    { !!plan_four_price[0].text && plan_four_price[0].text ===  "Free" || plan_four_price[0].text ===  "Inquire"  ? <span  className="pricingText">{plan_four_price[0].text}</span> : <span><span className="price">${plan_four_price[0].text}</span>/mo</span>} 
+                                    { !!plan_four_link ?
+                                        <div className="cta_btn_cont center">
+                                            { !!plan_four_link._meta && plan_four_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_four_link._meta.uid}`}>{!!plan_four_custom_link_text ? plan_four_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_four_link.url}`}>{!!plan_four_custom_link_text ? plan_four_custom_link_text[0].text : "Learn more."}</a> }
+                                        </div> : false
+                                    } 
+                                </>
+
+                                : false }
+
+                                { !!plan_four_perks ?
+                                    <div className="perks">
+                                        {RichText.render(plan_four_perks, linkResolver, htmlSerializer)}
+                                    </div>
+
+                                    : ''
+                                }
                             </div>
+                        : false }
+                        
+                        { show_plan_five === 'true' ? 
+                            <div className={display_as + " " + (popular_plan === "plan_five" ? "popular" : "") }>
 
-                            : ''
-                        }
+                                { !!plan_five_icon_name ? <FontAwesomeIcon icon={plan_five_icon_name[0].text} /> : ''}
+        
+                                { display_as === 'pricing' ? <> { !!plan_five_name ? <h3>{plan_five_name[0].text}</h3> : false} </> : <> { !!plan_five_name ? <div className="plan_image" style={{backgroundImage:'url("' + plan_five_image.url + '")'}}><span className="image_shadow"><h3 className="uppercase">{plan_five_name[0].text}</h3></span></div> : false} </>  }
+                                
+                                { display_as === 'pricing' ?  
+                                
+                                <> 
+                                    { !!plan_five_price[0].text && plan_five_price[0].text ===  "Free" || plan_five_price[0].text ===  "Inquire"  ? <span  className="pricingText">{plan_five_price[0].text}</span> : <span><span className="price">${plan_five_price[0].text}</span>/mo</span>} 
+                                    { !!plan_five_link ?
+                                        <div className="cta_btn_cont center">
+                                            { !!plan_five_link._meta && plan_five_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_five_link._meta.uid}`}>{!!plan_five_custom_link_text ? plan_five_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_five_link.url}`}>{!!plan_five_custom_link_text ? plan_five_custom_link_text[0].text : "Learn more."}</a> }
+                                        </div> : false
+                                    } 
+                                </>
+
+                                : false }
+
+                                { plan_five_perks !== null?
+                                    <div className="perks">
+                                        {RichText.render(plan_five_perks, linkResolver, htmlSerializer)}
+                                    </div>
+
+                                    : ''
+                                }
+                            </div>
+                        : false}
                     </div>
                 </div>
-            </div>
+                }
 
-            <div id='mobile'>
-                {/* <Tabs tabs={tabViews}></Tabs> */}
-            </div>
 
-            <Divider type={divider_bottom} backgroundColor={divider_bottom_color} side="bottom" flipped={divider_bottom_flipped} />
-        </>
-    )
+                <Divider type={divider_bottom} backgroundColor={divider_bottom_color} side="bottom" flipped={divider_bottom_flipped} />
+            </>
+        )
+    }
 }

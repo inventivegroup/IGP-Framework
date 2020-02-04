@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../components/layouts' 
-import { CTAOne, StaffMember, Plan, BlogPosts, Carousel, ParallaxBlade, CardView, TextColumns, Map, Divider } from '../components/slices'
+import BlogPosts from './BlogPosts' 
+import { CTAOne, StaffMember, Plan, Carousel, ParallaxBlade, CardView, TextColumns, Map, Divider } from '../components/slices'
 
 
 const PageSlices = ({ slices }) => {
@@ -173,16 +174,17 @@ const getGradient = (color) => {
 }
 
 const PageBody = ({ page }) => {
+
   return (
-    <div className="container">
+    <div>
       <div className="Homepage-Heading" style={{background: 'linear-gradient(' + ((page.gradient_angle !== null && page.gradient_angle) > 360 ? 0 : page.gradient_angle) + 'deg ,' + getGradient(page.primary_blade_color) + "," + getGradient(page.secondary_blade_color) + ')'}}>
-        <div className='content'>
+        <div className={`content ${!!page.page_header_text_color ? page.page_header_text_color : 'white'}`}>
           <h1> { page.headline[0].text }  </h1>
           <p> { page.description[0].text }  </p>
           
           <div className="cta_btn_cont">
-            <a href={page.header_button.url} className="secondary_cta_btn">{page.header_button_text[0].text}</a>
-            <a href="https://share.hsforms.com/1fEf8S6OtS0KMeT9VJqHG0A2glvq" className="primary_cta_btn">Get a quote now!</a>
+            <a href={page.header_button.url} className="secondary_cta_btn" style={{color: 'black'}}>{page.header_button_text[0].text}</a>
+            <a href={page.secondary_header_cta.url} className="primary_cta_btn">{page.secondary_cta_text[0].text}</a>
           </div>
         </div>
 

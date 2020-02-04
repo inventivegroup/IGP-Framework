@@ -23,3 +23,8 @@ body {
 .flex-wrap{
   flex-wrap:wrap;
 }
+
+.no-padding p{
+  padding:0px;
+  margin:0px;
+}

@@ -1,8 +1,11 @@
 .sidebar{
-    background-color:$smoke;
     color:$slate;
     padding:50px;
-    min-width:300px;
+    min-width:250px;
+    
+    display:Flex;
+    flex-direction:column;
+    align-items:center;
 
     h3 {
         font-weight:bold;
@@ -12,6 +15,7 @@
 
     .recent-posts{
         margin:0px 0px 25px 0px;
+        width: 80%;
 
         .post-title-link{
             font-size:14px;
@@ -27,8 +31,27 @@
         }
     }
 
-    .categories {
+    .banner{
+        background-color:$smoke;
+        
+        border-radius: 10px;
+        padding:20px;
+        margin:10px 0px;
+        max-width:220px;
 
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+
+        p, span{
+            padding:15px 0px;
+        }
+
+    }
+
+    .categories {
+        width: 80%;
 
         .category-link{
             font-size:14px;

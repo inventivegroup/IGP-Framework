@@ -3,9 +3,9 @@ import { StaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import Footer from './Footer'
 import Navigation from './Navigation'
-// import parallaxScrolling from '../../javascript/scrolling-effect';
 
 import 'react-multi-carousel/lib/styles.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../stylesheets/main.scss'
 
 export default props => (
@@ -17,25 +17,35 @@ export default props => (
              edges{
               node{
                 display_name
-                logo
+                logo_white
+                logo_black
                 nav{
                   ... on PRISMIC_NavigationNavNav_item {
                     label
                     primary{
                       link{
                         _linkType
-
+                        
                         ... on PRISMIC__ExternalLink{
                           url
+                          __typename
                         }
                         ... on PRISMIC__FileLink{
                           name
                           url
+                          __typename
                           size
                         }
                         ... on PRISMIC_Post{
                           title
+                          __typename
                           
+                          _meta{
+                            uid
+                          }
+                        }
+                        ... on PRISMIC_Page{
+                          __typename
                           _meta{
                             uid
                           }
@@ -91,10 +101,9 @@ const Layout = ( props ) => {
         <meta charSet="utf-8" />
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet" type="text/css"></link>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
-        {/* <script src={parallaxScrolling}></script> */}
         <title>Inventive Studios</title>
       </Helmet>
-      <Navigation data={props.data.prismic.allNavigations}></Navigation>
+      <Navigation logoColor={props.logoColor} data={props.data.prismic.allNavigations}></Navigation>
       <main>
         { props.children }
       </main>

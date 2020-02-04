@@ -1,6 +1,11 @@
 
 .cta_btn_cont{
     display:flex;
+    width:100%;
+    
+    &.center{
+        justify-content: center;
+    }
 
     .primary_cta_btn{
         margin:0px 10px;
@@ -20,12 +25,23 @@
             color:white;
             background-color:$cares_light;
         }
+
+        &.banner_button{
+            width:100%;
+            margin:0px;
+            font-size:13px;
+            text-transform:uppercase;
+            
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
     }    
     
     .secondary_cta_btn{
         margin:0px 10px;
         background-color:$dark_smoke;
-        color:$studios;
+        color:$black;
         padding:5px 15px;
         border-radius:10px;
         transition:all, 0.3s;
@@ -36,7 +52,7 @@
         align-items: center;
     
         &:hover{
-            color:$studios;
+            color:$black;
             background-color:$smoke;
         }
     }    

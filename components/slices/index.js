@@ -12,7 +12,14 @@ import TextColumns from './TextColumns'
 import Map from './Map'
 import Sidebar from './Sidebar'
 import AboutAuthor from './AboutAuthor'
-import BlogPosts from '../BlogPosts'
 import Divider from './Divider';
+import Social from './Social';
+import List from './List';
+import DropIn from './DropIn';
+import CountUp from './CountUp';
+import Media from './Media';
+import BlogPostsBlade from './BlogPostsBlade';
+import BigWordsOne from './BigWordsOne';
+import BigWordsTwo from './BigWordsTwo';
 
-export { ImageCaption, AboutAuthor, Quote, Plan, Text, Blade, StaffMember, BlogPosts, Carousel, CardView, ParallaxBlade, CTAOne, TextColumns, Map, Sidebar, Divider }
+export { Social, ImageCaption, AboutAuthor, Quote, Plan, Text, Blade, StaffMember, BlogPostsBlade, Carousel, CardView, ParallaxBlade, CTAOne, TextColumns, Map, Sidebar, Divider, List, CountUp, DropIn, Media, BigWordsOne, BigWordsTwo }

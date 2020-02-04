@@ -8,7 +8,7 @@ export default ({ slice }) =>
   <>
     <Divider type={slice.primary.divider_top} backgroundColor={slice.primary.divider_top_color} side="top" flipped={slice.primary.divider_top_flipped} />
 
-    <div className="post-text container">
+    <div className="post-text">
       <div>
         { RichText.render(slice.primary.text, linkResolver, htmlSerializer) }
       </div>

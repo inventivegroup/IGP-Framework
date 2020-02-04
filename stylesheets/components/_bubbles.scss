@@ -25,61 +25,64 @@
         width:80px;
         height:80px;
     }
+}
 
+.parallax-blade{
 
-    // Positions
-    &.top-left-15{
-        left:15%;
-        top:-2%;
-    }
-    
-    &.top-2-left{
-        left:15%;
-        top:2%;
+    svg{
+        color:black;
+        
     }
 
-    &.top-5-left-10{
-        left:10%;
-        top:5%;
+    .faux-bubble{
+        z-index:999;
+        background-color:#ffffffAA;
+        position:absolute;
+
+        &.size-one{
+            height:50px;
+            width:50px;
+            border-radius:50%;
+        }
+        
+        &.size-two{
+            height:30px;
+            width:30px;
+            border-radius:50%;
+        }
+    }
+}
+
+.parallax-container{
+    overflow:hidden;
+}
+
+.faux-bubble{
+    z-index:900;
+    background-color:#ffffffAA;
+    position:relative;
+
+    &.Big{
+        height:200px;
+        width:200px;
+        border-radius:50%;
     }
     
-    &.top-right{
-        right:50px;
-        top:2%;
+    &.Medium{
+        height:100px;
+        width:100px;
+        border-radius:50%;
     }
     
-    &.middle-left{
-        left:45%;
-        top:1%;
+    &.Small{
+        height:70px;
+        width:70px;
+        border-radius:50%;
     }
     
-    &.middle-right{
-        right:45%;
-        top:30%;
-    }
-    
-    &.bottom-20-left{
-        left:50px;
-        bottom:20%;
-    }
-    
-    &.bottom-15-left-30{
-        left:30%;
-        bottom:15%;
-    }
-    
-    &.bottom-20-left-10{
-        left:10%;
-        bottom:20%;
-    }
-    
-    &.bottom-right{
-        right:50px;
-        bottom:30%;
-    }
-    
-    &.bottom-middle{
-        left:50px;
-        bottom:45%;
+    &.XSmall{
+        height:20px;
+        width:20px;
+        border-radius:50%;
     }
 }

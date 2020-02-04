@@ -15,10 +15,50 @@
         "placeholder" : "Blog Post Title..."
       }
     },
+    "short_description" : {
+      "type" : "StructuredText",
+      "config" : {
+        "multi" : "paragraph, strong, em, hyperlink",
+        "label" : "Short Description",
+        "placeholder" : "Short Description"
+      }
+    },
+    "tags" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "tag" : {
+            "type" : "Select",
+            "config" : {
+              "options" : [ "Career Management", "Development", "Leadership", "Academy", "Cares", "Job Posting", "New Hire", "Self Improvement", "Suggested Books", "Tech" ],
+              "label" : "tag",
+              "placeholder" : "Tag"
+            }
+          }
+        },
+        "label" : "Tags"
+      }
+    },
+    "featured_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Featured Image"
+      }
+    },
     "date" : {
       "type" : "Date",
       "config" : {
         "label" : "Date"
+      }
+    },
+    "post_author" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "Maisy Shaw", "Laura Ruffino", "James Shaw", "Andrew Siemer", "Other" ],
+        "label" : "Post Author",
+        "placeholder" : "Post Author"
       }
     },
     "body" : {

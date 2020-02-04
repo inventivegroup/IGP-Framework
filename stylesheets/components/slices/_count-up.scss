@@ -1,0 +1,56 @@
+.count-up {
+    padding-top: 25px;
+    &.light {
+        color: white;
+    }
+    &.dark {
+        color: #1E2D3D;
+    }
+    .section-title {
+        // margin-top: 200px;
+        font-size: 52px;
+        line-height: 60px;
+        margin-bottom: 80px;
+        @media screen and (max-width: $max-width-sm){
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+    }
+    .custom-column{
+        width: 350px;
+        padding: 20px;
+        word-break: break-word;
+        @media screen and (max-width: $max-width-sm){
+            width: 280px;
+            padding: 10px
+        }
+        .counter {
+            font-size: 44px;
+            @media screen and (max-width: $max-width-sm){
+                font-size: 28px;
+            }
+        }
+        .icon-container{
+            background-color: white;
+            margin-bottom: 10px;
+            width: 125px;
+            height: 125px;
+            border-radius: 50%;
+            @media screen and (max-width: $max-width-sm){
+                width: 100px;
+                height: 100px;
+            }
+            .custom-icon{
+                font-size: 70px;
+                @media screen and (max-width: $max-width-sm){
+                    font-size: 50px;
+                }
+            }
+        }
+        .counter-text{
+            font-size: 28px;
+            padding-bottom: 0px;
+            margin-bottom: 0px;
+        }
+    }
+}

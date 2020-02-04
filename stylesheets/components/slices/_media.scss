@@ -1,0 +1,13 @@
+.media {
+    &.white{
+        color: white;
+    }
+    &.dark{
+        color: #1E2D3D;
+    }
+    padding: 30px 0px;
+    min-height: 400px;
+    .media-text-box{
+        max-width: 400px;
+    }
+}

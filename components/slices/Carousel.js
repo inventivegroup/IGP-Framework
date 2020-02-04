@@ -170,12 +170,12 @@ export default ({ slice }) => {
                                         
                                         {!!item.carousel_item_title ? <h3 className="carousel-header">{item.carousel_item_title[0].text}</h3> : false }
                                         
-                                        {item.content !== null ? RichText.render(item.content, linkResolver, htmlSerializer) : " " }
+                                        {!!item.content ? RichText.render(item.content, linkResolver, htmlSerializer) : " " }
                                         
-                                        { !!item.primary_cta_btn ? 
+                                        { !!item.primary_cta_btn || !!item.secondary_cta_btn ? 
                                             <div className="cta_btn_cont">
-                                             <a href={`${item.primary_cta_btn.url}`} className="secondary_cta_btn">{RichText.asText(item.custom_cta_text, linkResolver, htmlSerializer)}</a>
-                                             <a href='https://share.hsforms.com/1fEf8S6OtS0KMeT9VJqHG0A2glvq' className="primary_cta_btn">Get A Quote!</a>
+                                             {!!item.primary_cta_btn ? <a href={item.primary_cta_btn.url} className="secondary_cta_btn">{item.custom_cta_text ? RichText.asText(item.custom_cta_text, linkResolver, htmlSerializer) : ''}</a> : ''}
+                                             {!!item.secondary_cta_btn ? <a href={item.secondary_cta_btn.url} className="primary_cta_btn">{!!item.secondary_cta_btn_text ? RichText.asText(item.secondary_cta_btn_text, linkResolver, htmlSerializer) : ''}</a> : ''}
                                             </div>
                                         : false }
 

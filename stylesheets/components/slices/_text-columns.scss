@@ -10,9 +10,19 @@
     .columns{
         display:flex;
         justify-content: space-around;
+        align-items:center;
 
         .featured_image{
             max-width:250px;
+        }
+        .text-columns-icon{
+            font-size:150px;
+            align-self: center;
+        }
+        .text-columns-text{
+            font-size: 22px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
         }
     }
 }

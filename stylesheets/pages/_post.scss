@@ -38,6 +38,18 @@
     justify-content: center;
     align-items:center;
 
+    .contact-form{
+        background-color:$brown_smoke;
+        padding:50px;
+        min-width:80vw;
+        border-radius:10px;
+
+        form {
+            display:flex;
+        }
+    }
+
+
     h3{
         text-transform:uppercase;
         color:$studios_black;

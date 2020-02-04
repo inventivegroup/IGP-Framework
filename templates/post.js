@@ -1,9 +1,11 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
-import { Container } from 'reactstrap'
 import Layout from '../components/layouts' 
-import { ImageCaption, Quote, Text, BlogPosts, Sidebar, AboutAuthor } from '../components/slices'
+import { ImageCaption, Quote, Text, Sidebar, AboutAuthor } from '../components/slices'
+import BlogPostsBlade from '../components/slices/BlogPostsBlade';
+import ContactUsForm from '../components/general/ContactUsForm'
+
 
 // Query for the Blog Post content in Prismic
 export const query = graphql`
@@ -93,7 +95,7 @@ const PostBody = ({ blogPost, allPosts }) => {
   
   return (
     <>
-      <div className="container post-header" style={{backgroundImage: `url(${blogPost.featured_image.url !== null && blogPost.featured_image.url !== undefined ? blogPost.featured_image.url : ''})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
+      <div className="post-header" style={{backgroundImage: `url(${blogPost.featured_image.url !== null && blogPost.featured_image.url !== undefined ? blogPost.featured_image.url : ''})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
         <div className="colored-layover flex">
           <h1 data-wio-id={ blogPost._meta.id }>
             { titled ? RichText.asText(blogPost.title) : 'Untitled' }
@@ -105,34 +107,23 @@ const PostBody = ({ blogPost, allPosts }) => {
       </div>
 
       <div className="d-flex row">
-        <div className="post-container col-md-8">
+        <div className="post-container col-md-9">
           <PostSlices slices={ blogPost.body } />
         </div>
         <Sidebar/>
       </div>
+
       <AboutAuthor author={blogPost.post_author}/>
+
       <>  
         <div className="more-stories">
           <h3 className="blade_title">More Stories</h3>
-          <BlogPosts></BlogPosts>
+          <BlogPostsBlade></BlogPostsBlade>
         </div>
-        <div className={" diagonal_bottom studios"}></div>
+        <div className={"diagonal_bottom studios"}></div>
       </>
 
-      <div className="contact-form-container">
-        <h3>TELL US ABOUT YOUR NEEDS</h3>
-        <p>Fill out the information below, we will schedule a time to discuss your needs and how we can help!</p>
-        <script charSet="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
-        <script charSet="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
-        <script>
-            {
-              `hbspt.forms.create({
-                portalId: "4134086",
-                formId: "4c35261a-7ea6-40f2-856b-0c65c3cb4d0e"
-              })`
-            }
-        </script>
-      </div>
+      <ContactUsForm slice={{title:"TELL US ABOUT YOUR NEEDS", content:"Fill out the information below, we will schedule a time to discuss your needs and how we can help!"}}/>
     </>
   );
 }

@@ -1,0 +1,91 @@
+.drop-in{
+    min-height: 400px;
+    &.light {
+        color: white;
+    }
+    &.dark {
+        color: #1E2D3D;
+    }
+    .drop-title{
+        // Medium devices (tablets, 768px and up)
+        @media (max-width: 991.98px) { font-size: 5rem; line-height: 5rem; padding: 0px; white-space: normal; text-align: center;}
+
+        // Large devices (desktops, 992px and up)
+        @media (min-width: 992px) and (max-width: 1199.98px) { font-size: 5rem; line-height: 5rem; padding: 0px 40px; white-space: nowrap;}
+
+        // Extra large devices (large desktops, 1200px and up)
+        @media (min-width: 1200px) { font-size: 6rem; line-height: 6rem; padding: 0px 40px; white-space: nowrap;}
+    }
+    .subtitle-container{
+        position: relative;
+        word-break: break-word;
+        // white-space: nowrap;
+        @media (max-width: 991.98px) {height: 200px; width: 80%;}
+        @media (min-width: 992px) {height: 400px; width: 100%;}
+        .drop-subtitle{
+
+            // Medium devices (tablets, 768px and up)
+            @media (max-width: 991.98px) { font-size: 3rem; line-height: 3rem; position: absolute; width: 100%; text-align: center;}
+
+            // Large devices (desktops, 992px and up)
+            @media (min-width: 992px) and (max-width: 1199.98px) { font-size: 3rem; line-height: 3rem; position: absolute;}
+
+            // Extra large devices (large desktops, 1200px and up)
+            @media (min-width: 1200px) { font-size: 4rem; line-height: 4rem; position: absolute;}
+        }
+    }
+}
+
+// @keyframes zanimate {
+//     0% {top: 55px; opacity: 0}
+//     20% {top: 205px; opacity: 1}
+//     80% {top: 205px; opacity: 1}
+//     100% {top: 355px; opacity: 0}
+// }
+
+// .zanimate-appear{
+//     opacity: 0;
+//     top: 55px;
+// }
+
+// .zanimate-appear.zanimate-appear-active {
+//     opacity: 0;
+//     top: 355px;
+//     transition: opacity 500ms, top 500ms;
+// }
+
+.zanimate-enter, .zanimate-appear{
+    opacity: 0;
+    @media (max-width: 991.98px) {top: 10px}
+    @media (min-width: 992px) {top: 50px;}
+}
+
+.zanimate-enter-active, .zanimate-appear-active{
+    opacity: 1;
+
+    @media (max-width: 991.98px) {top: 10px}
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) and (max-width: 1199.98px) { top: 178px }
+
+    // Extra large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) { top: 171px }
+
+    transition: opacity 500ms, top 500ms;
+}
+
+.zanimate-exit {
+    opacity: 1;
+    @media (max-width: 991.98px) {top: 10px}
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) and (max-width: 1199.98px) { top: 178px }
+
+    // Extra large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) { top: 171px }
+}
+
+.zanimate-exit-active {
+    opacity: 0;
+    @media (max-width: 991.98px) {top: 135px}
+    @media (min-width: 992px) {top: 300px;}
+    transition: opacity 500ms, top 500ms;
+}
