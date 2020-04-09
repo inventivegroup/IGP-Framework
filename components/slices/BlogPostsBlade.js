@@ -26,6 +26,10 @@ const AuthorImage = ( data ) => {
           <div className="author-image" style={{backgroundImage: `url(https://images.prismic.io/inventivestudios/350033dc-d750-4f6a-9408-2ed7eaccd4f3_Miguel-Gonzalez-Profile-Pic.jpg?auto=compress,format)`}}></div>
       )
 
+      case 'Klarissa Garcia': return (
+        <div className="author-image" style={{backgroundImage: `url(https://images.prismic.io/inventivestudios/fa8f5bb7-2134-4c3e-897b-e029ce585f5f_klarissa-garcia.jpg?auto=compress,format)`}}></div>
+      )
+
       default: return null;
     }
   })();
@@ -39,6 +43,8 @@ function getBlogPostHome(data) {
     switch(edge.type) {
       case "blog_posts": 
         BlogPostHomeData = edge.primary;
+      
+      // no default
     }
   }
 
@@ -53,7 +59,7 @@ function Posts( data ) {
         let post_limit =  getBlogPostHome(data.slices.allHomepages.edges).post_limit;
 
         if(formattedPosts.length <= ( post_limit - 1) ){
-          formattedPosts.push(
+          return formattedPosts.push(
             <div className="post_link">
               <div key={index} className="short_post">
                   <div className="post_header_image" style={{backgroundImage: `url("${featured_image.url}")`, backgroundSize: "cover"}}>
@@ -74,6 +80,8 @@ function Posts( data ) {
               </div>
             </div>
           )
+        } else {
+          return null;
         }
     })
 
@@ -81,7 +89,7 @@ function Posts( data ) {
 }
 
 const PageBody = ( data ) => {
-  let { divider_top, divider_top_flipped, divider_top_color, divider_bottom, divider_bottom_flipped, divider_bottom_color, section_title } = getBlogPostHome(data.data.allHomepages.edges)
+  let { divider_top, divider_top_flipped, divider_top_color, divider_bottom, divider_bottom_flipped, divider_bottom_color } = getBlogPostHome(data.data.allHomepages.edges)
 
 
   return (

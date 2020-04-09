@@ -61,7 +61,6 @@ const getColor = (color) => {
             case "cares black":
                 return '#002A02'
   
-  
             case "staffing":
                 return '#FFC82C'
   
@@ -73,7 +72,6 @@ const getColor = (color) => {
   
             case "staffing black":
                 return '#1A1A00'
-  
   
             case "academy":
                 return '#FE8A00'
@@ -105,11 +103,9 @@ const getColor = (color) => {
   
             case "none" : 
                 return '100%, white'
-  
+
             default:
               return 'white';
-            
-            break;
         }
     })();
   
@@ -129,9 +125,9 @@ export default ({ slice, color }) => {
                             {section_title && (section_title[0].text !== '') ? <h2>{section_title[0].text}</h2> : false}
                             {content && (content[0].text !== '')? <p style={{marginBottom: '0px', paddingBottom: '0px'}}>{RichText.render(content, linkResolver, htmlSerializer)}</p> : false}
                             {!!primary_cta_btn || !!secondary_cta_btn ?
-                                <div className={"cta_btn_cont row justify-content-center justify-content-md-" + (text_alignment === 'right' ? 'end' : (text_alignment === 'left' ? 'start' : 'center'))}>
-                                    {!!primary_cta_btn ? <a href={primary_cta_btn.url} className="my-2 my-lg-0 secondary_cta_btn">{primary_cta_btn_text ? RichText.asText(primary_cta_btn_text, linkResolver, htmlSerializer) : ''}</a> : false}
-                                    {!!secondary_cta_btn ? <a href={secondary_cta_btn.url} className="my-2 my-lg-0 primary_cta_btn">{!!secondary_cta_btn_text ? RichText.asText(secondary_cta_btn_text, linkResolver, htmlSerializer) : ''}</a> : false}
+                                <div className={"cta_btn_cont mx-0 row justify-content-center justify-content-md-" + (text_alignment === 'right' ? 'end' : (text_alignment === 'left' ? 'start' : 'center'))}>
+                                    {!!primary_cta_btn ? <a target="_blank" rel="noopener noreferrer" href={primary_cta_btn.url} className="my-2 my-lg-0 secondary_cta_btn">{primary_cta_btn_text ? RichText.asText(primary_cta_btn_text, linkResolver, htmlSerializer) : ''}</a> : false}
+                                    {!!secondary_cta_btn ? <a target="_blank" rel="noopener noreferrer" href={secondary_cta_btn.url} className="my-2 my-lg-0 primary_cta_btn">{!!secondary_cta_btn_text ? RichText.asText(secondary_cta_btn_text, linkResolver, htmlSerializer) : ''}</a> : false}
                                 </div>
                                 : false}
                         </div>

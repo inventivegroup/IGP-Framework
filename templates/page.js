@@ -1,8 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layouts' 
-import { Divider, CTAOne, Plan, StaffMember,ParallaxBlade, Social, List, DropIn, CountUp, BigWordsOne, Media, BigWordsTwo } from '../components/slices'
-import { ContactUsForm } from '../components/general'
+import { Divider, CTAOne, Plan, StaffMember,ParallaxBlade, Social, List, DropIn, CountUp, BigWordsOne, Media, BigWordsTwo, TextColumns } from '../components/slices'
 
 
 // Query for the Page content in Prismic
@@ -17,6 +16,32 @@ query PageQuery($uid: String) {
             uid
             type
           }
+          meta_title
+          meta_description
+          canonical{
+            
+            ... on PRISMIC__ExternalLink {
+              url
+            }
+            
+            ... on PRISMIC__FileLink {
+              url
+            }
+      
+            
+            ... on PRISMIC_Post {
+              _meta{
+                uid
+              }
+            }
+            
+            ... on PRISMIC_Blog_home{
+              _meta{
+                uid
+              }
+            }
+          } 
+
           headline
           description
           header_button_text
@@ -130,6 +155,33 @@ query PageQuery($uid: String) {
                     size
                   }
                 }
+                poster_one_link_to{
+                  __typename
+                  ... on PRISMIC__ExternalLink{
+                    url
+                  }
+                  ... on PRISMIC__FileLink{
+                    name
+                    url
+                    size
+                  }
+                }
+                
+                poster_two_link_to{
+                  __typename
+                  ... on PRISMIC__ExternalLink{
+                    url
+                  }
+                  ... on PRISMIC__FileLink{
+                    name
+                    url
+                    size
+                  }
+                }
+
+                show
+                poster_one_image
+                poster_two_image
               }
               fields{
               	logo
@@ -158,6 +210,31 @@ query PageQuery($uid: String) {
                 bio
               }
             }
+
+            ... on PRISMIC_PageBodyText_columns{
+              type
+              label
+
+              primary{
+                blade_title
+                text_alignment
+                primary_blade_color
+                secondary_blade_color
+                gradient_angle
+                divider_top
+                divider_top_color
+                divider_bottom
+                divider_bottom_flipped
+                divider_bottom_color
+              }
+
+              fields{
+                featured_image
+                section_subtitle
+                content
+              }
+            }
+
             ... on PRISMIC_PageBodyPlan{
               type
             
@@ -500,19 +577,6 @@ query PageQuery($uid: String) {
                 section_subtitle
               }
             }
-
-            ... on PRISMIC_PageBodyForm{
-              type
-              label
-
-              primary{
-                section_title
-                content
-                portal_id
-                form_id
-              }
-            }
-
           }
         }
       }
@@ -618,8 +682,9 @@ const getGradient = (color) => {
 
           case "none" : 
               return '100%, white';
-          
-          break;
+
+          default: 
+            return 'white';
       }
   })();
 
@@ -661,12 +726,6 @@ const PageSlices = ({ slices }) => {
           </div>
         )
 
-        case 'form': return (
-          <div key={ index } className="homepage-slice-wrapper">
-            <ContactUsForm slice={ slice } />
-          </div>
-        )
-
         case 'list' : return (
           <div key={ index } className="homepage-slice-wrapper">
               <List slice={slice}/>
@@ -697,6 +756,12 @@ const PageSlices = ({ slices }) => {
           </div>
         )
 
+        case 'text_columns' : return (
+          <div key={ index } className="homepage-slice-wrapper">
+              <TextColumns slice={slice}/>
+          </div>
+        )
+
         case 'media': return (
           <div key={ index } className="homepage-slice-wrapper">
             <Media slice={ slice } />
@@ -720,8 +785,8 @@ const PageBody = ({ page }) => {
           <p> { !!page.description ? page.description[0].text : false }  </p>
           
           <div className="cta_btn_cont">
-            <a href={!!page.header_button ? page.header_button.url : false} className="secondary_cta_btn">{!!page.header_button_text ? page.header_button_text[0].text : false}</a>
-            <a href={!!page.secondary_header_button ? page.secondary_header_button.url : false} className="primary_cta_btn">{!!page.secondary_header_button_text ? page.secondary_header_button_text[0].text : false}</a>
+            <a target="_blank" rel="noopener noreferrer" href={!!page.header_button ? page.header_button.url : false} className="secondary_cta_btn">{!!page.header_button_text ? page.header_button_text[0].text : false}</a>
+            <a target="_blank" rel="noopener noreferrer" href={!!page.secondary_header_button ? page.secondary_header_button.url : false} className="primary_cta_btn">{!!page.secondary_header_button_text ? page.secondary_header_button_text[0].text : false}</a>
           </div>
         </div>
 
@@ -744,7 +809,7 @@ export default (props) => {
   if(!doc) return null;
 
   return(
-    <Layout logoColor={doc.node.navbar_style}>
+    <Layout logoColor={doc.node.navbar_style} metaTitle={doc.node.meta_title[0].text} metaDescription={doc.node.meta_description[0].text}>
       <PageBody page={ doc.node } />
     </Layout>
   )

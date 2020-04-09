@@ -21,7 +21,9 @@ export default props => ( <StaticQuery query={graphql`
                 id
                 type
             }
-
+            meta_title
+            meta_description
+            
             headline
             description
             image

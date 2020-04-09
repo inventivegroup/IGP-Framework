@@ -108,8 +108,6 @@ const getColor = (color) => {
   
             default:
               return '#ffffff'
-            
-            break;
         }
     })();
   

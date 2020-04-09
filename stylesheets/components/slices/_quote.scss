@@ -7,9 +7,13 @@
   align-items:center;
   justify-content:center;
 
+  margin:50px 0px;
 
-  h3{
-    color:white;
-    font-size:24px;
+
+  h1, h2, h3, h4, h5{
+    border-left: solid 8px $studios;
+    padding-left:20px;
+    color:$studios;
+    font-size:30px;
   }
 }

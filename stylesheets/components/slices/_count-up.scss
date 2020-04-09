@@ -26,8 +26,11 @@
         }
         .counter {
             font-size: 44px;
+            margin-top: 10px;
             @media screen and (max-width: $max-width-sm){
                 font-size: 28px;
+                margin-top: 0px;
+                margin-bottom: 5px;
             }
         }
         .icon-container{
@@ -49,6 +52,7 @@
         }
         .counter-text{
             font-size: 28px;
+            line-height: 30px;
             padding-bottom: 0px;
             margin-bottom: 0px;
         }

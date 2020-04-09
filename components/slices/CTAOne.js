@@ -10,10 +10,10 @@ import { Divider } from './index';
 
 const getGradient = (color) => {
     const res = (() => {
-        switch(color){
+        switch (color) {
             case "smoke":
                 return '#E0E6ED';
-            
+
             case "studios":
                 return '#7E5BEF';
 
@@ -104,10 +104,10 @@ const getGradient = (color) => {
             case "ventures black":
                 return '#330100'
 
-            case "none" : 
+            case "none":
                 return '100%, white';
             
-            break;
+            default: return null;
         }
     })();
 
@@ -115,12 +115,12 @@ const getGradient = (color) => {
 }
 
 
-export default class CTAOne extends React.Component{
+export default class CTAOne extends React.Component {
     constructor() {
         super();
 
         this.check_if_in_view = this.check_if_in_view.bind(this);
-        
+
         this.bubbles = [
             this.faux_bubble_one = React.createRef(),
             this.faux_bubble_two = React.createRef(),
@@ -132,18 +132,37 @@ export default class CTAOne extends React.Component{
         ];
 
         this.state = {
+            width: '1200px',
             containerVisible: false,
         }
     }
 
     componentDidMount() {
-        if ( document ) {
+        if (document) {
             document.addEventListener('scroll', () => {
                 this.check_if_in_view(this.bubbles);
             })
-        } else {
-            console.warn("No document to connect to!");
         }
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', this.handleWindowSizeChange);
+            this.setState({ width: window.innerWidth })
+
+        }
+    }
+
+    componentWillUnmount() {
+        if (typeof window !== 'undefined') {
+            window.removeEventListener('resize', this.handleWindowSizeChange);
+
+        }
+    }
+
+    handleWindowSizeChange = () => {
+        this.setState({ width: window.innerWidth });
+    };
+
+    viewportWidth = () => {
+        return window.innerWidth;
     }
 
     containerVisible = () => {
@@ -152,51 +171,48 @@ export default class CTAOne extends React.Component{
 
     check_if_in_view = (animationElements) => {
         let window_top_position = document.documentElement.scrollTop;
-        
-        if(this.containerVisible() !== false){
+
+        if (this.containerVisible() !== false && animationElements[0].current !== null) {
             animationElements.forEach((element) => {
-                if(element.current.offsetTop < -1){
+                if (element.current.offsetTop < -1) {
                     window_top_position = -element.current.scrollTop + document.documentElement.scrollTop * .6;
-                    
+
                 } else {
                     window_top_position = -element.current.scrollTop + document.documentElement.scrollTop * .6;
                 }
-                
+
                 this.parallaxScroll(element, window_top_position)
             })
-            
+
         }
     };
 
     parallaxScroll = (element, scrolled) => {
-        switch(element.current.id) {
+        switch (element.current.id) {
             // Non Image Bubbles
             case 'faux-bubble-one': // pink
-                element.current.style.top = ( 650 + (-scrolled*.15))+'px'; 
+                element.current.style.top = (650 + (-scrolled * .15)) + 'px';
                 break;
 
             case 'faux-bubble-three': // orange
-                element.current.style.top = ( 950 + (-scrolled*.30))+'px'; 
+                element.current.style.top = (950 + (-scrolled * .30)) + 'px';
                 break;
 
             case 'faux-bubble-five': // grey
-                element.current.style.top = ( 950 + (-scrolled*.40))+'px'; 
+                element.current.style.top = (950 + (-scrolled * .40)) + 'px';
                 break;
-
-                
-
 
             case 'faux-bubble-two': // green
-                element.current.style.top = ( -250 + (-scrolled*.30))+'px'; 
+                element.current.style.top = (-250 + (-scrolled * .30)) + 'px';
                 break;
             case 'faux-bubble-four': // grey
-                element.current.style.top = ( 300 + (-scrolled*.40))+'px'; 
+                element.current.style.top = (300 + (-scrolled * .40)) + 'px';
                 break;
-            case 'faux-bubble-six': // purple
-                element.current.style.top = ( 300 + (-scrolled*.30))+'px'; 
+            case 'faux-bubble-six-svg': // purple
+                element.current.style.top = (300 + (-scrolled * .30)) + 'px';
                 break;
             case 'faux-bubble-seven': // grey
-                element.current.style.top = ( 200 + (-scrolled*.40))+'px'; 
+                element.current.style.top = (200 + (-scrolled * .40)) + 'px';
                 break;
 
             default: return false;
@@ -204,54 +220,89 @@ export default class CTAOne extends React.Component{
     }
 
     onChange = (isVisible) => {
-        this.setState({containerVisible: isVisible});
+        this.setState({ containerVisible: isVisible });
     }
-    
-    render(){
+
+    render() {
         let { slice } = this.props;
-        let { section_subtitle, section_title, content, cta,  cta_text, text_alignment, primary_blade_color, secondary_blade_color, gradient_angle, divider_top, divider_bottom, divider_top_color, divider_bottom_color, image, layout } = slice.primary;
+        let { section_subtitle, section_title, content, cta, cta_text, text_alignment, primary_blade_color, secondary_blade_color, gradient_angle, divider_top, divider_bottom, divider_top_color, divider_bottom_color, image, layout } = slice.primary;
+
+        const { width } = this.state;
+        const isMobile = width <= 650;
 
         return (
             <div className="parallax-container">
                 <Divider type={divider_top} backgroundColor={divider_top_color} side="top" flipped={false} />
-                
-                <VisibilitySensor partialVisibility={true} minTopValue={10} onChange={this.onChange}>
-                    <div>
-                        {/* Faux Bubbles on Left */}
-                        <div style={{top: '400px', left: '-120px', backgroundColor: 'tomato'}} ref={this.faux_bubble_one} id="faux-bubble-one" className="faux-bubble Big"></div>
-                        <div style={{top: '500px', left: '20px', backgroundColor: 'orange'}} ref={this.faux_bubble_three} id="faux-bubble-three" className="faux-bubble Small"></div>
-                        <div style={{top: '360px', left: '90px', backgroundColor: '#d9d9d9'}} ref={this.faux_bubble_five} id="faux-bubble-five" className="faux-bubble XSmall"></div>
-                        
-                        <Row className="cta_one p-4" style={{background: 'linear-gradient(' + (gradient_angle > 360 ? 0 : gradient_angle) + 'deg ,' + getGradient(primary_blade_color) + "," + getGradient(secondary_blade_color) + ')'}}>
-                            { !!layout && layout === 'image left' ?
-                                <Col lg="5" md="6" sm="12" xs="12" className="img_cont m-auto">
-                                    <div className="image" style={{backgroundImage: `url(${image.url})`}}></div>
-                                </Col>
-                                : false
-                            }
-            
-                            <Col lg="5" md="6" sm="12" xs="12" className={"m-auto main " + text_alignment }>
-                                { !!section_subtitle  ? <h3>{section_subtitle[0].text}</h3> : false }
-                                { !!section_title  ? <h2>{section_title[0].text}</h2> : false }
-                                {RichText.render(content, linkResolver, htmlSerializer)}
-                                { !!cta  ? <Button href={'/' + ( !!cta._meta ? cta._meta.uid : cta.url )} color="primary">{RichText.asText(cta_text, linkResolver, htmlSerializer)}</Button> : " " }
-                            </Col> 
-            
-                            { !!layout && layout === 'image right' ?
-                                <Col lg="5" md="6" sm="12" xs="12" className="m-auto img_cont">
-                                    <div className="image" style={{backgroundImage: `url(${image.url})`}}></div>
-                                </Col>
-                                : false
-                            }
-                        </Row>
 
-                        {/* Faux Bubbles on Right */}
-                        <div style={{top: '-300px', right: '-98vw', backgroundColor: '#d9d9d9'}} ref={this.faux_bubble_seven} id="faux-bubble-seven" className="faux-bubble XSmall"></div>
-                        <div style={{top: '-100px', right: '-95vw', backgroundColor: 'rebeccapurple'}} ref={this.faux_bubble_six} id="faux-bubble-six" className="faux-bubble Medium"></div>
-                        <div style={{top: '-250px', right: '-94vw', backgroundColor: '#d9d9d9'}} ref={this.faux_bubble_four} id="faux-bubble-four" className="faux-bubble XSmall"></div>
-                        <div style={{top: '-600px', right: '-94vw', backgroundColor: 'lime'}} ref={this.faux_bubble_two} id="faux-bubble-two" className="faux-bubble Small"></div>
-                    </div>
-                </VisibilitySensor>     
+
+                {!isMobile ?
+                    <VisibilitySensor partialVisibility={true} minTopValue={10} onChange={this.onChange}>
+                        <div>
+                            {/* Faux Bubbles on Left */}
+                            <div style={{ top: '400px', left: '-120px', backgroundColor: 'tomato' }} ref={this.faux_bubble_one} id="faux-bubble-one" className="faux-bubble Big"></div>
+                            <div style={{ top: '500px', left: '20px', backgroundColor: 'orange' }} ref={this.faux_bubble_three} id="faux-bubble-three" className="faux-bubble Small"></div>
+                            <div style={{ top: '360px', left: '90px', backgroundColor: '#d9d9d9' }} ref={this.faux_bubble_five} id="faux-bubble-five" className="faux-bubble XSmall"></div>
+
+                            <Row className="cta_one p-4" style={{ background: 'linear-gradient(' + (gradient_angle > 360 ? 0 : gradient_angle) + 'deg ,' + getGradient(primary_blade_color) + "," + getGradient(secondary_blade_color) + ')' }}>
+                                {!!layout && layout === 'image left' ?
+                                    <Col lg="5" md="6" sm="12" xs="12" className="img_cont m-auto">
+                                        <div className="image" style={{ backgroundImage: `url(${image.url})` }}></div>
+                                    </Col>
+                                    : false
+                                }
+
+                                <Col lg="5" md="6" sm="12" xs="12" className={"m-auto main " + text_alignment}>
+                                    {!!section_subtitle ? <h3>{section_subtitle[0].text}</h3> : false}
+                                    {!!section_title ? <h2>{section_title[0].text}</h2> : false}
+                                    {RichText.render(content, linkResolver, htmlSerializer)}
+                                    {!!cta ? <Button href={'/' + (!!cta._meta ? cta._meta.uid : cta.url)} color="primary">{RichText.asText(cta_text, linkResolver, htmlSerializer)}</Button> : " "}
+                                </Col>
+
+                                {!!layout && layout === 'image right' ?
+                                    <Col lg="5" md="6" sm="12" xs="12" className="m-auto img_cont">
+                                        <div className="image" style={{ backgroundImage: `url(${image.url})` }}></div>
+                                    </Col>
+                                    : false
+                                }
+                            </Row>
+
+                            {/* Faux Bubbles on Right */}
+                            <div style={{ top: '-300px', left: 'calc(100% - 30px)', backgroundColor: '#d9d9d9' }} ref={this.faux_bubble_seven} id="faux-bubble-seven" className="faux-bubble XSmall"></div>
+                            {/* <div style={{top: '-100px', right: '-95vw', backgroundColor: 'rebeccapurple'}} ref={this.faux_bubble_six} id="faux-bubble-six" className="faux-bubble Medium"></div> */}
+                            <svg id="faux-bubble-six-svg" ref={this.faux_bubble_six} height="100" width="80" stroke="none" stroke-width="0" style={{top: '-100px', left: 'calc(100% - 80px)', zIndex: 999, position: 'relative',}}>
+                                <circle cx="50" cy="50" r="50" fill="rgb(102, 51, 153)" />
+                            </svg>
+                            <div style={{ top: '-250px', left: 'calc(100% - 90px)', backgroundColor: '#d9d9d9' }} ref={this.faux_bubble_four} id="faux-bubble-four" className="faux-bubble XSmall"></div>
+                            <div style={{ top: '-600px', left: 'calc(100% - 90px)', backgroundColor: 'lime' }} ref={this.faux_bubble_two} id="faux-bubble-two" className="faux-bubble Small"></div>
+                        </div>
+                    </VisibilitySensor>
+
+                    :
+
+                    <Row className="cta_one p-4" style={{ background: 'linear-gradient(' + (gradient_angle > 360 ? 0 : gradient_angle) + 'deg ,' + getGradient(primary_blade_color) + "," + getGradient(secondary_blade_color) + ')' }}>
+                        {!!layout && layout === 'image left' ?
+                            <Col lg="5" md="6" sm="12" xs="12" className="img_cont m-auto">
+                                <div className="image" style={{ backgroundImage: `url(${image.url})` }}></div>
+                            </Col>
+                            : false
+                        }
+
+                        <Col lg="5" md="6" sm="12" xs="12" className={"m-auto main " + text_alignment}>
+                            {!!section_subtitle ? <h3>{section_subtitle[0].text}</h3> : false}
+                            {!!section_title ? <h2>{section_title[0].text}</h2> : false}
+                            {RichText.render(content, linkResolver, htmlSerializer)}
+                            {!!cta ? <Button href={'/' + (!!cta._meta ? cta._meta.uid : cta.url)} color="primary">{RichText.asText(cta_text, linkResolver, htmlSerializer)}</Button> : " "}
+                        </Col>
+
+                        {!!layout && layout === 'image right' ?
+                            <Col lg="5" md="6" sm="12" xs="12" className="m-auto img_cont">
+                                <div className="image" style={{ backgroundImage: `url(${image.url})` }}></div>
+                            </Col>
+                            : false
+                        }
+                    </Row>
+                }
+
 
                 <Divider type={divider_bottom} backgroundColor={divider_bottom_color} side="bottom" flipped={false} />
             </div>

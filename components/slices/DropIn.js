@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { RichText } from 'prismic-reactjs';
-import { linkResolver } from '../../utils/linkResolver';
-import htmlSerializer from '../../utils/htmlSerializer';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import BladeContainer from '../general/BladeContainer';
 

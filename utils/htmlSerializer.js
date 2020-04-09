@@ -17,7 +17,7 @@ export default function (type, element, content, children, index) {
       result = <Link to={ url } key={ index }>{ content }</Link>
     } else {
       const target = element.data.target ? { 'target':element.data.target, 'rel':'noopener' } : {}
-      result = <a href={ url } { ...target } key={ index }>{ content }</a>
+      result = <a target="_blank" rel="noopener noreferrer" href={ url } { ...target } key={ index }>{ content }</a>
     }
     return result
   }
@@ -33,7 +33,7 @@ export default function (type, element, content, children, index) {
         result = <Link to={ url } key={ index }>{ result }</Link>
       } else {
         const target = element.linkTo.target ? { 'target':element.linkTo.target, 'rel':'noopener' } : {}
-        result = <a href={ url } { ...target }>{ result }</a>
+        result = <a target="_blank" rel="noopener noreferrer"  href={ url } { ...target }>{ result }</a>
       }
     }
     const wrapperClassList = [element.label || '', 'block-img'];

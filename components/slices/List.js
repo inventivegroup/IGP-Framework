@@ -1,8 +1,4 @@
 import React from 'react';
-import { RichText } from 'prismic-reactjs';
-import { linkResolver } from '../../utils/linkResolver';
-import htmlSerializer from '../../utils/htmlSerializer';
-import BladeContainer from '../general/BladeContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -109,8 +105,6 @@ const getColor = (color) => {
 
             default: 
                 return '#1E2D3D';
-            
-            break;
         }
     })();
 
@@ -119,11 +113,12 @@ const getColor = (color) => {
 
 export default ({slice}) => {
     let { section_title, icon, text_color} = slice.primary;
+    let image1
     // check if image exists
     if (slice.primary.image1){
-        var {image1} = slice.primary;
+        image1 = slice.primary.image1;
     } else {
-        var image1 = '';
+        image1 = "";
     }
     //check that there are no blank headers for these lists
     let fields = [];

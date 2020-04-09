@@ -111,8 +111,6 @@ const getGradient = (color) => {
 
             default : 
                 return '100%, white';
-
-            break;
         }
     })();
 

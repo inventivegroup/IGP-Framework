@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
-import classnames from 'classnames';
+import React from 'react';
 
 export default class Tabs extends React.Component{
     render() {
-        const [activeTab, setActiveTab] = useState('1');
+        // const [activeTab, setActiveTab] = useState('1');
 
-        const toggle = tab => {
-          if(activeTab !== tab) setActiveTab(tab);
-        }
+        // const toggle = tab => {
+        //   if(activeTab !== tab) setActiveTab(tab);
+        // }
 
         // const { tabs } = this.props;
 

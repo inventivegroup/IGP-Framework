@@ -4,7 +4,6 @@ import React from 'react';
 import { RichText } from 'prismic-reactjs';
 import { linkResolver } from '../../utils/linkResolver';
 import htmlSerializer from '../../utils/htmlSerializer';
-import { Container, Row } from 'reactstrap';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import BladeContainer from '../general/BladeContainer';
@@ -118,8 +117,6 @@ const getColor = (color) => {
   
             default:
               return '#ffffff';
-            
-            break;
         }
     })();
   

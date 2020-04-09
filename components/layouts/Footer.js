@@ -1,5 +1,5 @@
 import React from 'react'
-import {Row, Col} from 'reactstrap';
+import {Col} from 'reactstrap';
 
 export default () =>
 <>
@@ -15,29 +15,20 @@ export default () =>
 
     </Col>
 
-
     <Col lg="3" md="4" sm="12" className="p-3" xs="12">
         <h3>Inventive Studios</h3>
-        <div><a href="/contact-us">Contact Us</a></div>
-        {/* <div><a href="/refer-a-friend">Refer a Friend</a></div> */}
-        {/* <div><a href="/mission">Mission</a></div> */}
-        <div><a href="/workspaces">Workspaces</a></div>
-        {/* <div><a href="/social-impact">Social Impact</a></div> */}
-        {/* <div><a href="/our-team">Our Team</a></div> */}
-        <div><a href="/blog">Blog</a></div>
+        <div><a target="_blank" rel="noopener noreferrer" href="/contact-us">Contact Us</a></div>
+        <div><a target="_blank" rel="noopener noreferrer" href="/workspaces">Workspaces</a></div>
+        <div><a target="_blank" rel="noopener noreferrer" href="/blog">Blog</a></div>
     </Col>
-
     
     <Col lg="3" md="4" sm="12" className="p-3" xs="12">
         <h3>Discover Inventive</h3>
-        {/* <div><a href="/enterprise-consulting">Enterprise Consulting</a></div> */}
-        {/* <div><a href="/technology-product">Technology Product</a></div> */}
-        {/* <div><a href="/incubator">Incubator</a></div> */}
-        <div><a href="https://inventive.io/academy">Coding Academy</a></div>
-        {/* <div><a href="/government-consulting">Government Consulting</a></div> */}
-        {/* <div><a href="/staffing">Staffing</a></div> */}
-        {/* <div><a href="/cares">Inventive Cares</a></div> */}
-        {/* <div><a href="/life">Inventive Life</a></div> */}
+        <div><a target="_blank" rel="noopener noreferrer" href="https://inventive.io/works/">Enterprise Consulting</a></div>
+        <div><a target="_blank" rel="noopener noreferrer" href="https://nven.tv/about-ventures">Technology Product</a></div>
+        <div><a target="_blank" rel="noopener noreferrer" href="https://inventive.io/academy">Coding Academy</a></div>
+        <div><a target="_blank" rel="noopener noreferrer" href=" https://inventive.io/patriots/">Government Consulting</a></div>
+        <div><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/pg/InventiveGroup/posts/?ref=page_internal">Inventive Life</a></div>
     </Col>
   </footer>
 </>

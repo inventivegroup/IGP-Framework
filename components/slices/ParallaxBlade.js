@@ -114,15 +114,11 @@ const getGradient = (color) => {
 
             default : 
                 return '100%, white';
-
-            break;
         }
     })();
 
     return res;
 }
-
-
 
 export default class ParallaxBlade extends React.Component{
     constructor(props) {
@@ -151,18 +147,38 @@ export default class ParallaxBlade extends React.Component{
         ];
 
         this.state = {
+            width: '1200px',
             containerVisible: false,
         }
     }
 
     componentDidMount() {
-        if ( document ) {
+        if ( document && this.bubbles !== null ) {
             document.addEventListener('scroll', () => {
                 this.check_if_in_view(this.bubbles);
             })
-        } else {
-            console.warn("No document to connect to!");
         }
+
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', this.handleWindowSizeChange);
+            this.setState({width: window.innerWidth})
+            
+        }
+    }
+
+    componentWillUnmount() {
+        if (typeof window !== 'undefined') {
+            window.removeEventListener('resize', this.handleWindowSizeChange);
+            
+        }
+    }
+
+    handleWindowSizeChange = () => {
+        this.setState({ width: window.innerWidth });
+    };
+
+    viewportWidth = () => {
+        return window.innerWidth;
     }
 
     containerVisible = () => {
@@ -172,8 +188,8 @@ export default class ParallaxBlade extends React.Component{
 
     check_if_in_view = (animationElements) => {
         let window_top_position = document.documentElement.scrollTop;
-        
-        if(this.containerVisible() !== false){
+
+        if(this.containerVisible() !== false && animationElements[0].current !== null){
             animationElements.forEach((element) => {
                 if(element.current.offsetTop < -1){
                     window_top_position = -element.current.scrollTop + document.documentElement.scrollTop * .4;
@@ -184,7 +200,6 @@ export default class ParallaxBlade extends React.Component{
                 
                 this.parallaxScroll(element, window_top_position)
             })
-            
         }
     }
 
@@ -275,21 +290,18 @@ export default class ParallaxBlade extends React.Component{
         let buttonType = button.__typename;
     
         const res = (() => {
-            console.log(buttonType)
             switch(buttonType){
                 case "PRISMIC_Post" :
-            return ( <span className="cta_btn_cont w-100 d-flex justify-content-center"> <a className="primary_cta_btn" href={"/blog/" + button._meta.uid}>{RichText.asText(buttonText)}</a> </span> )
+            return ( <span className="cta_btn_cont w-100 d-flex justify-content-center"> <a target="_blank" rel="noopener noreferrer" className="primary_cta_btn" href={"/blog/" + button._meta.uid}>{RichText.asText(buttonText)}</a> </span> )
                 
                 case "PRISMIC__FileLink" :
-                    return ( <span className="cta_btn_cont w-100 d-flex justify-content-center"> <a className="primary_cta_btn" href={button.url}>{RichText.asText(buttonText)}</a> </span> )
+                    return ( <span className="cta_btn_cont w-100 d-flex justify-content-center"> <a target="_blank" rel="noopener noreferrer" className="primary_cta_btn" href={button.url}>{RichText.asText(buttonText)}</a> </span> )
                 
                 case "PRISMIC__ExternalLink" :
-                    return ( <span className="cta_btn_cont w-100 d-flex justify-content-center"> <a className="primary_cta_btn" href={button.url}>{RichText.asText(buttonText)}</a> </span> )
+                    return ( <span className="cta_btn_cont w-100 d-flex justify-content-center"> <a target="_blank" rel="noopener noreferrer" className="primary_cta_btn" href={button.url}>{RichText.asText(buttonText)}</a> </span> )
     
                 default : 
                     return false;
-    
-                break;
             }
         })();
     
@@ -298,11 +310,15 @@ export default class ParallaxBlade extends React.Component{
 
     render(){
         let { slice } = this.props;
+        const { width } = this.state;
+
+        const isMobile = width <= 650;
 
         return (
             <>
                 <Divider type={slice.primary.divider_top} backgroundColor={slice.primary.divider_top_color} side="top" flipped={slice.primary.divider_top_flipped} />
-                
+
+            {!isMobile ? 
                 <VisibilitySensor partialVisibility={true} minTopValue={10} onChange={this.onChange}>
                     <div className={"parallax-blade cardView blade"} style={{background: 'linear-gradient(' + ((slice.primary.gradient_angle1 !== null && slice.primary.gradient_angle1) > 360 ? 0 : slice.primary.gradient_angle1) + 'deg ,' + getGradient(slice.primary.primary_blade_color1) + "," + getGradient(slice.primary.secondary_blade_color1) + ')'}}>
                         
@@ -324,8 +340,8 @@ export default class ParallaxBlade extends React.Component{
                         <div className="content-container">
                             <h1 className="big_title uppercase">{ RichText.asText(slice.primary.section_title) }</h1>
                             <div className="d-flex justify-content-center align-items-center w-100">
-                                { !!slice.primary.content_section_one ? <span className={!slice.primary.content_section_two ? "big-content" : ''}> { RichText.render(slice.primary.content_section_one, linkResolver, htmlSerializer) } </span> : " " }
-                                { !!slice.primary.content_section_two ?  <span className={!slice.primary.content_section_one ? "big-content" : ''}> { RichText.render(slice.primary.content_section_two, linkResolver, htmlSerializer) } </span> : " " }
+                                { !!slice.primary.content_section_one ? <span className={!slice.primary.content_section_two ? "big-content" : 'column-class'}> { RichText.render(slice.primary.content_section_one, linkResolver, htmlSerializer) } </span> : false }
+                                { !!slice.primary.content_section_two ?  <span className={!slice.primary.content_section_one ? "big-content" : 'column-class'}> { RichText.render(slice.primary.content_section_two, linkResolver, htmlSerializer) } </span> : false }
                             </div>
                             <div className="d-flex justify-content-center align-items-center w-100">
                                 { !!slice.primary.primary_cta_button && !!slice.primary.custom_cta_text ? this.getButton(slice.primary.primary_cta_button, slice.primary.custom_cta_text) : false}
@@ -345,9 +361,22 @@ export default class ParallaxBlade extends React.Component{
                         <div style={{top: '780px', right: '70px'}} ref={this.bubble_four} id="bubble-four" className="bubble sizeThree"> { slice.primary.bubble_four ?  <img alt="asdf" src={slice.primary.bubble_four.url}/> : <FontAwesomeIcon icon={slice.primary.bubble_four_icon_name[0].text} /> }</div>
                         <div style={{top: '800px', right: '350px'}} ref={this.bubble_two} id="bubble-two" className="bubble sizeOne"> { slice.primary.bubble_two ?  <img alt="asdf" src={slice.primary.bubble_two.url}/> : <FontAwesomeIcon icon={slice.primary.bubble_two_icon_name[0].text} /> } </div>
                         <div style={{top: '-100px', right: '250px'}} ref={this.bubble_eight} id="bubble-eight" className="bubble sizeTwo"> { slice.primary.bubble_eight ?  <img alt="asdf" src={slice.primary.bubble_eight.url}/> : <FontAwesomeIcon icon={slice.primary.bubble_eight_icon_name[0].text} /> } </div>
-        
                     </div>
                 </VisibilitySensor>
+            :
+                <div className={"parallax-blade cardView blade"} style={{background: 'linear-gradient(' + ((slice.primary.gradient_angle1 !== null && slice.primary.gradient_angle1) > 360 ? 0 : slice.primary.gradient_angle1) + 'deg ,' + getGradient(slice.primary.primary_blade_color1) + "," + getGradient(slice.primary.secondary_blade_color1) + ')'}}>
+                    <div className="content-container">
+                        <h1 className="big_title uppercase">{ RichText.asText(slice.primary.section_title) }</h1>
+                        <div className="d-flex justify-content-center align-items-center w-100">
+                            { !!slice.primary.content_section_one ? <span className={!slice.primary.content_section_two ? "big-content" : ''}> { RichText.render(slice.primary.content_section_one, linkResolver, htmlSerializer) } </span> : " " }
+                            { !!slice.primary.content_section_two ?  <span className={!slice.primary.content_section_one ? "big-content" : ''}> { RichText.render(slice.primary.content_section_two, linkResolver, htmlSerializer) } </span> : " " }
+                        </div>
+                        <div className="d-flex justify-content-center align-items-center w-100">
+                            { !!slice.primary.primary_cta_button && !!slice.primary.custom_cta_text ? this.getButton(slice.primary.primary_cta_button, slice.primary.custom_cta_text) : false}
+                        </div>
+                    </div>
+                </div>
+            }
 
                 <Divider type={slice.primary.divider_bottom} backgroundColor={slice.primary.divider_bottom_color} side="bottom" flipped={slice.primary.divider_bottom_flipped} />
             </>

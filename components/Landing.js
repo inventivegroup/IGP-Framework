@@ -183,8 +183,8 @@ const PageBody = ({ page }) => {
           <p> { page.description[0].text }  </p>
           
           <div className="cta_btn_cont">
-            <a href={page.header_button.url} className="secondary_cta_btn" style={{color: 'black'}}>{page.header_button_text[0].text}</a>
-            <a href={page.secondary_header_cta.url} className="primary_cta_btn">{page.secondary_cta_text[0].text}</a>
+            <a target="_blank" rel="noopener noreferrer" href={page.header_button.url} className="secondary_cta_btn" style={{color: 'black'}}>{page.header_button_text[0].text}</a>
+            <a target="_blank" rel="noopener noreferrer" href={page.secondary_header_cta.url} className="primary_cta_btn">{page.secondary_cta_text[0].text}</a>
           </div>
         </div>
 
@@ -203,7 +203,7 @@ const PageBody = ({ page }) => {
 
 export default (props) => {
   return(
-    <Layout>
+    <Layout metaTitle={props.data[0].node.meta_title[0].text} metaDescription={props.data[0].node.meta_description[0].text}>
       <PageBody page={ props.data[0].node } />
     </Layout>
   )

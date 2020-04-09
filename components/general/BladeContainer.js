@@ -107,8 +107,6 @@ export default ({ topDivider, bottomDivider, primaryColor, secondaryColor, gradi
     
                 default:
                     return 'white';
-                
-                break;
             }
         })();
       

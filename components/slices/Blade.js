@@ -74,7 +74,7 @@ export default ({ slice }) => {
                 <h3 className={ "subtitle " + cta_button_color}>{ RichText.render(slice.primary.subtitle, linkResolver, htmlSerializer) }</h3>
                 <h2> { RichText.render(slice.primary.section_title, linkResolver, htmlSerializer) } </h2>
                 <p> { RichText.render(slice.primary.content, linkResolver, htmlSerializer) } </p>
-                {slice.primary.cta_button !== null ? (<a className={"cta_button " + cta_button_color} href={`${slice.primary.cta_button.url}`}>{ RichText.asText(slice.primary.cta_button_text) }</a>) : " "}
+                {slice.primary.cta_button !== null ? (<a target="_blank" rel="noopener noreferrer" className={"cta_button " + cta_button_color} href={`${slice.primary.cta_button.url}`}>{ RichText.asText(slice.primary.cta_button_text) }</a>) : " "}
             </div>
             
             { slice.primary.form_type !== null ? FormSlices(slice.primary.form_type) : " "}
@@ -92,7 +92,7 @@ export default ({ slice }) => {
                 <h3 className={ "subtitle " + cta_button_color}>{ RichText.render(slice.primary.subtitle, linkResolver, htmlSerializer) }</h3>
                 <h2> { RichText.render(slice.primary.section_title, linkResolver, htmlSerializer) } </h2>
                 <p> { RichText.render(slice.primary.content, linkResolver, htmlSerializer) } </p>
-                {slice.primary.cta_button !== null ? (<a className={"cta_button " + cta_button_color} href={`${slice.primary.cta_button.url}`}>{ RichText.asText(slice.primary.cta_button_text) }</a>) : " "}
+                {slice.primary.cta_button !== null ? (<a target="_blank" rel="noopener noreferrer" className={"cta_button " + cta_button_color} href={`${slice.primary.cta_button.url}`}>{ RichText.asText(slice.primary.cta_button_text) }</a>) : " "}
             </div>
             
             { slice.primary.form_type !== null ? FormSlices(slice.primary.form_type) : " "}
@@ -111,7 +111,7 @@ export default ({ slice }) => {
                   <h3 className={ "subtitle " + cta_button_color}>{ RichText.render(slice.primary.subtitle, linkResolver, htmlSerializer) }</h3>
                   <h2> { RichText.render(slice.primary.section_title, linkResolver, htmlSerializer) } </h2>
                   <p> { RichText.render(slice.primary.content, linkResolver, htmlSerializer) } </p>
-                  {slice.primary.cta_button !== null ? (<a className={"cta_button " + cta_button_color} href={`${slice.primary.cta_button.url}`}>{ RichText.asText(slice.primary.cta_button_text) }</a>) : " "}
+                  {slice.primary.cta_button !== null ? (<a target="_blank" rel="noopener noreferrer" className={"cta_button " + cta_button_color} href={`${slice.primary.cta_button.url}`}>{ RichText.asText(slice.primary.cta_button_text) }</a>) : " "}
               </div>
               
               { slice.primary.form_type !== null ? FormSlices(slice.primary.form_type) : " "}
@@ -130,7 +130,7 @@ export default ({ slice }) => {
                     <h3 className={ "subtitle " + cta_button_color}>{ RichText.render(slice.primary.subtitle, linkResolver, htmlSerializer) }</h3>
                     <h2> { RichText.render(slice.primary.section_title, linkResolver, htmlSerializer) } </h2>
                     <p> { RichText.render(slice.primary.content, linkResolver, htmlSerializer) } </p>
-                    {slice.primary.cta_button !== null ? (<a className={"cta_button " + cta_button_color} href={`${slice.primary.cta_button.url}`}>{ RichText.asText(slice.primary.cta_button_text) }</a>) : " "}
+                    {slice.primary.cta_button !== null ? (<a target="_blank" rel="noopener noreferrer" className={"cta_button " + cta_button_color} href={`${slice.primary.cta_button.url}`}>{ RichText.asText(slice.primary.cta_button_text) }</a>) : " "}
                 </div>
                 
                 { slice.primary.form_type !== null ? FormSlices(slice.primary.form_type) : " "}

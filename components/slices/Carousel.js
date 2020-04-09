@@ -108,8 +108,6 @@ const getGradient = (color) => {
 
             default : 
                 return '100%, white';
-
-            break;
         }
     })();
 
@@ -147,16 +145,17 @@ export default ({ slice }) => {
             <div className={"carousel-container "} style={{background: 'linear-gradient(' + ((gradient_angle1 !== null && gradient_angle1) > 360 ? 0 : gradient_angle1) + 'deg , #' + getGradient(primary_blade_color1) + ", #" + getGradient(secondary_blade_color1) + ')'}}>
                 
                 <Carousel
+                    autoPlay={true}
+                    infinite={true}
+                    autoPlaySpeed={5000}
                     responsive={responsive}
                     swipeable={true}
                     draggable={true}
                     showDots={false}
                     ssr={true}
-                    infinite={false}
-                    autoPlaySpeed={800}
                     keyBoardControl={true}
                     customTransition="all 1.5s"
-                    transitionDuration={500}
+                    transitionDuration={800}
                     containerClass="Carousel"
                     removeArrowOnDeviceType={["tablet", "mobile"]}
                     dotListClass="custom-dot-list-style"
@@ -174,8 +173,8 @@ export default ({ slice }) => {
                                         
                                         { !!item.primary_cta_btn || !!item.secondary_cta_btn ? 
                                             <div className="cta_btn_cont">
-                                             {!!item.primary_cta_btn ? <a href={item.primary_cta_btn.url} className="secondary_cta_btn">{item.custom_cta_text ? RichText.asText(item.custom_cta_text, linkResolver, htmlSerializer) : ''}</a> : ''}
-                                             {!!item.secondary_cta_btn ? <a href={item.secondary_cta_btn.url} className="primary_cta_btn">{!!item.secondary_cta_btn_text ? RichText.asText(item.secondary_cta_btn_text, linkResolver, htmlSerializer) : ''}</a> : ''}
+                                             {!!item.primary_cta_btn ? <a target="_blank" rel="noopener noreferrer"  href={item.primary_cta_btn.url} className="secondary_cta_btn">{item.custom_cta_text ? RichText.asText(item.custom_cta_text, linkResolver, htmlSerializer) : ''}</a> : ''}
+                                             {!!item.secondary_cta_btn ? <a target="_blank" rel="noopener noreferrer" href={item.secondary_cta_btn.url} className="primary_cta_btn">{!!item.secondary_cta_btn_text ? RichText.asText(item.secondary_cta_btn_text, linkResolver, htmlSerializer) : ''}</a> : ''}
                                             </div>
                                         : false }
 

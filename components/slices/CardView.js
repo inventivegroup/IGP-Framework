@@ -1,7 +1,6 @@
 import React from 'react';
 import { RichText } from 'prismic-reactjs';
 import { linkResolver } from '../../utils/linkResolver';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import htmlSerializer from '../../utils/htmlSerializer';
 
 import { Divider } from './index';
@@ -109,8 +108,6 @@ const getGradient = (color) => {
 
             default : 
                 return '100%, white';
-
-            break;
         }
     })();
 
@@ -128,7 +125,7 @@ export default ({ slice }) =>
             {slice.fields.map(item => {
                 return (
                     <div className="cardViewCard" style={{textAlign: "center", fontFamily: "sans-serif"}}>
-                        {item.image1 !== null ? <img className="cardView_img" src={item.image1.url}/> : "" }
+                        {item.image1 !== null ? <img alt="Card" className="cardView_img" src={item.image1.url}/> : "" }
                         {/* <FontAwesomeIcon icon={["fas", `${item.card_icon[0].text}`]} /> */}
                         { item.subtitle !== null ? <h3>{RichText.render(item.subtitle[0].text)}</h3> : "" }
                         { item.big_title !== null ? <h3>{RichText.render(item.big_title[0].text)}</h3> : "" }

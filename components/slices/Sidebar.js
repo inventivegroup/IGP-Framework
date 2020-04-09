@@ -6,9 +6,8 @@ const Sidebar = ({ data }) => {
     let postData = data.allPosts.edges;
     let sidebarData = data.allPost_sidebars.edges[0].node.banner;
 
-    console.log(sidebarData);
     return (
-        <div className="sidebar col-md-3">
+        <div className="sidebar col-md-3" style={{overflowY: "hidden"}}>
             <div className="banner-container">
               {sidebarData.map((bannerData, index) => {
                 return <Banner data={bannerData}/>
@@ -61,8 +60,8 @@ export default props => ( <StaticQuery query={graphql`
             type
           }
           title
-          categories {
-            category
+          tags{
+            tag
           }
         }
       }

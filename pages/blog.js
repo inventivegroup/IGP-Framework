@@ -1,21 +1,22 @@
 import React from 'react';
-// import { RichText } from 'prismic-reactjs';
 import { StaticQuery, graphql } from 'gatsby';
-import Layout from '../components/layouts';
 import BlogsLanding from '../components/BlogsLanding';
 
-
-
-const Blog_Home = ({ data }) => {
-  return (
-    <BlogsLanding data={data.prismic.allPosts.edges}></BlogsLanding>
-  )
-}
 
 // Query for the Blog Home content in Prismic
 export default props => ( <StaticQuery query={graphql`
 {
   prismic{
+    allBlog_homes{
+      edges{
+        node{
+          filterby{
+            tag
+          }
+        }
+      }
+    }
+
     allPosts{
       edges{
         node{
@@ -24,6 +25,9 @@ export default props => ( <StaticQuery query={graphql`
             uid
             type
           }
+
+          meta_title
+          meta_description
           title
           date
           post_author
@@ -66,6 +70,6 @@ export default props => ( <StaticQuery query={graphql`
   }
 }
 `} 
-    render={ data => <Blog_Home data={data} {...props}/> }
+    render={ data => <BlogsLanding data={data.prismic}/> }
   /> 
 );

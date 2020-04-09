@@ -6,10 +6,10 @@ export default ({ slice }) =>
   <>
     <Divider type={slice.primary.divider_top} backgroundColor={slice.primary.divider_top_color} side="top" flipped={slice.primary.divider_top_flipped} />
 
-    <div className="quote-section" style={{width: '100vw', height: '500px', backgroundImage: `url("${slice.primary.portrait_author !== null ? slice.primary.portrait_author.url : ' ' }")`}}>
-      <h2> { RichText.asText(slice.primary.quote) } </h2>
+    <div className="quote-section" style={{minHeight: '200px', backgroundImage: `url("${slice.primary.portrait_author !== null ? slice.primary.portrait_author.url : ' ' }")`}}>
+      { slice.primary.quote ? <h2> { RichText.asText(slice.primary.quote) } </h2> : false}
       <br/>
-      <p>- {slice.primary.name_of_the_author[0].text}</p>
+      {slice.primary.name_of_the_author && slice.primary.name_of_the_author !== '' ? <p>- {slice.primary.name_of_the_author[0].text}</p> : false}
     </div>
 
     <Divider type={slice.primary.divider_bottom} backgroundColor={slice.primary.divider_bottom_color} side="bottom" flipped={slice.primary.divider_bottom_flipped} />

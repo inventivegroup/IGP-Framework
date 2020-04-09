@@ -26,6 +26,10 @@ const AuthorImage = ( data ) => {
             <div className="author-image" style={{backgroundImage: `url(https://images.prismic.io/inventivestudios/350033dc-d750-4f6a-9408-2ed7eaccd4f3_Miguel-Gonzalez-Profile-Pic.jpg?auto=compress,format)`}}></div>
         )
 
+        case 'Klarissa Garcia': return (
+            <div className="author-image" style={{backgroundImage: `url(https://images.prismic.io/inventivestudios/fa8f5bb7-2134-4c3e-897b-e029ce585f5f_klarissa-garcia.jpg?auto=compress,format)`}}></div>
+        )
+
         default: return null;
       }
     })();

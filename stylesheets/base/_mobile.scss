@@ -112,7 +112,19 @@
 @media screen and (min-width: $tablet-width) and (max-width: $desktop-width) {
     .header_image{ 
         top:20%;
-        right:10%;
+        right:10vw;
+    }
+
+    .Homepage-Heading{
+        .content{
+            h1{
+                max-width:63vw;
+            }
+
+            p{
+                max-width:63vw;
+            }
+        }
     }
 
     .Carousel {
@@ -151,7 +163,19 @@
 @media screen and (min-width: $desktop-width){
     .header_image{ 
         top:25%;
-        right:10%;
+        right:10vw;
+    }
+
+    .Homepage-Heading{
+        .content{
+            h1{
+                max-width:65vw;
+            }
+
+            p{
+                max-width:65vw;
+            }
+        }
     }
 
     .Carousel {

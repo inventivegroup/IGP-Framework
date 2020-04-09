@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import Layout from '../components/layouts' 
 import { ImageCaption, Quote, Text, Sidebar, AboutAuthor } from '../components/slices'
@@ -19,6 +19,8 @@ query BlogPostQuery($uid: String) {
             uid
             type
           }
+          meta_title
+          meta_description
           title
           date
           featured_image
@@ -95,8 +97,9 @@ const PostBody = ({ blogPost, allPosts }) => {
   
   return (
     <>
+
       <div className="post-header" style={{backgroundImage: `url(${blogPost.featured_image.url !== null && blogPost.featured_image.url !== undefined ? blogPost.featured_image.url : ''})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
-        <div className="colored-layover flex">
+        <div className="colored-layover post_shadow flex">
           <h1 data-wio-id={ blogPost._meta.id }>
             { titled ? RichText.asText(blogPost.title) : 'Untitled' }
           </h1>
@@ -123,7 +126,7 @@ const PostBody = ({ blogPost, allPosts }) => {
         <div className={"diagonal_bottom studios"}></div>
       </>
 
-      <ContactUsForm slice={{title:"TELL US ABOUT YOUR NEEDS", content:"Fill out the information below, we will schedule a time to discuss your needs and how we can help!"}}/>
+      <ContactUsForm title="TELL US ABOUT YOUR NEEDS" description="Fill out the information below, we will schedule a time to discuss your needs and how we can help!"/>
     </>
   );
 }
@@ -133,10 +136,12 @@ export default (props) => {
   const doc = props.data.prismic.allPosts.edges.slice(0,1).pop();
   const everything = props.data.prismic.allPosts;
 
+  console.log("Post Document : ", doc)
+
   if(!doc) return null;
 
   return(
-    <Layout>
+    <Layout metaTitle={doc.node.meta_title[0].text} metaDescription={doc.node.meta_description[0].text}>
       <PostBody blogPost={ doc.node } allPosts={everything} />
     </Layout>
   )

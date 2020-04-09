@@ -1,3 +1,4 @@
+// eslinter no no-mixed-operators
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -8,7 +9,7 @@ import { linkResolver } from '../../utils/linkResolver';
 import htmlSerializer from '../../utils/htmlSerializer';
 
 import { Divider } from './index';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink } from 'reactstrap';
 import classnames from 'classnames';
 
 library.add(fas)
@@ -115,8 +116,6 @@ const getGradient = (color) => {
 
             default : 
                 return '100%, white';
-
-            break;
         }
     })();
 
@@ -309,7 +308,7 @@ export default class Plans extends React.Component{
                                                         { !!plan_one_price && plan_one_price[0].text ===  "Free" ? <span className="pricingText">{RichText.render(plan_one_price, linkResolver, htmlSerializer)}</span> : <span><span className="price">${RichText.render(plan_one_price, linkResolver, htmlSerializer)}</span>/mo</span>} 
                                                         { !!plan_one_link ?
                                                             <div className="cta_btn_cont center">
-                                                                { !!plan_one_link._meta && !!plan_one_link._meta ? <a className="border_cta_btn" href={`${plan_one_link._meta.uid}`}>{!!plan_one_custom_link_text ? plan_one_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_one_link.url}`}>{!!plan_one_custom_link_text ? plan_one_custom_link_text[0].text : "Learn more."}</a> }
+                                                                { !!plan_one_link._meta && !!plan_one_link._meta ? <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_one_link._meta.uid}`}>{!!plan_one_custom_link_text ? plan_one_custom_link_text[0].text : "Learn more."}</a> : <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_one_link.url}`}>{!!plan_one_custom_link_text ? plan_one_custom_link_text[0].text : "Learn more."}</a> }
                                                             </div> : false
                                                         } 
                                                     </>
@@ -342,7 +341,7 @@ export default class Plans extends React.Component{
                                                     { !!plan_two_price && plan_two_price[0].text ===  "Free" ? <span className="pricingText">{plan_two_price[0].text}</span> : <span><span className="price">${plan_two_price[0].text}</span>/mo</span>}
                                                     { !!plan_two_link ?
                                                         <div className="cta_btn_cont center">
-                                                            { !!plan_two_link._meta && plan_two_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_two_link._meta.uid}`}>{!!plan_two_custom_link_text ? plan_two_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_two_link.url}`}>{!!plan_two_custom_link_text ? plan_two_custom_link_text[0].text : "Learn more."}</a> }
+                                                            { !!plan_two_link._meta && plan_two_link._meta !== undefined ? <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_two_link._meta.uid}`}>{!!plan_two_custom_link_text ? plan_two_custom_link_text[0].text : "Learn more."}</a> : <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_two_link.url}`}>{!!plan_two_custom_link_text ? plan_two_custom_link_text[0].text : "Learn more."}</a> }
                                                         </div> : false
                                                     } 
                                                 </>
@@ -376,7 +375,7 @@ export default class Plans extends React.Component{
                                                     { !!plan_three_price && plan_three_price[0].text ===  "Free" ? <span className="pricingText">{plan_three_price[0].text}</span> : <span><span className="price">${plan_three_price[0].text}</span>/mo</span>} 
                                                     { !!plan_three_link ?
                                                         <div className="cta_btn_cont center">
-                                                            { !!plan_three_link._meta && plan_three_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_three_link._meta.uid}`}>{!!plan_three_custom_link_text ? plan_three_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_three_link.url}`}>{!!plan_three_custom_link_text ? plan_three_custom_link_text[0].text : "Learn more."}</a> }
+                                                            { !!plan_three_link._meta && plan_three_link._meta !== undefined ? <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_three_link._meta.uid}`}>{!!plan_three_custom_link_text ? plan_three_custom_link_text[0].text : "Learn more."}</a> : <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_three_link.url}`}>{!!plan_three_custom_link_text ? plan_three_custom_link_text[0].text : "Learn more."}</a> }
                                                         </div> : false
                                                     } 
                                                 </>
@@ -411,7 +410,7 @@ export default class Plans extends React.Component{
                                                     { !!plan_four_price && plan_four_price[0].text ===  "Free" || plan_four_price[0].text ===  "Inquire"  ? <span  className="pricingText">{plan_four_price[0].text}</span> : <span><span className="price">${plan_four_price[0].text}</span>/mo</span>} 
                                                     { !!plan_four_link ?
                                                         <div className="cta_btn_cont center">
-                                                            { !!plan_four_link._meta && plan_four_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_four_link._meta.uid}`}>{!!plan_four_custom_link_text ? plan_four_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_four_link.url}`}>{!!plan_four_custom_link_text ? plan_four_custom_link_text[0].text : "Learn more."}</a> }
+                                                            { !!plan_four_link._meta && plan_four_link._meta !== undefined ? <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_four_link._meta.uid}`}>{!!plan_four_custom_link_text ? plan_four_custom_link_text[0].text : "Learn more."}</a> : <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_four_link.url}`}>{!!plan_four_custom_link_text ? plan_four_custom_link_text[0].text : "Learn more."}</a> }
                                                         </div> : false
                                                     } 
                                                 </>
@@ -445,7 +444,7 @@ export default class Plans extends React.Component{
                                                         { !!plan_five_price && plan_five_price[0].text ===  "Free" || plan_five_price[0].text ===  "Inquire"  ? <span  className="pricingText">{plan_five_price[0].text}</span> : <span><span className="price">${plan_five_price[0].text}</span>/mo</span>} 
                                                         { !!plan_five_link ?
                                                             <div className="cta_btn_cont center">
-                                                                { !!plan_five_link && !!plan_five_link._meta ? <a className="border_cta_btn" href={`${plan_five_link._meta.uid}`}>{!!plan_five_custom_link_text ? plan_five_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_five_link.url}`}>{!!plan_five_custom_link_text ? plan_five_custom_link_text[0].text : "Learn more."}</a> }
+                                                                { !!plan_five_link && !!plan_five_link._meta ? <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_five_link._meta.uid}`}>{!!plan_five_custom_link_text ? plan_five_custom_link_text[0].text : "Learn more."}</a> : <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_five_link.url}`}>{!!plan_five_custom_link_text ? plan_five_custom_link_text[0].text : "Learn more."}</a> }
                                                             </div> : false
                                                         } 
                                                     </>
@@ -488,7 +487,7 @@ export default class Plans extends React.Component{
                                     { !!plan_one_price && plan_one_price[0].text ===  "Free" ? <span className="pricingText">{plan_one_price[0].text}</span> : <span><span className="price">${plan_one_price[0].text}</span>/mo</span>} 
                                     { !!plan_one_link ?
                                         <div className="cta_btn_cont center">
-                                            { !!plan_one_link._meta && plan_one_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_one_link._meta.uid}`}>{!!plan_one_custom_link_text ? plan_one_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_one_link.url}`}>{!!plan_one_custom_link_text ? plan_one_custom_link_text[0].text : "Learn more."}</a> }
+                                            { !!plan_one_link._meta && plan_one_link._meta !== undefined ? <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_one_link._meta.uid}`}>{!!plan_one_custom_link_text ? plan_one_custom_link_text[0].text : "Learn more."}</a> : <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_one_link.url}`}>{!!plan_one_custom_link_text ? plan_one_custom_link_text[0].text : "Learn more."}</a> }
                                         </div> : false
                                     } 
                                 </>
@@ -518,7 +517,7 @@ export default class Plans extends React.Component{
                                     { !!plan_two_price && plan_two_price[0].text ===  "Free" ? <span className="pricingText">{plan_two_price[0].text}</span> : <span><span className="price">${plan_two_price[0].text}</span>/mo</span>}
                                     { !!plan_two_link ?
                                         <div className="cta_btn_cont center">
-                                            { !!plan_two_link._meta && plan_two_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_two_link._meta.uid}`}>{!!plan_two_custom_link_text ? plan_two_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_two_link.url}`}>{!!plan_two_custom_link_text ? plan_two_custom_link_text[0].text : "Learn more."}</a> }
+                                            { !!plan_two_link._meta && plan_two_link._meta !== undefined ? <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_two_link._meta.uid}`}>{!!plan_two_custom_link_text ? plan_two_custom_link_text[0].text : "Learn more."}</a> : <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_two_link.url}`}>{!!plan_two_custom_link_text ? plan_two_custom_link_text[0].text : "Learn more."}</a> }
                                         </div> : false
                                     } 
                                 </>
@@ -548,7 +547,7 @@ export default class Plans extends React.Component{
                                     { !!plan_three_price && plan_three_price[0].text ===  "Free" ? <span className="pricingText">{plan_three_price[0].text}</span> : <span><span className="price">${plan_three_price[0].text}</span>/mo</span>} 
                                     { !!plan_three_link ?
                                         <div className="cta_btn_cont center">
-                                            { !!plan_three_link._meta && plan_three_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_three_link._meta.uid}`}>{!!plan_three_custom_link_text ? plan_three_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_three_link.url}`}>{!!plan_three_custom_link_text ? plan_three_custom_link_text[0].text : "Learn more."}</a> }
+                                            { !!plan_three_link._meta && plan_three_link._meta !== undefined ? <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_three_link._meta.uid}`}>{!!plan_three_custom_link_text ? plan_three_custom_link_text[0].text : "Learn more."}</a> : <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_three_link.url}`}>{!!plan_three_custom_link_text ? plan_three_custom_link_text[0].text : "Learn more."}</a> }
                                         </div> : false
                                     } 
                                 </>
@@ -578,7 +577,7 @@ export default class Plans extends React.Component{
                                     { !!plan_four_price[0].text && plan_four_price[0].text ===  "Free" || plan_four_price[0].text ===  "Inquire"  ? <span  className="pricingText">{plan_four_price[0].text}</span> : <span><span className="price">${plan_four_price[0].text}</span>/mo</span>} 
                                     { !!plan_four_link ?
                                         <div className="cta_btn_cont center">
-                                            { !!plan_four_link._meta && plan_four_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_four_link._meta.uid}`}>{!!plan_four_custom_link_text ? plan_four_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_four_link.url}`}>{!!plan_four_custom_link_text ? plan_four_custom_link_text[0].text : "Learn more."}</a> }
+                                            { !!plan_four_link._meta && plan_four_link._meta !== undefined ? <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_four_link._meta.uid}`}>{!!plan_four_custom_link_text ? plan_four_custom_link_text[0].text : "Learn more."}</a> : <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_four_link.url}`}>{!!plan_four_custom_link_text ? plan_four_custom_link_text[0].text : "Learn more."}</a> }
                                         </div> : false
                                     } 
                                 </>
@@ -608,7 +607,7 @@ export default class Plans extends React.Component{
                                     { !!plan_five_price[0].text && plan_five_price[0].text ===  "Free" || plan_five_price[0].text ===  "Inquire"  ? <span  className="pricingText">{plan_five_price[0].text}</span> : <span><span className="price">${plan_five_price[0].text}</span>/mo</span>} 
                                     { !!plan_five_link ?
                                         <div className="cta_btn_cont center">
-                                            { !!plan_five_link._meta && plan_five_link._meta !== undefined ? <a className="border_cta_btn" href={`${plan_five_link._meta.uid}`}>{!!plan_five_custom_link_text ? plan_five_custom_link_text[0].text : "Learn more."}</a> : <a className="border_cta_btn" href={`${plan_five_link.url}`}>{!!plan_five_custom_link_text ? plan_five_custom_link_text[0].text : "Learn more."}</a> }
+                                            { !!plan_five_link._meta && plan_five_link._meta !== undefined ? <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_five_link._meta.uid}`}>{!!plan_five_custom_link_text ? plan_five_custom_link_text[0].text : "Learn more."}</a> : <a target="_blank" rel="noopener noreferrer"  className="border_cta_btn" href={`${plan_five_link.url}`}>{!!plan_five_custom_link_text ? plan_five_custom_link_text[0].text : "Learn more."}</a> }
                                         </div> : false
                                     } 
                                 </>

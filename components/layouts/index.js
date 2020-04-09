@@ -98,14 +98,25 @@ const Layout = ( props ) => {
 	return(
     <Fragment>
       <Helmet>
+        {/* <script async src="https://www.googletagmanager.com/gtag/js?id=UA-89523634-6">
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments)}
+            gtag(‘js’, new Date());
+            gtag(‘config’, ‘UA-89523634-6’);
+          </script>
+        </script> */}
+          
         <meta charSet="utf-8" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet" type="text/css"></link>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
-        <title>Inventive Studios</title>
+        <meta name="google-site-verification" content="7JKu33wNkDvcIG8cjUKc8FCUoINUfuZqONZK0glvT7g"/>
+        <title>{props.metaTitle ? props.metaTitle : "Inventive Studios"}</title>
+        <meta name="description" content={props.metaDescription ? props.metaDescription : "An amazing company with amazing people!"}></meta>
       </Helmet>
-      <Navigation logoColor={props.logoColor} data={props.data.prismic.allNavigations}></Navigation>
+      <Navigation logoColor={props.logoColor} data={props.data.prismic.allNavigations.edges.slice(0,1).pop().node}></Navigation>
       <main>
         { props.children }
+
+        <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/4134086.js"></script>
       </main>
       <Footer/>
     </Fragment>

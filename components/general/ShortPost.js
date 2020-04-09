@@ -1,6 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import { Col } from 'reactstrap';
 
 const AuthorImage = ( data ) => {
     const res = (() => {
@@ -24,6 +23,10 @@ const AuthorImage = ( data ) => {
         case 'Miguel Gonzalez': return (
             <div className="author-image" style={{backgroundImage: `url(https://images.prismic.io/inventivestudios/350033dc-d750-4f6a-9408-2ed7eaccd4f3_Miguel-Gonzalez-Profile-Pic.jpg?auto=compress,format)`}}></div>
         )
+        
+        case 'Klarissa Garcia': return (
+            <div className="author-image" style={{backgroundImage: `url(https://images.prismic.io/inventivestudios/fa8f5bb7-2134-4c3e-897b-e029ce585f5f_klarissa-garcia.jpg?auto=compress,format)`}}></div>
+        )
   
         default: return null;
       }
@@ -39,7 +42,7 @@ export default class ShortPost extends React.Component{
       let {featured_image, post_author, title, date, _meta, index} = this.props.data;
 
         return(
-            <Col xs="12" sm="12" md="4" lg="4">
+            <div>
                 <div className="post_link">
                     <div key={index} className="short_post">
                         <div className="post_header_image" style={{backgroundImage: `url("${featured_image.url}")`, backgroundSize: "cover"}}>
@@ -59,7 +62,7 @@ export default class ShortPost extends React.Component{
                         </div>
                     </div>
                 </div>
-            </Col>
+            </div>
         )
     }
 }
